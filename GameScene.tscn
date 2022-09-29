@@ -82,11 +82,11 @@ position = Vector2( 4, 6 )
 [node name="Background" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="Background"]
-motion_mirroring = Vector2( 1280, 960 )
+motion_mirroring = Vector2( 1920, 1440 )
 
 [node name="SkyImageSprite" type="Sprite" parent="Background/Sky"]
 position = Vector2( -304, -48 )
-scale = Vector2( 2, 2 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 5 )
 centered = false
 
@@ -101,6 +101,7 @@ position = Vector2( -50, -2.99997 )
 scale = Vector2( 1.75, 1.75 )
 texture = ExtResource( 7 )
 centered = false
+region_rect = Rect2( 0, 0, 1024, 600 )
 
 [node name="MiddleTiles2" type="ParallaxLayer" parent="Background"]
 modulate = Color( 1, 0.941176, 0.74902, 1 )
@@ -112,6 +113,7 @@ position = Vector2( 0, -568 )
 scale = Vector2( 2.25, 2.25 )
 texture = ExtResource( 7 )
 centered = false
+region_rect = Rect2( 0, 0, 1024, 600 )
 
 [node name="BackTiles" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2( 0.3, 0.3 )
@@ -122,6 +124,7 @@ position = Vector2( -1.52588e-05, -466 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 7 )
 centered = false
+region_rect = Rect2( 0, 0, 1024, 600 )
 
 [node name="TileMapSolid" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
@@ -214,6 +217,7 @@ scale = Vector2( -6.67182, -1.73823 )
 shape = SubResource( 27 )
 
 [node name="CoinsCounter" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="CoinsCounter"]
 margin_left = 16.0

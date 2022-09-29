@@ -6,7 +6,7 @@ extends KinematicBody2D
 # var b = "text"
 
 var coins = 0
-var speed = 300
+var speed = 100 #300
 var jump_speed = 750
 var gravity = 30
 var velocity = Vector2()
@@ -81,7 +81,8 @@ func add_coin(number):
 
 
 func _on_FallZone_body_entered(body):
-	$Timer.start(1)
+#	$Timer.start(1)
+	pass
 
 
 func _on_Timer_timeout():

@@ -24,6 +24,10 @@ config/name="Skyward"
 run/main_scene="res://GameScene.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [editor]
 
 version_control_autoload_on_startup=true
