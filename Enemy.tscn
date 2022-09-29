@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/Enemies/slimeWalk2.png" type="Texture" id=1]
+[ext_resource path="res://assets/Enemies/slimeWalk1.png" type="Texture" id=2]
+[ext_resource path="res://Enemy.gd" type="Script" id=3]
+[ext_resource path="res://assets/Enemies/slimeDead.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walk",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 21, 12.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 22, 3 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 23.25, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 19.5, 2.25 )
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 16
+collision_mask = 33
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 5, 16 )
+frames = SubResource( 1 )
+animation = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 1, 16.5 )
+shape = SubResource( 5 )
+
+[node name="FloorChecker" type="RayCast2D" parent="."]
+position = Vector2( 0, 19 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+collision_mask = 2
+
+[node name="PlayerTopChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTopChecker"]
+position = Vector2( 1, 5 )
+shape = SubResource( 4 )
+
+[node name="PlayerSidesChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSidesChecker"]
+position = Vector2( 0.75, 19 )
+shape = SubResource( 3 )
+
+[node name="PlayerBottomChecker" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBottomChecker"]
+position = Vector2( 2, 26.75 )
+shape = SubResource( 6 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="PlayerTopChecker" to="." method="_on_PlayerTopChecker_body_entered"]
+[connection signal="body_entered" from="PlayerSidesChecker" to="." method="_on_PlayerSidesChecker_body_entered"]
+[connection signal="body_entered" from="PlayerBottomChecker" to="." method="_on_PlayerBottomChecker_body_entered"]
