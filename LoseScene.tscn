@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Backgrounds/help_text.png" type="Texture" id=2]
+[ext_resource path="res://assets/Backgrounds/home_text.png" type="Texture" id=3]
+[ext_resource path="res://assets/Backgrounds/game_over_text.png" type="Texture" id=4]
+[ext_resource path="res://assets/Backgrounds/play_again_text.png" type="Texture" id=5]
+[ext_resource path="res://LoseScene.gd" type="Script" id=6]
+
+[sub_resource type="Gradient" id=1]
+interpolation_mode = 1
+offsets = PoolRealArray( 0, 0.5, 0.62963, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.75, 0.75, 0.75, 1, 0.62963, 0.62963, 0.62963, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 7
+
+[node name="GameOverText" type="TextureRect" parent="."]
+margin_left = 256.0
+margin_top = 40.0
+margin_right = 776.0
+margin_bottom = 160.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="GameOverDescription" type="TextureRect" parent="."]
+margin_left = 256.0
+margin_top = 136.0
+margin_right = 776.0
+margin_bottom = 256.0
+expand = true
+stretch_mode = 6
+
+[node name="PlayAgain" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 256.0
+margin_right = 640.0
+margin_bottom = 320.0
+icon = ExtResource( 5 )
+icon_align = 1
+expand_icon = true
+
+[node name="Help" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 440.0
+margin_right = 640.0
+margin_bottom = 504.0
+icon = ExtResource( 2 )
+icon_align = 1
+expand_icon = true
+
+[node name="Home" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 344.0
+margin_right = 640.0
+margin_bottom = 408.0
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="Home" to="." method="_on_Home_pressed"]

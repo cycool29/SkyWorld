@@ -53,13 +53,15 @@ func _physics_process(delta):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
+	
 func bounce_up():
 	velocity.y = -jump_speed * 0.5
 	
 
 func hurt():
+	print('body hurted')
+#	var death_reason = 'hurt'
 	alive = false
 	$AnimatedSprite.play("dead")
 	modulate = Color(255, 1, 1, 0.6)
@@ -76,9 +78,29 @@ func add_coin(number):
 	get_node("/root/GameScene/CoinsCounter/TotalCoins").text = str(coins)
 
 
-func _on_FallZone_body_entered(body):
+func _on_FallZone_body_entered(body): #fall down cliffs
+	print('body entered fallzone')
+#	var death_reason = 'drop'
 	$Timer.start(1)
 
+#Color: #977601
 
-func _on_Timer_timeout():
-	get_tree().change_scene("res://GameScene.tscn")
+func _on_Timer_timeout(): # game over
+	get_node('/root/GameScene/CoinsCounter').visible = false
+#	get_node('.').self_modulate = Color(0.59, 0.66, 0.78, 1.0)
+#	get_node('/root/GameScene/Player/Camera/Shade').rect_position.x = -512
+#	get_node('/root/GameScene/Player/Camera/Shade').rect_position.y = -300
+	print('Camera position: ', $Camera.global_position)
+#	print('Shade position: ', $Camera/Shade.rect_global_position)
+	get_node('/root/GameScene/CanvasLayer/Shade').rect_position.x = 0
+	get_node('/root/GameScene/CanvasLayer/Shade').rect_position.y = 0
+	get_node('/root/GameScene/CanvasLayer/Shade').visible = true
+	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
+	# Wait until the frame has finished before getting the texture.
+	yield(VisualServer, "frame_post_draw")
+	var image = get_viewport().get_texture().get_data()
+	image.flip_y()
+	image.set_pixel(1,1,Color(255,1,1,1))
+	image.save_png("user://lose_scene.png")
+	
+	get_tree().change_scene('LoseScene.tscn')

@@ -34,25 +34,25 @@ extents = Vector2( 128, 33 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 19 ) ],
+"loop": false,
+"name": "dead",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ) ],
-"loop": false,
-"name": "dead",
+"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=22]
@@ -85,7 +85,7 @@ position = Vector2( 4, 6 )
 motion_mirroring = Vector2( 1920, 1440 )
 
 [node name="SkyImageSprite" type="Sprite" parent="Background/Sky"]
-position = Vector2( -304, -48 )
+position = Vector2( -305, -52 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 5 )
 centered = false
@@ -278,6 +278,16 @@ position = Vector2( 364, 346 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 4, 474 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Shade" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color( 0, 0, 0, 0.588235 )
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="FallZone" to="Player" method="_on_FallZone_body_entered"]
