@@ -6,7 +6,7 @@ extends KinematicBody2D
 # var b = "text"
 
 var coins = 0
-var speed = 100 #300
+var speed = 300
 var jump_speed = 750
 var gravity = 30
 var velocity = Vector2()
@@ -56,19 +56,15 @@ func _ready():
 	pass # Replace with function body.
 
 func bounce_up():
-	velocity.y -= 300
+	velocity.y = -jump_speed * 0.5
 	
 
-func hurt(enemy_positionx):
+func hurt():
 	alive = false
 	$AnimatedSprite.play("dead")
 	modulate = Color(255, 1, 1, 0.6)
 	velocity.y = -jump_speed * 0.65
-	if $AnimatedSprite.global_position.x < enemy_positionx:
-		velocity.x = -2000
-	elif $AnimatedSprite.global_position.x >= enemy_positionx:
-		velocity.x += 2000
-	velocity = move_and_slide(velocity, Vector2.UP)
+#	velocity = move_and_slide(velocity, Vector2.UP)
 	Input.action_release("right")
 	Input.action_release("left")
 	
@@ -81,8 +77,7 @@ func add_coin(number):
 
 
 func _on_FallZone_body_entered(body):
-#	$Timer.start(1)
-	pass
+	$Timer.start(1)
 
 
 func _on_Timer_timeout():

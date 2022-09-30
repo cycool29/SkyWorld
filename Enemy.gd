@@ -38,11 +38,14 @@ func _on_PlayerTopChecker_body_entered(body):
 
 
 func _on_PlayerSidesChecker_body_entered(body):
-	body.hurt(global_position.x)
-	if get_node('/root/GameScene/Player/AnimatedSprite').get_global_transform_with_canvas().origin.x > get_global_transform_with_canvas().origin.x:
-		$AnimatedSprite.scale.x = -1
-	elif get_node('/root/GameScene/Player/AnimatedSprite').get_global_transform_with_canvas().origin.x < get_global_transform_with_canvas().origin.x:
+	var enemy_position = round($AnimatedSprite.get_global_transform_with_canvas().origin.x)
+	var player_position = round(get_node('/root/GameScene/Player/AnimatedSprite').get_global_transform_with_canvas().origin.x)
+	print('Enemy position: ', enemy_position)
+	print('Player position: ', player_position)
+	if player_position > enemy_position:
 		$AnimatedSprite.scale.x = 1
+	elif player_position < enemy_position:
+		$AnimatedSprite.scale.x = -1
 	hitted_player = true
 	$PlayerSidesChecker.set_collision_mask_bit(4, false)
 	$PlayerSidesChecker.set_collision_mask_bit(0, false)
@@ -51,7 +54,7 @@ func _on_PlayerSidesChecker_body_entered(body):
 	set_collision_mask_bit(0, false)
 	set_collision_mask_bit(4, false)
 	body.set_collision_mask_bit(4, false)
-
+	body.hurt()
 
 func _on_PlayerBottomChecker_body_entered(body):
 	pass

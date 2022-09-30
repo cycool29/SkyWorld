@@ -34,25 +34,25 @@ extents = Vector2( 128, 33 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 19 ) ],
-"loop": false,
-"name": "dead",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "jump",
+"frames": [ ExtResource( 19 ) ],
+"loop": false,
+"name": "dead",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=22]
@@ -217,7 +217,6 @@ scale = Vector2( -6.67182, -1.73823 )
 shape = SubResource( 27 )
 
 [node name="CoinsCounter" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="CoinsCounter"]
 margin_left = 16.0
