@@ -26,10 +26,6 @@ config/use_custom_user_dir=true
 config/custom_user_dir_name=".skyworld_cache"
 config/icon="res://icon.png"
 
-[autoload]
-
-Transition="*res://Transition.scn"
-
 [display]
 
 window/size/resizable=false
@@ -38,6 +34,10 @@ window/size/resizable=false
 
 version_control_autoload_on_startup=true
 version_control_plugin_name="GitAPI"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/notes_tab/plugin.cfg" )
 
 [gui]
 
@@ -70,6 +70,7 @@ jump={
 2d_physics/layer_4="Item"
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="Fireball"
+2d_physics/layer_7="Potions"
 
 [physics]
 

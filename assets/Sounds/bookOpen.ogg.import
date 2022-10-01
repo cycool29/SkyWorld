@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bookOpen.ogg-f5eca4dcf9579626efc8d4cd81bac2c8.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/bookOpen.ogg"
+dest_files=[ "res://.import/bookOpen.ogg-f5eca4dcf9579626efc8d4cd81bac2c8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

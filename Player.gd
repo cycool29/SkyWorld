@@ -11,11 +11,12 @@ var jump_speed = 750
 var gravity = 30
 var velocity = Vector2()
 var alive = true
+var immune = false
 
 onready var animated_sprite = get_node("AnimatedSprite")
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.x = 0 
 	
 	if alive:
@@ -48,6 +49,7 @@ func _physics_process(delta):
 
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
+#	print(immune)
 
 
 
@@ -60,17 +62,18 @@ func bounce_up():
 	
 
 func hurt():
-	print('body hurted')
-#	var death_reason = 'hurt'
-	alive = false
-	$AnimatedSprite.play("dead")
-	modulate = Color(255, 1, 1, 0.6)
-	velocity.y = -jump_speed * 0.65
-#	velocity = move_and_slide(velocity, Vector2.UP)
-	Input.action_release("right")
-	Input.action_release("left")
-	
-	$Timer.start(1)
+	if not immune:
+		print('body hurted')
+	#	var death_reason = 'hurt'
+		alive = false
+		$AnimatedSprite.play("dead")
+		modulate = Color(255, 1, 1, 0.6)
+		velocity.y = -jump_speed * 0.65
+	#	velocity = move_and_slide(velocity, Vector2.UP)
+		Input.action_release("right")
+		Input.action_release("left")
+		
+		$DeathTimer.start(1)
 	
 	
 func add_coin(number):
@@ -78,14 +81,34 @@ func add_coin(number):
 	get_node("/root/GameScene/CoinsCounter/TotalCoins").text = str(coins)
 
 
-func _on_FallZone_body_entered(body): #fall down cliffs
-	print('body entered fallzone')
-#	var death_reason = 'drop'
-	$Timer.start(1)
+func _on_FallZone_body_entered(_body): #fall down cliffs
+	if not immune:
+		print('body entered fallzone')
+	#	var death_reason = 'drop'
+		$DeathTimer.start(1)
+	else:
+		position.x = 12
+		position.y = 2
 
-#Color: #977601
+	
+func get_immune(seconds=5):
+	immune = true
+	set_collision_mask_bit(4, false)
+	$AnimatedSprite.modulate = Color(1, 1, -255, 0.6)
+	for node in get_node('/root/GameScene/Enemies').get_children():
+		node.set_collision_mask_bit(0, false)
+		node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
+		node.get_node('PlayerTopChecker').set_collision_mask_bit(0, false)
+	$ImmunityTimer.start(seconds)
+	get_node('/root/GameScene/ProgressBar').visible = true
+	get_node('/root/GameScene/ProgressBar/Rounded').tint_progress = Color(0, 255, 0, 1)
+	get_node('/root/GameScene/ProgressBar').start_progress(seconds)
+	print('started immune timer')
+	
+	
 
-func _on_Timer_timeout(): # game over
+
+func _on_DeathTimer_timeout():
 	get_node('/root/GameScene/CoinsCounter').visible = false
 #	get_node('.').self_modulate = Color(0.59, 0.66, 0.78, 1.0)
 #	get_node('/root/GameScene/Player/Camera/Shade').rect_position.x = -512
@@ -104,3 +127,17 @@ func _on_Timer_timeout(): # game over
 	image.save_png("user://lose_scene.png")
 	
 	get_tree().change_scene('LoseScene.tscn')
+
+
+func _on_ImmunityTimer_timeout():
+	print('immunity timer timeout')
+	get_node('/root/GameScene/ProgressBar').visible = false
+	get_node('/root/GameScene/ProgressBar/Rounded').value = 0
+	set_collision_mask_bit(4, true)
+	$AnimatedSprite.modulate = Color(1, 1, 1, 1)
+	for node in get_node('/root/GameScene/Enemies').get_children():
+		node.set_collision_mask_bit(0, true)
+		node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
+		node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
+	immune = false
+	print(immune)

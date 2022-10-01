@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/beltHandle1.ogg-5b80474bde850e2e07979e0b9dd05a40.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/beltHandle1.ogg"
+dest_files=[ "res://.import/beltHandle1.ogg-5b80474bde850e2e07979e0b9dd05a40.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

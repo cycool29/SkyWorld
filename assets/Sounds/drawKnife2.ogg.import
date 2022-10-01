@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/drawKnife2.ogg-3277966fa0ccf19387948aca56c2f148.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/drawKnife2.ogg"
+dest_files=[ "res://.import/drawKnife2.ogg-3277966fa0ccf19387948aca56c2f148.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

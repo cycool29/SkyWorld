@@ -26,5 +26,5 @@ func _on_Home_pressed():
 	get_tree().change_scene("res://MainMenu.tscn")
 
 
-func _on_Help_pressed():
-	get_tree().change_scene("res://HelpMenu.tscn")
+func _on_Quit_pressed():
+	get_tree().quit()
