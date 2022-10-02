@@ -1,6 +1,6 @@
 extends Control
 
-var death_reason = ''
+#var death_reason = ''
 
 func _ready():
 #	var death_reason = get_node('/root/GameScene/Player').death_reason

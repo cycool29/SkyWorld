@@ -7,5 +7,5 @@ func _ready():
 func _on_ImmunePotion_body_entered(body):
 #	get_node('/root/Enemy').set_collision_mask_bit(0, false)
 #	body.set_collision_mask_bit(5, false)
-	body.get_immune(5)
+	body.get_immune()
 	queue_free()

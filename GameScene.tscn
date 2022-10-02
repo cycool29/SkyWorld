@@ -1,28 +1,46 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TilemapSolid.tres" type="TileSet" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://TileMapOneWay.tres" type="TileSet" id=4]
 [ext_resource path="res://assets/Backgrounds/set3_background.png" type="Texture" id=5]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_walk2.png" type="Texture" id=6]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk2.png" type="Texture" id=6]
 [ext_resource path="res://assets/Backgrounds/set3_tiles.png" type="Texture" id=7]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_walk3.png" type="Texture" id=8]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_walk5.png" type="Texture" id=9]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_walk1.png" type="Texture" id=10]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_walk4.png" type="Texture" id=11]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_attackKick.png" type="Texture" id=8]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk1.png" type="Texture" id=9]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk3.png" type="Texture" id=10]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_cheer0.png" type="Texture" id=11]
 [ext_resource path="res://Coins.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_up1.png" type="Texture" id=13]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_up3.png" type="Texture" id=14]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_up2.png" type="Texture" id=15]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_fallDown.png" type="Texture" id=13]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk4.png" type="Texture" id=14]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_cheer1.png" type="Texture" id=15]
 [ext_resource path="res://assets/Items/gold_1.png" type="Texture" id=16]
 [ext_resource path="res://assets/Quicksand-SemiBold.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_stand.png" type="Texture" id=18]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_dead.png" type="Texture" id=19]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk5.png" type="Texture" id=18]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk6.png" type="Texture" id=19]
 [ext_resource path="res://ImmunePotion.tscn" type="PackedScene" id=20]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_swim2.png" type="Texture" id=21]
-[ext_resource path="res://assets/Players/Player Blue/playerBlue_swim1.png" type="Texture" id=22]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk7.png" type="Texture" id=21]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_jump.png" type="Texture" id=22]
 [ext_resource path="res://ProgressBar.tscn" type="PackedScene" id=23]
+[ext_resource path="res://LifeProgressBar.gd" type="Script" id=24]
+[ext_resource path="res://LifePotion.tscn" type="PackedScene" id=25]
+[ext_resource path="res://assets/Sounds/Grasslands Theme_0.mp3" type="AudioStream" id=26]
+[ext_resource path="res://assets/Backgrounds/red.jpg" type="Texture" id=27]
+[ext_resource path="res://PowerPotion.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_idle.png" type="Texture" id=29]
+[ext_resource path="res://assets/Items/white_round.png" type="Texture" id=30]
+[ext_resource path="res://assets/HUD/hud_3.png" type="Texture" id=31]
+[ext_resource path="res://assets/Items/flagRed2.png" type="Texture" id=32]
+[ext_resource path="res://assets/Items/flagRed.png" type="Texture" id=33]
+[ext_resource path="res://Flag.gd" type="Script" id=34]
+[ext_resource path="res://assets/Items/Flash/flash05.png" type="Texture" id=37]
+[ext_resource path="res://assets/Items/Flash/flash07.png" type="Texture" id=38]
+[ext_resource path="res://assets/Items/Flash/flash06.png" type="Texture" id=39]
+[ext_resource path="res://assets/Items/Flash/flash08.png" type="Texture" id=40]
+
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 31.5, 7 )
 
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 96, 33 )
@@ -31,37 +49,83 @@ extents = Vector2( 96, 33 )
 extents = Vector2( 192.5, 31 )
 
 [sub_resource type="RectangleShape2D" id=25]
-extents = Vector2( 192, 31.75 )
+extents = Vector2( 95.5, 31.75 )
 
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 128, 33 )
 
+[sub_resource type="SpriteFrames" id=39]
+animations = [ {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 36.5, 25.5 )
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 19 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": false,
 "name": "dead",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "immune",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "kick",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "win",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 20.5, 32 )
+
+[sub_resource type="StyleBoxFlat" id=38]
+bg_color = Color( 0.741176, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0.352941, 0.352941, 0.352941, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxTexture" id=33]
+texture = ExtResource( 27 )
+region_rect = Rect2( 0, 0, 600, 45 )
+
+[sub_resource type="SpriteFrames" id=37]
+animations = [ {
+"frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=22]
@@ -128,7 +192,7 @@ motion_scale = Vector2( 0.3, 0.3 )
 motion_mirroring = Vector2( 1600, 1200 )
 
 [node name="BackTilesImageSprites" type="Sprite" parent="Background/BackTiles"]
-position = Vector2( -1.52588e-05, -466 )
+position = Vector2( 0.00012207, -466 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 7 )
 centered = false
@@ -140,7 +204,25 @@ tile_set = ExtResource( 2 )
 collision_layer = 2
 collision_mask = 49
 format = 1
-tile_data = PoolIntArray( -720888, 4, 0, -720884, 4, 0, -655353, 4, 0, -655350, 4, 0, -655349, 4, 0, -655348, 4, 0, -655346, 4, 0, -589818, 4, 0, -589817, 4, 0, -589816, 4, 0, -589815, 4, 0, -589814, 4, 0, -589810, 4, 0, -589802, 7, 0, -524278, 4, 0, -524275, 4, 0, -524273, 4, 0, -524266, 7, 0, -458751, 4, 0, -458745, 4, 0, -458730, 7, 0, -393215, 4, 0, -393203, 4, 0, -393194, 7, 0, -327676, 4, 0, -327658, 7, 0, -262135, 4, 0, -262133, 4, 0, -262122, 7, 0, -196598, 4, 0, -196586, 7, 0, -131068, 14, 0, -131067, 22, 0, -131066, 21, 0, -131065, 22, 0, -131064, 21, 0, -131063, 15, 0, -131062, 4, 0, -131050, 7, 0, -65523, 0, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 7, 0, 3, 5, 0, 22, 7, 0, 65548, 5, 0, 65558, 7, 0, 131078, 25, 0, 131079, 26, 0, 131080, 26, 0, 131081, 26, 0, 131082, 6, 0, 131094, 7, 0, 196630, 7, 0, 262166, 7, 0, 327702, 7, 0, 393238, 7, 0, 458774, 7, 0, 589815, 1, 0, 589816, 1, 0, 589817, 1, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524301, 3, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 7, 0 )
+tile_data = PoolIntArray( -1310703, 14, 0, -1310702, 1, 0, -1310701, 1, 0, -1310700, 1, 0, -1310699, 1, 0, -1310698, 1, 0, -1310697, 1, 0, -1310696, 15, 0, -1245170, 5, 0, -1114097, 25, 0, -1114096, 6, 0, -983027, 14, 0, -983026, 1, 0, -983025, 1, 0, -983024, 1, 0, -983023, 1, 0, -983022, 15, 0, -917494, 23, 0, -917493, 24, 0, -786427, 14, 0, -786426, 1, 0, -786425, 1, 0, -786424, 1, 0, -786423, 15, 0, -720885, 5, 0, -655357, 5, 0, -589823, 5, 0, -589811, 5, 0, -589802, 7, 0, -524266, 7, 0, -458749, 5, 0, -458737, 25, 0, -458736, 26, 0, -458735, 6, 0, -458730, 7, 0, -393194, 7, 0, -327670, 14, 0, -327669, 1, 0, -327668, 1, 0, -327667, 1, 0, -327666, 15, 0, -327658, 7, 0, -262136, 5, 0, -262122, 7, 0, -196586, 7, 0, -131069, 14, 0, -131068, 1, 0, -131067, 22, 0, -131066, 21, 0, -131065, 22, 0, -131064, 21, 0, -131063, 15, 0, -131050, 7, 0, -65523, 0, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 7, 0, 1, 5, 0, 22, 7, 0, 65539, 5, 0, 65548, 5, 0, 65558, 7, 0, 131078, 25, 0, 131079, 26, 0, 131080, 26, 0, 131081, 26, 0, 131082, 6, 0, 131088, 14, 0, 131089, 1, 0, 131090, 15, 0, 131094, 7, 0, 196630, 7, 0, 262157, 29, 0, 262166, 7, 0, 327702, 7, 0, 393238, 7, 0, 458774, 7, 0, 589815, 1, 0, 589816, 1, 0, 589817, 1, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524301, 29, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 7, 0 )
+
+[node name="ExplosionArea" type="Area2D" parent="TileMapSolid"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapSolid/ExplosionArea"]
+position = Vector2( 866.5, 503 )
+shape = SubResource( 36 )
+
+[node name="TextureRect" type="TextureRect" parent="TileMapSolid/ExplosionArea"]
+visible = false
+margin_left = 840.0
+margin_top = 520.0
+margin_right = 896.0
+margin_bottom = 576.0
+texture = ExtResource( 31 )
+stretch_mode = 6
+
+[node name="ExplosionTimer" type="Timer" parent="TileMapSolid/ExplosionArea"]
+wait_time = 0.5
 
 [node name="TileMapOneWay" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
@@ -148,7 +230,7 @@ tile_set = ExtResource( 4 )
 collision_layer = 2
 collision_mask = 49
 format = 1
-tile_data = PoolIntArray( 65556, 4, 0, 262149, 3, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 1, 0, 262160, 3, 0, 262161, 2, 0, 262162, 2, 0, 262163, 2, 0, 262164, 2, 0, 262165, 2, 0, 327685, 4, 0, 327686, 4, 0, 327687, 4, 0, 327688, 4, 0, 327689, 4, 0, 327690, 4, 0, 327696, 4, 0, 327697, 4, 0, 327698, 4, 0, 327699, 4, 0, 327700, 4, 0, 327701, 4, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393232, 4, 0, 393233, 2, 0, 393234, 2, 0, 393235, 2, 0, 393236, 2, 0, 393237, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458761, 4, 0, 458762, 4, 0, 458768, 4, 0, 458769, 4, 0, 458770, 4, 0, 458771, 4, 0, 458772, 4, 0, 458773, 4, 0 )
+tile_data = PoolIntArray( 65556, 4, 0, 262149, 3, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 1, 0, 262163, 2, 0, 262164, 2, 0, 262165, 2, 0, 327685, 4, 0, 327686, 4, 0, 327687, 4, 0, 327688, 4, 0, 327689, 4, 0, 327690, 4, 0, 327696, 4, 0, 327697, 4, 0, 327698, 4, 0, 327699, 4, 0, 327700, 4, 0, 327701, 4, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393232, 4, 0, 393233, 2, 0, 393234, 2, 0, 393235, 2, 0, 393236, 2, 0, 393237, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458761, 4, 0, 458762, 4, 0, 458768, 4, 0, 458769, 4, 0, 458770, 4, 0, 458771, 4, 0, 458772, 4, 0, 458773, 4, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -169,7 +251,7 @@ shape = SubResource( 24 )
 one_way_collision = true
 
 [node name="CollisionShape3" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
-position = Vector2( 1216, 282.25 )
+position = Vector2( 1312.5, 282.25 )
 shape = SubResource( 25 )
 one_way_collision = true
 
@@ -177,6 +259,19 @@ one_way_collision = true
 position = Vector2( 1216, 409 )
 shape = SubResource( 26 )
 one_way_collision = true
+
+[node name="Flag" type="Area2D" parent="."]
+script = ExtResource( 34 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Flag"]
+position = Vector2( 434, 470 )
+frames = SubResource( 39 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flag"]
+position = Vector2( 434, 475.5 )
+shape = SubResource( 40 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 12, 2 )
@@ -192,18 +287,101 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_limits = true
 
-[node name="CollisionShape" type="CollisionPolygon2D" parent="Player"]
-position = Vector2( 154, 327.5 )
-polygon = PoolVector2Array( -6, -27.5, 2, -27.5, 21, 2.5, 21, 18.5385, 14, 16.5, 6, 26.5, -9, 26.5, -18, 16.5, -23, 17.2036, -23, 0.5 )
+[node name="TextureRect" type="TextureRect" parent="Player"]
+visible = false
+margin_left = 185.0
+margin_top = 386.0
+margin_right = 254.0
+margin_bottom = 455.0
+texture = ExtResource( 30 )
+expand = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
-position = Vector2( 153, 327 )
+position = Vector2( 220, 415 )
+scale = Vector2( 0.294271, 0.294271 )
 frames = SubResource( 3 )
-animation = "idle"
+animation = "win"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Player"]
+position = Vector2( 219.5, 421 )
+shape = SubResource( 35 )
+
+[node name="ProgressBar" parent="Player" instance=ExtResource( 23 )]
+visible = false
 
 [node name="DeathTimer" type="Timer" parent="Player"]
 
 [node name="ImmunityTimer" type="Timer" parent="Player"]
+wait_time = 6.0
+
+[node name="PowerTimer" type="Timer" parent="Player"]
+wait_time = 5.0
+
+[node name="StunTimer" type="Timer" parent="Player"]
+
+[node name="Life" type="CanvasLayer" parent="Player"]
+
+[node name="LifeProgressBar" type="ProgressBar" parent="Player/Life"]
+margin_left = 150.0
+margin_top = 30.0
+margin_right = 750.0
+margin_bottom = 86.0
+rect_scale = Vector2( 0.7, 0.5 )
+custom_styles/fg = SubResource( 38 )
+custom_styles/bg = SubResource( 32 )
+value = 100.0
+percent_visible = false
+script = ExtResource( 24 )
+
+[node name="CutePlayer" type="KinematicBody2D" parent="."]
+visible = false
+position = Vector2( 12, 2 )
+collision_mask = 94
+
+[node name="Camera" type="Camera2D" parent="CutePlayer"]
+position = Vector2( 200, 296 )
+limit_left = -510
+limit_bottom = 1280
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+editor_draw_limits = true
+
+[node name="CollisionShape" type="CollisionPolygon2D" parent="CutePlayer"]
+position = Vector2( 154, 327.5 )
+polygon = PoolVector2Array( -6, -27.5, 2, -27.5, 21, 2.5, 21, 18.5385, 14, 16.5, 6, 26.5, -9, 26.5, -18, 16.5, -23, 17.2036, -23, 0.5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CutePlayer"]
+position = Vector2( 153, 327 )
+frames = SubResource( 3 )
+animation = "win"
+
+[node name="DeathTimer" type="Timer" parent="CutePlayer"]
+
+[node name="ImmunityTimer" type="Timer" parent="CutePlayer"]
+
+[node name="StunTimer" type="Timer" parent="CutePlayer"]
+
+[node name="Life" type="CanvasLayer" parent="CutePlayer"]
+visible = false
+
+[node name="LifeProgressBar" type="ProgressBar" parent="CutePlayer/Life"]
+visible = false
+margin_left = 150.0
+margin_top = 30.0
+margin_right = 750.0
+margin_bottom = 86.0
+rect_scale = Vector2( 0.7, 0.5 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 32 )
+value = 100.0
+percent_visible = false
+script = ExtResource( 24 )
+
+[node name="ExplosionFlash" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 860, 506 )
+scale = Vector2( 0.470149, 0.470149 )
+frames = SubResource( 37 )
 
 [node name="TransparentWall" type="KinematicBody2D" parent="."]
 position = Vector2( 0, 34 )
@@ -267,7 +445,7 @@ text = "0"
 position = Vector2( 508, 82 )
 
 [node name="Coins2" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 860, 466 )
+position = Vector2( 860, 458 )
 
 [node name="Coins3" parent="Coins" instance=ExtResource( 12 )]
 position = Vector2( 1172, 346 )
@@ -300,11 +478,33 @@ grow_vertical = 0
 color = Color( 0, 0, 0, 0.588235 )
 
 [node name="ImmunePotion" parent="." instance=ExtResource( 20 )]
-position = Vector2( 350, 434 )
+position = Vector2( 561, 427 )
+
+[node name="LifePotion" parent="." instance=ExtResource( 25 )]
+position = Vector2( 590, 175 )
+
+[node name="PowerPotion" parent="." instance=ExtResource( 28 )]
+position = Vector2( 16, 430 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+autoplay = true
+mix_target = 1
 
 [node name="ProgressBar" parent="." instance=ExtResource( 23 )]
 visible = false
 
+[connection signal="body_entered" from="TileMapSolid/ExplosionArea" to="Player" method="_on_ExplosionArea_body_entered"]
+[connection signal="body_exited" from="TileMapSolid/ExplosionArea" to="Player" method="_on_ExplosionArea_body_exited"]
+[connection signal="timeout" from="TileMapSolid/ExplosionArea/ExplosionTimer" to="Player" method="_on_ExplosionTimer_timeout"]
+[connection signal="body_entered" from="Flag" to="Flag" method="_on_Flag_body_entered"]
 [connection signal="timeout" from="Player/DeathTimer" to="Player" method="_on_DeathTimer_timeout"]
 [connection signal="timeout" from="Player/ImmunityTimer" to="Player" method="_on_ImmunityTimer_timeout"]
+[connection signal="timeout" from="Player/PowerTimer" to="Player" method="_on_PowerTimer_timeout"]
+[connection signal="timeout" from="Player/StunTimer" to="Player" method="_on_StunTimer_timeout"]
+[connection signal="value_changed" from="Player/Life/LifeProgressBar" to="Player" method="_on_LifeProgressBar_value_changed"]
+[connection signal="timeout" from="CutePlayer/DeathTimer" to="CutePlayer" method="_on_DeathTimer_timeout"]
+[connection signal="timeout" from="CutePlayer/ImmunityTimer" to="CutePlayer" method="_on_ImmunityTimer_timeout"]
+[connection signal="timeout" from="CutePlayer/StunTimer" to="CutePlayer" method="_on_StunTimer_timeout"]
+[connection signal="value_changed" from="CutePlayer/Life/LifeProgressBar" to="CutePlayer" method="_on_LifeProgressBar_value_changed"]
 [connection signal="body_entered" from="FallZone" to="Player" method="_on_FallZone_body_entered"]

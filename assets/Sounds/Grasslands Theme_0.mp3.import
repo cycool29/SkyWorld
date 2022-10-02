@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Grasslands Theme_0.mp3-2f7862e82b845bf877a1d86e2dcee5d8.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Grasslands Theme_0.mp3"
+dest_files=[ "res://.import/Grasslands Theme_0.mp3-2f7862e82b845bf877a1d86e2dcee5d8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
