@@ -1,6 +1,8 @@
 extends Control
+const Settings = preload("res://LoadSettings.gd")
 
-var sprites_options = ['marcus', 'muthu', 'jessie', 'siva']
+
+var sprites_options = ['marcus', 'jessie']
 var configs = ConfigFile.new()
 var err = configs.load("user://skyworld.cfg")
 
@@ -25,8 +27,14 @@ func _ready():
 
 
 func _on_ItemList_item_selected(index):
+	print(sprites_options[index])
 	$PlayerSpritePreview.texture = load("res://assets/Players/" + sprites_options[index] + "/PNG/Poses HD/idle.png")
 	$ItemList.ensure_current_is_visible()
 	configs.set_value("config", "sprite", sprites_options[index])
 	configs.save("user://skyworld.cfg")
 
+
+
+
+func _on_HomeButton_pressed():
+	get_tree().change_scene("res://MainMenu.tscn")

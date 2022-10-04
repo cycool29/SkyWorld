@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/getPotion.ogg-af23ebaf905efc6286d76358415cf6ad.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/getPotion.ogg"
+dest_files=[ "res://.import/getPotion.ogg-af23ebaf905efc6286d76358415cf6ad.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

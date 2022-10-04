@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/win_applause.ogg-ee347ed569bd7da1b4c82e60e878cdc1.oggstr"
+
+[deps]
+
+source_file="res://assets/Backgrounds/win_applause.ogg"
+dest_files=[ "res://.import/win_applause.ogg-ee347ed569bd7da1b4c82e60e878cdc1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

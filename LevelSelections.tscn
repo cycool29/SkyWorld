@@ -1,0 +1,278 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/Backgrounds/background_video.ogv" type="VideoStream" id=1]
+[ext_resource path="res://assets/casual.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/Backgrounds/select_level_text.png" type="Texture" id=3]
+[ext_resource path="res://LevelSelections.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 3
+outline_color = Color( 0.6, 0.6, 0.6, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.945098, 0.52549, 0.152941, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 3
+outline_color = Color( 0.6, 0.6, 0.6, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.945098, 0.52549, 0.152941, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="LevelSelections" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="Levels" type="Node" parent="."]
+
+[node name="Level1" type="Button" parent="Levels"]
+margin_left = 48.0
+margin_top = 216.0
+margin_right = 112.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "1"
+icon_align = 1
+
+[node name="Level2" type="Button" parent="Levels"]
+margin_left = 144.0
+margin_top = 216.0
+margin_right = 208.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "2"
+icon_align = 1
+
+[node name="Level3" type="Button" parent="Levels"]
+margin_left = 240.0
+margin_top = 216.0
+margin_right = 304.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "3"
+icon_align = 1
+
+[node name="Level4" type="Button" parent="Levels"]
+margin_left = 336.0
+margin_top = 216.0
+margin_right = 400.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "4"
+icon_align = 1
+
+[node name="Level5" type="Button" parent="Levels"]
+margin_left = 432.0
+margin_top = 216.0
+margin_right = 496.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "5"
+icon_align = 1
+
+[node name="Level6" type="Button" parent="Levels"]
+margin_left = 528.0
+margin_top = 216.0
+margin_right = 592.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "6"
+icon_align = 1
+
+[node name="Level7" type="Button" parent="Levels"]
+margin_left = 624.0
+margin_top = 216.0
+margin_right = 688.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "7"
+icon_align = 1
+
+[node name="Level8" type="Button" parent="Levels"]
+margin_left = 720.0
+margin_top = 216.0
+margin_right = 784.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "8"
+icon_align = 1
+
+[node name="Level9" type="Button" parent="Levels"]
+margin_left = 816.0
+margin_top = 216.0
+margin_right = 880.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "9"
+icon_align = 1
+
+[node name="Level10" type="Button" parent="Levels"]
+margin_left = 912.0
+margin_top = 216.0
+margin_right = 976.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "10"
+icon_align = 1
+
+[node name="Level11" type="Button" parent="Levels"]
+margin_left = 48.0
+margin_top = 328.0
+margin_right = 112.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "11"
+icon_align = 1
+
+[node name="Level12" type="Button" parent="Levels"]
+margin_left = 144.0
+margin_top = 328.0
+margin_right = 208.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "12"
+icon_align = 1
+
+[node name="Level13" type="Button" parent="Levels"]
+margin_left = 240.0
+margin_top = 328.0
+margin_right = 304.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "13"
+icon_align = 1
+
+[node name="Level14" type="Button" parent="Levels"]
+margin_left = 336.0
+margin_top = 328.0
+margin_right = 400.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "14"
+icon_align = 1
+
+[node name="Level15" type="Button" parent="Levels"]
+margin_left = 432.0
+margin_top = 328.0
+margin_right = 496.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "15"
+icon_align = 1
+
+[node name="Level16" type="Button" parent="Levels"]
+margin_left = 528.0
+margin_top = 328.0
+margin_right = 592.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "16"
+icon_align = 1
+
+[node name="Level17" type="Button" parent="Levels"]
+margin_left = 624.0
+margin_top = 328.0
+margin_right = 688.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "17"
+icon_align = 1
+
+[node name="Level18" type="Button" parent="Levels"]
+margin_left = 720.0
+margin_top = 328.0
+margin_right = 784.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "18"
+icon_align = 1
+
+[node name="Level19" type="Button" parent="Levels"]
+margin_left = 816.0
+margin_top = 328.0
+margin_right = 880.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "19"
+icon_align = 1
+
+[node name="Level20" type="Button" parent="Levels"]
+margin_left = 912.0
+margin_top = 328.0
+margin_right = 976.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "20"
+icon_align = 1
+
+[node name="SelectLevel" type="TextureRect" parent="."]
+margin_left = 264.0
+margin_top = 64.0
+margin_right = 768.0
+margin_bottom = 128.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[connection signal="pressed" from="Levels/Level1" to="." method="_on_Level1_pressed"]
+[connection signal="pressed" from="Levels/Level2" to="." method="_on_Level2_pressed"]
+[connection signal="pressed" from="Levels/Level3" to="." method="_on_Level3_pressed"]

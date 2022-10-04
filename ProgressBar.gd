@@ -1,5 +1,5 @@
 extends CanvasLayer
-
+const Settings = preload("res://LoadSettings.gd")
 
 func _ready():
 	pass

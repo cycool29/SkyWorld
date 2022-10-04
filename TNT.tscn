@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://TNT.gd" type="Script" id=1]
+[ext_resource path="res://assets/HUD/hud_3.png" type="Texture" id=2]
+[ext_resource path="res://assets/Other/blockRed_tnt.png" type="Texture" id=3]
+[ext_resource path="res://assets/Items/Flash/flash08.png" type="Texture" id=4]
+[ext_resource path="res://assets/Items/Flash/flash05.png" type="Texture" id=5]
+[ext_resource path="res://assets/Items/Flash/flash07.png" type="Texture" id=6]
+[ext_resource path="res://assets/Items/Flash/flash06.png" type="Texture" id=7]
+[ext_resource path="res://assets/Sounds/explode.ogg" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 30.8298 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 25, 31 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="TNT" type="Node2D"]
+
+[node name="TNT" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="BlockRedTnt" type="Sprite" parent="TNT"]
+position = Vector2( 6.50006, -0.126984 )
+scale = Vector2( 0.734375, 0.746032 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TNT"]
+position = Vector2( 6.50006, -0.126984 )
+scale = Vector2( 0.734375, 0.746032 )
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="TNT"]
+
+[node name="TNTArea" type="CollisionShape2D" parent="TNT/Area2D"]
+position = Vector2( 6.5, -8.12698 )
+shape = SubResource( 2 )
+
+[node name="ExplosionTimer" type="Timer" parent="TNT"]
+
+[node name="TextureRect" type="TextureRect" parent="TNT"]
+visible = false
+margin_left = -19.5859
+margin_top = -22.4702
+margin_right = 24.4141
+margin_bottom = 21.5298
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="ExplosionFlash" type="AnimatedSprite" parent="TNT"]
+visible = false
+position = Vector2( -3.58588, -14.4702 )
+scale = Vector2( 0.470149, 0.470149 )
+frames = SubResource( 3 )
+
+[node name="ExplodeSound" type="AudioStreamPlayer" parent="TNT"]
+stream = ExtResource( 8 )
+
+[connection signal="body_entered" from="TNT/Area2D" to="TNT" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="TNT/Area2D" to="TNT" method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="TNT/ExplosionTimer" to="TNT" method="_on_ExplosionTimer_timeout"]

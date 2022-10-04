@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/Items/health_potion (12).png" type="Texture" id=1]
-[ext_resource path="res://assets/HUD/hud_heartFull.png" type="Texture" id=2]
+[ext_resource path="res://assets/Sounds/getPotion.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/Items/health_potion (2).png" type="Texture" id=3]
 [ext_resource path="res://assets/Items/health_potion (10).png" type="Texture" id=4]
 [ext_resource path="res://assets/Items/health_potion (1).png" type="Texture" id=5]
@@ -44,8 +44,7 @@ frames = SubResource( 2 )
 animation = "shake"
 frame = 5
 
-[node name="HudHeartFull" type="Sprite" parent="."]
-position = Vector2( 127.629, 138.491 )
-texture = ExtResource( 2 )
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_ImmunePotion_body_entered"]

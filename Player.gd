@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+const Settings = preload("res://LoadSettings.gd")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -49,10 +49,10 @@ func _physics_process(_delta):
 		elif not is_on_floor():
 			animated_sprite.play("jump")
 		
-
-		
 		if Input.is_action_just_pressed("jump") and is_on_floor():
+			$JumpSound.play()
 			velocity.y = -jump_speed
+			
 
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -60,22 +60,23 @@ func _physics_process(_delta):
 
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	var configs = ConfigFile.new()
-	var err = configs.load("user://skyworld.cfg")
-	print(configs.get_value('config', 'sprite'))
+#	var configs = ConfigFile.new()
+#	var err = configs.load("user://skyworld.cfg")
+#	print(configs.get_value('config', 'sprite'))
+	get_node("../" + Settings.sprite).visible = true
 	
 func bounce_up():
 	velocity.y = -jump_speed * 0.5
 	
 
-func hurt():
+func hurt(value):
 	if not immune:
 		print('body hurted')
 	#	var death_reason = 'hurt'
+		$HurtSound.play()
 		modulate = Color(255, 1, 1, 0.6)
-		$Life/LifeProgressBar.value -= 20
+		$Life/LifeProgressBar.value -= value
 		velocity.y = -jump_speed * 0.65
 		$StunTimer.start(2)
 	#	velocity = move_and_slide(velocity, Vector2.UP)		
@@ -87,11 +88,15 @@ func add_coin(number):
 	get_node("/root/GameScene/CoinsCounter/TotalCoins").text = str(coins)
 
 
-func _on_FallZone_body_entered(_body): #fall down cliffs
-	if not immune:
+func _on_FallZone_body_entered(body): #fall down cliffs
+	print('some one here')
+	if not body.immune:
 		print('body entered fallzone')
+#		$ScreamSound.play()
+#		yield(get_tree().create_timer(1.5), "timeout")
 	#	var death_reason = 'drop'
-		$DeathTimer.start(1)
+		body.dead()
+		$ScreamSound.play(0.45)
 	else:
 		position.x = 12
 		position.y = 2
@@ -104,7 +109,7 @@ func get_powered():
 	$TextureRect.visible = true
 	$ProgressBar.visible = true
 	$ProgressBar/Rounded.tint_progress = Color(255, 255, 0, 1)
-	$ProgressBar.start_progress(5)
+	$ProgressBar.start_progress($PowerTimer.wait_time)
 	$PowerTimer.start()
 	print('started power timer')
 	
@@ -122,7 +127,7 @@ func get_immune():
 	$ImmunityTimer.start()
 	$ProgressBar.visible = true
 	$ProgressBar/Rounded.tint_progress = Color(0, 255, 0, 1)
-	$ProgressBar.start_progress(5)
+	$ProgressBar.start_progress($ImmunityTimer.wait_time)
 	print('started immune timer')
 	
 	
@@ -139,7 +144,8 @@ func dead(reason=''):
 		
 func _on_DeathTimer_timeout():
 	get_node('/root/GameScene/CoinsCounter').visible = false
-	get_node('/root/GameScene/Player/Life').visible = false
+	get_node('/root/GameScene/' + Settings.sprite + '/Life').visible = false
+	get_node('/root/GameScene/Shop').visible = false
 #	get_node('.').self_modulate = Color(0.59, 0.66, 0.78, 1.0)
 #	get_node('/root/GameScene/Player/Camera/Shade').rect_position.x = -512
 #	get_node('/root/GameScene/Player/Camera/Shade').rect_position.y = -300
@@ -155,8 +161,7 @@ func _on_DeathTimer_timeout():
 	image.flip_y()
 	image.set_pixel(1,1,Color(255,1,1,1))
 	image.save_png("user://lose_scene.png")
-	
-	get_tree().change_scene('LoseScene.tscn')
+	get_tree().change_scene('/root/LoseScene.tscn')
 
 
 func _on_ImmunityTimer_timeout():
@@ -199,35 +204,8 @@ func _on_PowerTimer_timeout():
 	$TextureRect.modulate = Color8(0,0,0)
 	powered = false
 
-
-
-
-func _on_ExplosionArea_body_entered(body):
-	get_node('/root/GameScene/TileMapSolid/ExplosionArea/TextureRect').visible = true
-	get_node('/root/GameScene/TileMapSolid/ExplosionArea/ExplosionTimer').start()
-	print($CollisionShape)
-	
-
-func _on_ExplosionTimer_timeout():
-	if get_node('/root/GameScene/TileMapSolid/ExplosionArea/TextureRect').texture == load('res://assets/HUD/hud_3.png'):
-		get_node('/root/GameScene/TileMapSolid/ExplosionArea/TextureRect').texture = load('res://assets/HUD/hud_2.png')
-		get_node('/root/GameScene/TileMapSolid/ExplosionArea/ExplosionTimer').start()
-	elif get_node('/root/GameScene/TileMapSolid/ExplosionArea/TextureRect').texture == load('res://assets/HUD/hud_2.png'):
-		get_node('/root/GameScene/TileMapSolid/ExplosionArea/TextureRect').texture = load('res://assets/HUD/hud_1.png')
-		get_node('/root/GameScene/TileMapSolid/ExplosionArea/ExplosionTimer').start()
-	elif get_node('/root/GameScene/TileMapSolid/ExplosionArea/TextureRect').texture == load('res://assets/HUD/hud_1.png'):
-		get_node('/root/GameScene/ExplosionFlash').visible = true
-		get_node('/root/GameScene/ExplosionFlash').play('default')
-		yield(get_tree().create_timer(1), "timeout")
-#		get_node('/root/GameScene/ExplosionFlash').visible = false
-#		get_node('/root/GameScene/TileMapSolid').set_cellv(location, -1)
-		if not immune:
-			dead()
-		get_node('/root/GameScene/ExplosionFlash').visible = false
-		
-		
-
-
-func _on_ExplosionArea_body_exited(body):
-	get_node('/root/GameScene/TileMapSolid/ExplosionArea/ExplosionTimer').stop()
-	get_node('/root/GameScene/TileMapSolid/ExplosionArea/TextureRect').visible = false
+func win():
+	set_collision_mask_bit(3, false)
+	set_collision_mask_bit(4, false)
+	set_collision_mask_bit(5, false)
+	set_collision_mask_bit(7, false)

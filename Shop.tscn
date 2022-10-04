@@ -1,0 +1,189 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://assets/Items/health_potion (8).png" type="Texture" id=1]
+[ext_resource path="res://assets/Items/health_potion (2).png" type="Texture" id=2]
+[ext_resource path="res://assets/Items/health_potion (5).png" type="Texture" id=3]
+[ext_resource path="res://assets/Items/health_potion (1).png" type="Texture" id=4]
+[ext_resource path="res://assets/Items/health_potion (3).png" type="Texture" id=5]
+[ext_resource path="res://assets/Items/health_potion (9).png" type="Texture" id=6]
+[ext_resource path="res://assets/Items/health_potion (6).png" type="Texture" id=7]
+[ext_resource path="res://assets/Items/health_potion (4).png" type="Texture" id=8]
+[ext_resource path="res://assets/Items/health_potion (11).png" type="Texture" id=9]
+[ext_resource path="res://assets/Items/health_potion (12).png" type="Texture" id=10]
+[ext_resource path="res://assets/Items/health_potion (10).png" type="Texture" id=11]
+[ext_resource path="res://assets/Items/health_potion (7).png" type="Texture" id=12]
+[ext_resource path="res://assets/Items/gold_1.png" type="Texture" id=13]
+[ext_resource path="res://assets/HUD/hud_3.png" type="Texture" id=14]
+[ext_resource path="res://assets/HUD/hud_8.png" type="Texture" id=15]
+[ext_resource path="res://assets/HUD/hud_5.png" type="Texture" id=16]
+[ext_resource path="res://Shop.gd" type="Script" id=17]
+[ext_resource path="res://assets/Sounds/getPotion.ogg" type="AudioStream" id=18]
+
+[sub_resource type="StyleBoxFlat" id=1]
+corner_radius_top_left = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 20
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "shake",
+"speed": 10.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "shake",
+"speed": 10.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_bottom_left = 20
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "shake",
+"speed": 10.0
+} ]
+
+[node name="Shop" type="CanvasLayer"]
+script = ExtResource( 17 )
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 936.0
+margin_top = 128.0
+margin_right = 1024.0
+margin_bottom = 468.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="LifePotion" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+
+[node name="LifePotionButton" type="Button" parent="LifePotion"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 936.0
+margin_top = 128.0
+margin_right = 1024.0
+margin_bottom = 240.0
+custom_styles/normal = SubResource( 4 )
+disabled = true
+
+[node name="LifePotion" type="AnimatedSprite" parent="LifePotion"]
+self_modulate = Color( 1, 0.580392, 0.580392, 1 )
+position = Vector2( 976, 160 )
+scale = Vector2( 0.172724, 0.172724 )
+frames = SubResource( 2 )
+animation = "shake"
+
+[node name="Coin" type="TextureRect" parent="LifePotion"]
+margin_left = 976.0
+margin_top = 200.0
+margin_right = 1016.0
+margin_bottom = 232.0
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="LifePotion"]
+margin_left = 944.0
+margin_top = 200.0
+margin_right = 976.0
+margin_bottom = 232.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="PowerPotion" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+
+[node name="PowerPotionButton" type="Button" parent="PowerPotion"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 936.0
+margin_top = 242.0
+margin_right = 1024.0
+margin_bottom = 354.0
+custom_styles/normal = SubResource( 6 )
+disabled = true
+
+[node name="PowerPotion" type="AnimatedSprite" parent="PowerPotion"]
+modulate = Color( 1, 1, 0, 1 )
+position = Vector2( 976, 274 )
+scale = Vector2( 0.173, 0.173 )
+frames = SubResource( 7 )
+animation = "shake"
+
+[node name="Coin" type="TextureRect" parent="PowerPotion"]
+margin_left = 981.34
+margin_top = 314.0
+margin_right = 1021.34
+margin_bottom = 346.0
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="PowerPotion"]
+margin_left = 949.34
+margin_top = 314.0
+margin_right = 981.34
+margin_bottom = 346.0
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="ImmunePotion" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+
+[node name="ImmunePotionButton" type="Button" parent="ImmunePotion"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 936.0
+margin_top = 355.999
+margin_right = 1024.0
+margin_bottom = 467.999
+custom_styles/normal = SubResource( 5 )
+disabled = true
+
+[node name="ImmunePotion" type="AnimatedSprite" parent="ImmunePotion"]
+modulate = Color( 0, 1, 0, 1 )
+position = Vector2( 976, 387 )
+scale = Vector2( 0.173, 0.173 )
+frames = SubResource( 3 )
+animation = "shake"
+
+[node name="Coin" type="TextureRect" parent="ImmunePotion"]
+margin_left = 981.34
+margin_top = 424.999
+margin_right = 1021.34
+margin_bottom = 456.999
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="ImmunePotion"]
+margin_left = 949.34
+margin_top = 424.999
+margin_right = 981.34
+margin_bottom = 456.999
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+
+[node name="BoughtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = 2.0
+
+[connection signal="pressed" from="LifePotion/LifePotionButton" to="." method="_on_LifePotionButton_pressed"]
+[connection signal="pressed" from="PowerPotion/PowerPotionButton" to="." method="_on_PowerPotionButton_pressed"]
+[connection signal="pressed" from="ImmunePotion/ImmunePotionButton" to="." method="_on_ImmunePotionButton_pressed"]

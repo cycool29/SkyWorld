@@ -1,12 +1,14 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/Backgrounds/background_video.ogv" type="VideoStream" id=1]
 [ext_resource path="res://assets/Quicksand-SemiBold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/Sounds/Intro Theme_0.mp3" type="AudioStream" id=3]
 [ext_resource path="res://assets/Backgrounds/play.png" type="Texture" id=4]
 [ext_resource path="res://assets/Backgrounds/settings_text.png" type="Texture" id=5]
+[ext_resource path="res://assets/Backgrounds/levels.png" type="Texture" id=6]
 [ext_resource path="res://MainMenu.gd" type="Script" id=7]
 [ext_resource path="res://assets/Backgrounds/skyworld_text.png" type="Texture" id=8]
+[ext_resource path="res://assets/Sounds/clicked.ogg" type="AudioStream" id=9]
 [ext_resource path="res://assets/Backgrounds/help_text.png" type="Texture" id=10]
 [ext_resource path="res://assets/Backgrounds/quit_text.png" type="Texture" id=11]
 
@@ -104,10 +106,10 @@ texture = ExtResource( 8 )
 stretch_mode = 6
 
 [node name="StartButton" type="Button" parent="."]
-margin_left = 40.0
-margin_top = 248.0
-margin_right = 232.0
-margin_bottom = 329.0
+margin_left = 339.0
+margin_top = 232.0
+margin_right = 680.0
+margin_bottom = 376.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -120,10 +122,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="HelpButton" type="Button" parent="."]
-margin_left = 288.0
-margin_top = 248.0
-margin_right = 480.0
-margin_bottom = 329.0
+margin_left = 64.0
+margin_top = 440.0
+margin_right = 256.0
+margin_bottom = 521.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -136,10 +138,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="QuitButton" type="Button" parent="."]
-margin_left = 536.0
-margin_top = 248.0
-margin_right = 728.0
-margin_bottom = 329.0
+margin_left = 296.0
+margin_top = 440.0
+margin_right = 488.0
+margin_bottom = 521.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -151,11 +153,11 @@ icon = ExtResource( 11 )
 icon_align = 1
 expand_icon = true
 
-[node name="QuitButton2" type="Button" parent="."]
-margin_left = 784.0
-margin_top = 248.0
-margin_right = 976.0
-margin_bottom = 329.0
+[node name="SettingsButton" type="Button" parent="."]
+margin_left = 536.0
+margin_top = 440.0
+margin_right = 728.0
+margin_bottom = 521.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -167,12 +169,32 @@ icon = ExtResource( 5 )
 icon_align = 1
 expand_icon = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+[node name="LevelsButton" type="Button" parent="."]
+margin_left = 776.0
+margin_top = 440.0
+margin_right = 968.0
+margin_bottom = 521.0
+custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
+custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 12 )
+icon = ExtResource( 6 )
+icon_align = 1
+expand_icon = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
 mix_target = 1
 
+[node name="ButtonClickedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="HelpButton" to="." method="_on_HelpButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
-[connection signal="pressed" from="QuitButton2" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="LevelsButton" to="." method="_on_LevelsButton_pressed"]
