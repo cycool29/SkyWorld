@@ -1,5 +1,7 @@
 extends Control
-const Settings = preload("res://LoadSettings.gd")
+#const Settings = preload("res://LoadSettings.gd")
+
+var current_level = 0
 
 func _ready():
 	$Background.play()
@@ -27,9 +29,13 @@ func _process(delta):
 		
 		
 func _on_Home_pressed():
+	$ButtonClickedSound.play()
+	yield(get_tree().create_timer(0.3), "timeout")
 	get_tree().change_scene("res://MainMenu.tscn")
 
 func _on_Quit_pressed():
+	$ButtonClickedSound.play()
+	yield(get_tree().create_timer(0.3), "timeout")
 	get_tree().quit()
 
 func _on_Timer_timeout():
@@ -49,3 +55,7 @@ func _on_ProgressBar_value_changed(value):
 		$SecondsNumber.texture = load('res://assets/HUD/hud_' + str(int(value)) + '.png')
 	elif value == 0:
 		get_tree().change_scene("res://MainMenu.tscn")
+		
+func win_handling(level):
+	current_level = level
+

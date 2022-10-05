@@ -1,10 +1,28 @@
 extends Control
-const Settings = preload("res://LoadSettings.gd")
+#const Settings = preload("res://LoadSettings.gd")
+
+var configs = ConfigFile.new()
+var err = configs.load("user://skyworld.cfg")
 
 func _ready():
-	pass
+	if err != OK:
+		print('failed')
+		# Set default values
+		configs.set_value("config", "sprite", 'marcus')
+		configs.set_value("config", "level", "1")
+		configs.set_value("config", "volume", "100")
+
+		# Save it to a file (overwrite if already exists).
+		configs.save("user://skyworld.cfg")
+	
+	if ! configs.get_value("config", "level"):
+		configs.set_value("config", "level", "1")
+		
+	Settings.update_settings()
+	
 
 func _process(delta):
+
 	if not $VideoPlayer.is_playing():
 		$VideoPlayer.play()
 	if not $BackgroundMusic.playing:

@@ -1,5 +1,5 @@
 extends Area2D
-const Settings = preload("res://LoadSettings.gd")
+
 
 
 func _on_Coins_body_entered(body):

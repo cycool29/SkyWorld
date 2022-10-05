@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/girl_hurt.ogg-ab1fc9b939d383678c73420335bfa1f8.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/girl_hurt.ogg"
+dest_files=[ "res://.import/girl_hurt.ogg-ab1fc9b939d383678c73420335bfa1f8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,14 +1,16 @@
 extends KinematicBody2D
-const Settings = preload("res://LoadSettings.gd")
+#const Settings = preload("res://LoadSettings.gd")
 
 var velocity = Vector2()
 var direction = 1
 export(String, "Timer", "Collide") var moving_way = "Timer"
 onready var initial_y = position.y
+onready var initial_x = position.x
 
 func _ready():
 	if moving_way == 'Timer':
 		$Timer.start()
+
 
 
 func _process(delta):
@@ -22,7 +24,6 @@ func _process(delta):
 			if body.name == 'TileMapSolid':
 				direction *= -1
 	position.y = initial_y
-	
 	
 func _on_Timer_timeout():
 	direction *= -1

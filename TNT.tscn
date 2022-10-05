@@ -23,30 +23,31 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="TNT" type="Node2D"]
-
-[node name="TNT" type="KinematicBody2D" parent="."]
+[node name="TNT" type="KinematicBody2D"]
+position = Vector2( 1, 1 )
+collision_layer = 2
+collision_mask = 3
 script = ExtResource( 1 )
 
-[node name="BlockRedTnt" type="Sprite" parent="TNT"]
+[node name="BlockRedTnt" type="Sprite" parent="."]
 position = Vector2( 6.50006, -0.126984 )
 scale = Vector2( 0.734375, 0.746032 )
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TNT"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 6.50006, -0.126984 )
 scale = Vector2( 0.734375, 0.746032 )
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="TNT"]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="TNTArea" type="CollisionShape2D" parent="TNT/Area2D"]
+[node name="TNTArea" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 6.5, -8.12698 )
 shape = SubResource( 2 )
 
-[node name="ExplosionTimer" type="Timer" parent="TNT"]
+[node name="ExplosionTimer" type="Timer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="TNT"]
+[node name="TextureRect" type="TextureRect" parent="."]
 visible = false
 margin_left = -19.5859
 margin_top = -22.4702
@@ -55,15 +56,15 @@ margin_bottom = 21.5298
 texture = ExtResource( 2 )
 stretch_mode = 6
 
-[node name="ExplosionFlash" type="AnimatedSprite" parent="TNT"]
+[node name="ExplosionFlash" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( -3.58588, -14.4702 )
 scale = Vector2( 0.470149, 0.470149 )
 frames = SubResource( 3 )
 
-[node name="ExplodeSound" type="AudioStreamPlayer" parent="TNT"]
+[node name="ExplodeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 
-[connection signal="body_entered" from="TNT/Area2D" to="TNT" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="TNT/Area2D" to="TNT" method="_on_Area2D_body_exited"]
-[connection signal="timeout" from="TNT/ExplosionTimer" to="TNT" method="_on_ExplosionTimer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="ExplosionTimer" to="." method="_on_ExplosionTimer_timeout"]

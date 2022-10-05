@@ -1,10 +1,10 @@
 extends KinematicBody2D
-const Settings = preload("res://LoadSettings.gd")
+
 
 
 var velocity = Vector2()
 var direction = -1
-export var speed = 50
+export var speed = 80
 var hitted_times = 0
 	#var hitted_player = false
 

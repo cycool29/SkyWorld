@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/girl_scream.ogg-48acf3227abb77d2fa5cd1f1962fafac.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/girl_scream.ogg"
+dest_files=[ "res://.import/girl_scream.ogg-48acf3227abb77d2fa5cd1f1962fafac.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

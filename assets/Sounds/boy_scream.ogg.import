@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/boy_scream.ogg-b5213351af2ea96c791a71a4e6594a11.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/boy_scream.ogg"
+dest_files=[ "res://.import/boy_scream.ogg-b5213351af2ea96c791a71a4e6594a11.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

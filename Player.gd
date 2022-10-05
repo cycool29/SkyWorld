@@ -1,5 +1,4 @@
 extends KinematicBody2D
-const Settings = preload("res://LoadSettings.gd")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -65,6 +64,8 @@ func _ready():
 #	var err = configs.load("user://skyworld.cfg")
 #	print(configs.get_value('config', 'sprite'))
 	get_node("../" + Settings.sprite).visible = true
+	Settings.current_level = get_tree().current_scene.filename[15]
+	print(get_tree().current_scene.filename[15])
 	
 func bounce_up():
 	velocity.y = -jump_speed * 0.5
@@ -146,6 +147,7 @@ func _on_DeathTimer_timeout():
 	get_node('/root/GameScene/CoinsCounter').visible = false
 	get_node('/root/GameScene/' + Settings.sprite + '/Life').visible = false
 	get_node('/root/GameScene/Shop').visible = false
+	get_node('/root/GameScene/' + Settings.sprite + '/ProgressBar').visible = false
 #	get_node('.').self_modulate = Color(0.59, 0.66, 0.78, 1.0)
 #	get_node('/root/GameScene/Player/Camera/Shade').rect_position.x = -512
 #	get_node('/root/GameScene/Player/Camera/Shade').rect_position.y = -300
@@ -161,7 +163,7 @@ func _on_DeathTimer_timeout():
 	image.flip_y()
 	image.set_pixel(1,1,Color(255,1,1,1))
 	image.save_png("user://lose_scene.png")
-	get_tree().change_scene('/root/LoseScene.tscn')
+	get_tree().change_scene('res://LoseScene.tscn')
 
 
 func _on_ImmunityTimer_timeout():

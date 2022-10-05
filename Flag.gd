@@ -1,5 +1,4 @@
 extends Area2D
-const Settings = preload("res://LoadSettings.gd")
 
 func _ready():
 	pass

@@ -26,6 +26,10 @@ config/use_custom_user_dir=true
 config/custom_user_dir_name=".skyworld_cache"
 config/icon="res://icon.png"
 
+[autoload]
+
+Settings="*res://Settings.gd"
+
 [display]
 
 window/size/resizable=false

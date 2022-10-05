@@ -1,5 +1,5 @@
 extends Area2D
-const Settings = preload("res://LoadSettings.gd")
+#const Settings = preload("res://LoadSettings.gd")
 
 func _ready():
 	$AnimatedSprite.play("shake")

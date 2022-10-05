@@ -1,5 +1,5 @@
 extends KinematicBody2D
-const Settings = preload("res://LoadSettings.gd")
+
 
 var velocity = Vector2()
 var direction = -1
@@ -45,6 +45,7 @@ func _on_PlayerTopChecker_body_entered(body):
 		body.bounce_up()
 		yield(get_tree().create_timer(0.5), "timeout")
 		queue_free()
+		
 
 
 func _on_PlayerSidesChecker_body_entered(body):

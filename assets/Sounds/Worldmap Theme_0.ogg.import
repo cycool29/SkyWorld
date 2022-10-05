@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Worldmap Theme_0.ogg-e56f6ac8c155d27da58865d528a8f6fe.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/Worldmap Theme_0.ogg"
+dest_files=[ "res://.import/Worldmap Theme_0.ogg-e56f6ac8c155d27da58865d528a8f6fe.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

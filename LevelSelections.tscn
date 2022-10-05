@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/Backgrounds/background_video.ogv" type="VideoStream" id=1]
 [ext_resource path="res://assets/casual.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/Backgrounds/select_level_text.png" type="Texture" id=3]
 [ext_resource path="res://LevelSelections.gd" type="Script" id=4]
+[ext_resource path="res://assets/Sounds/Worldmap Theme_0.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/Backgrounds/return_text.png" type="Texture" id=6]
+[ext_resource path="res://assets/Quicksand-SemiBold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/Sounds/clicked.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/Items/locked.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -30,6 +35,31 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.945098, 0.52549, 0.152941, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.894118, 0.705882, 0.133333, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 0.34902, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="LevelSelections" type="Control"]
 anchor_right = 1.0
@@ -85,8 +115,10 @@ margin_bottom = 280.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
-text = "4"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level5" type="Button" parent="Levels"]
 margin_left = 432.0
@@ -96,8 +128,10 @@ margin_bottom = 280.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
-text = "5"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level6" type="Button" parent="Levels"]
 margin_left = 528.0
@@ -107,8 +141,10 @@ margin_bottom = 280.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
-text = "6"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level7" type="Button" parent="Levels"]
 margin_left = 624.0
@@ -118,8 +154,10 @@ margin_bottom = 280.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
-text = "7"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level8" type="Button" parent="Levels"]
 margin_left = 720.0
@@ -129,8 +167,10 @@ margin_bottom = 280.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
-text = "8"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level9" type="Button" parent="Levels"]
 margin_left = 816.0
@@ -140,8 +180,10 @@ margin_bottom = 280.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
-text = "9"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level10" type="Button" parent="Levels"]
 margin_left = 912.0
@@ -151,8 +193,10 @@ margin_bottom = 280.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "10"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level11" type="Button" parent="Levels"]
 margin_left = 48.0
@@ -162,8 +206,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "11"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level12" type="Button" parent="Levels"]
 margin_left = 144.0
@@ -173,8 +219,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "12"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level13" type="Button" parent="Levels"]
 margin_left = 240.0
@@ -184,8 +232,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "13"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level14" type="Button" parent="Levels"]
 margin_left = 336.0
@@ -195,8 +245,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "14"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level15" type="Button" parent="Levels"]
 margin_left = 432.0
@@ -206,8 +258,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "15"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level16" type="Button" parent="Levels"]
 margin_left = 528.0
@@ -217,8 +271,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "16"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level17" type="Button" parent="Levels"]
 margin_left = 624.0
@@ -228,8 +284,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "17"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level18" type="Button" parent="Levels"]
 margin_left = 720.0
@@ -239,8 +297,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "18"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level19" type="Button" parent="Levels"]
 margin_left = 816.0
@@ -250,8 +310,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "19"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="Level20" type="Button" parent="Levels"]
 margin_left = 912.0
@@ -261,8 +323,10 @@ margin_bottom = 392.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "20"
+disabled = true
+icon = ExtResource( 9 )
 icon_align = 1
+expand_icon = true
 
 [node name="SelectLevel" type="TextureRect" parent="."]
 margin_left = 264.0
@@ -273,6 +337,31 @@ texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+mix_target = 1
+
+[node name="HomeButton" type="Button" parent="."]
+margin_left = 416.0
+margin_top = 464.0
+margin_right = 608.0
+margin_bottom = 545.0
+custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
+custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+icon = ExtResource( 6 )
+icon_align = 1
+expand_icon = true
+
+[node name="ButtonClickedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
 [connection signal="pressed" from="Levels/Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="Levels/Level2" to="." method="_on_Level2_pressed"]
 [connection signal="pressed" from="Levels/Level3" to="." method="_on_Level3_pressed"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_HomeButton_pressed"]
