@@ -15,8 +15,9 @@ func _ready():
 		# Save it to a file (overwrite if already exists).
 		configs.save("user://skyworld.cfg")
 	
-	if ! configs.get_value("config", "level"):
+	if ! configs.get_value("config", "level") or int(configs.get_value("config", "level")) > 3:
 		configs.set_value("config", "level", "1")
+		configs.save("user://skyworld.cfg")
 		
 	Settings.update_settings()
 	
@@ -30,12 +31,13 @@ func _process(delta):
 
 func _input(event):
 	if Input.is_key_pressed(KEY_SPACE) or Input.is_key_pressed(KEY_ENTER):
-		get_tree().change_scene('res://GameScene.tscn')
+		get_tree().change_scene('res://GameScene' + str(configs.get_value("config", "level")) + '.tscn')
 
 func _on_StartButton_pressed():
+	print('res://GameScene' + str(configs.get_value("config", "level")) + '.tscn')
 	$ButtonClickedSound.play()
 	yield(get_tree().create_timer(0.3), "timeout")
-	get_tree().change_scene('res://GameScene.tscn')
+	get_tree().change_scene('res://GameScene' + str(configs.get_value("config", "level")) + '.tscn')
 
 
 func _on_HelpButton_pressed():

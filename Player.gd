@@ -14,9 +14,12 @@ var immune = false
 var powered = false
 var ignore_idle = false
 var win = false
+var configs = ConfigFile.new()
+var err = configs.load("user://skyworld.cfg")
 
 onready var animated_sprite = get_node("AnimatedSprite")
 
+signal next_level(level)
 
 func _physics_process(_delta):
 	velocity.x = 0 
@@ -88,6 +91,10 @@ func add_coin(number):
 	coins += number
 	get_node("/root/GameScene/CoinsCounter/TotalCoins").text = str(coins)
 
+func deduct_coin(number):
+	coins -= number
+	get_node("/root/GameScene/CoinsCounter/TotalCoins").text = str(coins)
+
 
 func _on_FallZone_body_entered(body): #fall down cliffs
 	print('some one here')
@@ -104,32 +111,43 @@ func _on_FallZone_body_entered(body): #fall down cliffs
 
 	
 func get_powered():
-	powered = true
-	speed = 450
-	$TextureRect.modulate = Color8(255, 255, 0)
-	$TextureRect.visible = true
-	$ProgressBar.visible = true
-	$ProgressBar/Rounded.tint_progress = Color(255, 255, 0, 1)
-	$ProgressBar.start_progress($PowerTimer.wait_time)
-	$PowerTimer.start()
-	print('started power timer')
+	print($ProgressBar/Rounded.value)
+	if not powered:
+		powered = true
+		speed = 450
+		$TextureRect.modulate = Color8(255, 255, 0)
+		$TextureRect.visible = true
+		$ProgressBar.visible = true
+		$ProgressBar/Rounded.tint_progress = Color(255, 255, 0, 1)
+		$ProgressBar.start_progress($PowerTimer.wait_time)
+		$PowerTimer.start()
+		print('started power timer')
 	
 	
 func get_immune():
-	immune = true
-	set_collision_mask_bit(4, false)
-#	$AnimatedSprite.modulate = Color8(155, 155, 255)
-	$TextureRect.modulate = Color8(0, 255, 0)
-	$TextureRect.visible = true
-	for node in get_node('/root/GameScene/Enemies').get_children():
-		node.set_collision_mask_bit(0, false)
-		node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
-		node.get_node('PlayerTopChecker').set_collision_mask_bit(0, false)
-	$ImmunityTimer.start()
-	$ProgressBar.visible = true
-	$ProgressBar/Rounded.tint_progress = Color(0, 255, 0, 1)
-	$ProgressBar.start_progress($ImmunityTimer.wait_time)
-	print('started immune timer')
+	print($ProgressBar/Rounded.value)
+	if not immune:
+		immune = true
+		set_collision_mask_bit(4, false)
+	#	$AnimatedSprite.modulate = Color8(155, 155, 255)
+		$TextureRect.modulate = Color8(0, 255, 0)
+		$TextureRect.visible = true
+		for node in get_node('/root/GameScene/Enemies').get_children():
+			node.set_collision_mask_bit(0, false)
+			node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
+			node.get_node('PlayerTopChecker').set_collision_mask_bit(0, false)
+			print(node)
+		
+		if get_node('/root/GameScene/BigEnemies'):
+			for node in get_node('/root/GameScene/BigEnemies').get_children():
+				node.set_collision_mask_bit(0, false)
+				node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
+				node.get_node('PlayerTopChecker').set_collision_mask_bit(0, false)
+		$ImmunityTimer.start()
+		$ProgressBar.visible = true
+		$ProgressBar/Rounded.tint_progress = Color(0, 255, 0, 1)
+		$ProgressBar.start_progress($ImmunityTimer.wait_time)
+		print('started immune timer')
 	
 	
 func dead(reason=''):
@@ -141,6 +159,7 @@ func dead(reason=''):
 		$CollisionShape.queue_free()
 	Input.action_release("right")
 	Input.action_release("left")
+	Input.action_release("jump")
 	$DeathTimer.start(1)
 		
 func _on_DeathTimer_timeout():
@@ -169,13 +188,18 @@ func _on_DeathTimer_timeout():
 func _on_ImmunityTimer_timeout():
 	print('immunity timer timeout')
 	$ProgressBar.visible = false
-	$ProgressBar/Rounded.value = 0
+	$ProgressBar/Rounded.value = 100
 	set_collision_mask_bit(4, true)
 	$AnimatedSprite.modulate = Color(1, 1, 1, 1)
 	for node in get_node('/root/GameScene/Enemies').get_children():
 		node.set_collision_mask_bit(0, true)
 		node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
 		node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
+	if get_node('/root/GameScene/BigEnemies'):
+		for node in get_node('/root/GameScene/BigEnemies').get_children():
+			node.set_collision_mask_bit(0, true)
+			node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
+			node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
 	$TextureRect.visible = false
 	$TextureRect.modulate = Color8(0,0,0)
 	immune = false
@@ -186,6 +210,7 @@ func _on_ImmunityTimer_timeout():
 func _on_LifeProgressBar_value_changed(value):
 	if value == 0:
 		dead()
+		
 
 
 func _on_StunTimer_timeout():
@@ -194,6 +219,11 @@ func _on_StunTimer_timeout():
 		node.set_collision_mask_bit(0, true)
 		node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
 		node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
+	if get_node('/root/GameScene/BigEnemies'):
+		for node in get_node('/root/GameScene/BigEnemies').get_children():
+			node.set_collision_mask_bit(0, true)
+			node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
+			node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
 	set_collision_mask_bit(4, false)
 
 
@@ -201,13 +231,24 @@ func _on_PowerTimer_timeout():
 	print('power timeout')
 	speed = 300
 	$ProgressBar.visible = false
-	$ProgressBar/Rounded.value = 0
+	print($ProgressBar/Rounded.value)
+	$ProgressBar/Rounded.value = 100
 	$TextureRect.visible = false
 	$TextureRect.modulate = Color8(0,0,0)
 	powered = false
 
 func win():
+	win = true
 	set_collision_mask_bit(3, false)
 	set_collision_mask_bit(4, false)
 	set_collision_mask_bit(5, false)
 	set_collision_mask_bit(7, false)
+	Input.action_release("right")
+	Input.action_release("left")
+	Input.action_release("jump")
+	animated_sprite.play("win")
+	yield(get_tree().create_timer(2), "timeout")
+	get_tree().change_scene("res://WinScene.tscn")
+	configs.set_value("config", "level", int(Settings.current_level) + 1)
+	configs.save("user://skyworld.cfg")
+	Settings.update_settings()

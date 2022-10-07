@@ -1,7 +1,6 @@
 extends Control
 #const Settings = preload("res://LoadSettings.gd")
 
-var current_level = 0
 
 func _ready():
 	$Background.play()
@@ -55,7 +54,9 @@ func _on_ProgressBar_value_changed(value):
 		$SecondsNumber.texture = load('res://assets/HUD/hud_' + str(int(value)) + '.png')
 	elif value == 0:
 		get_tree().change_scene("res://MainMenu.tscn")
-		
-func win_handling(level):
-	current_level = level
 
+
+
+
+func _on_NextLevel_pressed():
+	get_tree().change_scene('res://GameScene' + str(Settings.current_level) + '.tscn')

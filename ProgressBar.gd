@@ -10,6 +10,6 @@ func start_progress(seconds):
 
 
 func _on_Timer_timeout():
-	$Rounded.value += 1
+	$Rounded.value -= 1
 #	$Rounded.tint_progress = Color(0, 255, 0, 1)
 	

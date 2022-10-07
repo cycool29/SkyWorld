@@ -7,6 +7,6 @@ func _ready():
 
 func _on_PowerPotion_body_entered(body):
 	if not body.immune:
-		$AudioStreamPlayer.play()
 		body.get_powered()
+		$AudioStreamPlayer.play()
 		queue_free()

@@ -195,6 +195,7 @@ stretch_mode = 6
 [node name="ButtonClickedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 
+[connection signal="pressed" from="NextLevel" to="." method="_on_NextLevel_pressed"]
 [connection signal="pressed" from="Home" to="." method="_on_Home_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

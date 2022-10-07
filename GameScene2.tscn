@@ -630,42 +630,55 @@ position = Vector2( 1284, -878 )
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 316, 346 )
+collision_mask = 33
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 28, 154 )
+collision_mask = 33
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 1364, -878 )
+collision_mask = 33
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 252, -1446 )
+collision_mask = 33
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 1132, 474 )
+collision_mask = 33
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 732, -38 )
+collision_mask = 33
 
 [node name="Enemy7" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 292, -230 )
+collision_mask = 33
 
 [node name="Enemy8" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 28, 474 )
+collision_mask = 33
 
 [node name="Enemy9" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 540, -934 )
+collision_mask = 33
 
 [node name="Enemy10" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( -140, 146 )
+collision_mask = 33
 
 [node name="Enemy11" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 1132, -878 )
+collision_mask = 33
 
 [node name="Enemy12" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 532, 474 )
+collision_mask = 33
 
 [node name="Enemy13" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 716, 90 )
+collision_mask = 33
 
 [node name="ImmunePotion" parent="." instance=ExtResource( 20 )]
 position = Vector2( 388, -982 )
@@ -700,9 +713,11 @@ color = Color( 1, 0.392157, 0.392157, 0.588235 )
 
 [node name="BigEnemy1" parent="BigEnemies" instance=ExtResource( 43 )]
 position = Vector2( 524, 354 )
+collision_mask = 32
 
 [node name="BigEnemy2" parent="BigEnemies" instance=ExtResource( 43 )]
 position = Vector2( 364, -1438 )
+collision_mask = 32
 
 [connection signal="body_entered" from="Flag" to="Flag" method="_on_Flag_body_entered"]
 [connection signal="timeout" from="Marcus/DeathTimer" to="Marcus" method="_on_DeathTimer_timeout"]
