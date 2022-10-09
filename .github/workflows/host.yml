@@ -1,7 +1,7 @@
 name: Game Hosting
 
 env:
-  GODOT_VERSION: 3.3.3
+  GODOT_VERSION: 3.5
   
 on:
   push:
