@@ -57,9 +57,13 @@ func _on_HomeButton_pressed():
 
 
 
-func _on_HSlider_drag_ended(value_changed):
-	if value_changed:
-		print($HSlider.value)
-		configs.set_value("config", "volume", str($HSlider.value))
-		configs.save("user://skyworld.cfg")
-		Settings.update_settings()
+func _on_HSlider_value_changed(value):
+	configs.set_value("config", "volume", str(value))
+	configs.save("user://skyworld.cfg")
+	Settings.update_settings()
+
+
+func _on_ResetButton_pressed():
+	var dir = Directory.new()
+	dir.remove("user://skyworld.cfg")
+	get_tree().change_scene("res://MainMenu.tscn")

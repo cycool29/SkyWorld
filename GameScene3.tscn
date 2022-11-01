@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TilemapSolid.tres" type="TileSet" id=2]
@@ -40,6 +40,7 @@
 [ext_resource path="res://assets/Sounds/girl_hurt.ogg" type="AudioStream" id=38]
 [ext_resource path="res://assets/Sounds/jump.ogg" type="AudioStream" id=39]
 [ext_resource path="res://assets/Sounds/girl_scream.ogg" type="AudioStream" id=40]
+[ext_resource path="res://assets/Items/spikes.png" type="Texture" id=41]
 [ext_resource path="res://MovingTile.tscn" type="PackedScene" id=42]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_walk7.png" type="Texture" id=44]
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk1.png" type="Texture" id=45]
@@ -59,17 +60,40 @@
 [ext_resource path="res://assets/Sounds/boy_scream.ogg" type="AudioStream" id=59]
 [ext_resource path="res://assets/Sounds/boy_hurt.ogg" type="AudioStream" id=60]
 
-[sub_resource type="RectangleShape2D" id=51]
-extents = Vector2( 62.2254, 30.9957 )
+[sub_resource type="ConvexPolygonShape2D" id=70]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 
-[sub_resource type="RectangleShape2D" id=52]
-extents = Vector2( 59.397, 31.1127 )
+[sub_resource type="TileSet" id=71]
+0/name = "spikes.png 0"
+0/texture = ExtResource( 41 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 70 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 70 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=53]
-extents = Vector2( 95.5, 31.75 )
+[sub_resource type="RectangleShape2D" id=60]
+extents = Vector2( 33.25, 31.375 )
 
-[sub_resource type="RectangleShape2D" id=54]
-extents = Vector2( 128, 33 )
+[sub_resource type="RectangleShape2D" id=61]
+extents = Vector2( 90.9938, 32.4423 )
+
+[sub_resource type="RectangleShape2D" id=66]
+extents = Vector2( 88.9849, 33 )
 
 [sub_resource type="SpriteFrames" id=39]
 animations = [ {
@@ -81,6 +105,17 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=40]
 extents = Vector2( 36.5, 25.5 )
+
+[sub_resource type="Gradient" id=55]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.0034965, 0.00558659, 0.0167598, 0.0314685, 0.129371, 0.189944, 0.867133, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.317647, 0.317647, 0.317647, 0, 0.152941, 0.152941, 0.152941, 0, 0.588235, 0.588235, 0.588235, 0, 0.129412, 0.129412, 0.129412, 0, 0.109804, 0.109804, 0.109804, 0, 0.173086, 0.173086, 0.173086, 0, 0.880557, 0.880557, 0.880557, 0, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=63]
+gradient = SubResource( 55 )
+fill = 1
+
+[sub_resource type="ImageTexture" id=65]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -116,7 +151,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 20.5, 32 )
+extents = Vector2( 23.5, 30.5 )
 
 [sub_resource type="StyleBoxFlat" id=38]
 bg_color = Color( 0.741176, 0, 0, 1 )
@@ -131,6 +166,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="GradientTexture2D" id=64]
+gradient = SubResource( 55 )
+fill = 1
 
 [sub_resource type="StreamTexture" id=47]
 flags = 4
@@ -193,6 +232,23 @@ font_data = ExtResource( 17 )
 size = 25
 font_data = ExtResource( 17 )
 
+[sub_resource type="DynamicFont" id=67]
+size = 25
+outline_size = 1
+font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=68]
+bg_color = Color( 0, 0, 0, 0.666667 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=69]
+size = 25
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 17 )
+
 [node name="GameScene" type="Node2D"]
 position = Vector2( 4, 6 )
 script = ExtResource( 58 )
@@ -249,7 +305,7 @@ tile_set = ExtResource( 2 )
 collision_layer = 2
 collision_mask = 49
 format = 1
-tile_data = PoolIntArray( -1507315, 8, 0, -1507314, 2, 0, -1441780, 8, 0, -1441779, 17, 0, -1441778, 4, 0, -1376245, 8, 0, -1376244, 17, 0, -1376243, 4, 0, -1376242, 4, 0, -1376241, 1, 0, -1376240, 2, 0, -1310712, 0, 0, -1310711, 1, 0, -1310710, 1, 0, -1310709, 17, 0, -1310708, 4, 0, -1310707, 4, 0, -1310706, 4, 0, -1310705, 4, 0, -1310704, 4, 0, -1179646, 25, 0, -1179645, 26, 0, -1179644, 26, 0, -1179643, 6, 0, -851954, 5, 0, -786420, 5, 0, -720886, 5, 0, -589819, 23, 0, -589818, 22, 0, -589817, 22, 0, -589816, 22, 0, -589815, 24, 0, -589802, 7, 0, -524283, 8, 0, -524282, 4, 0, -524281, 4, 0, -524280, 4, 0, -524279, 9, 0, -524266, 7, 0, -458748, 8, 0, -458747, 17, 0, -458746, 4, 0, -458745, 4, 0, -458744, 4, 0, -458743, 18, 0, -458742, 9, 0, -458730, 7, 0, -393213, 8, 0, -393212, 17, 0, -393211, 4, 0, -393210, 4, 0, -393209, 4, 0, -393208, 4, 0, -393207, 4, 0, -393206, 18, 0, -393205, 9, 0, -393194, 7, 0, -327658, 7, 0, -262122, 7, 0, -196586, 7, 0, -131050, 7, 0, -65523, 25, 0, -65522, 26, 0, -65521, 26, 0, -65520, 26, 0, -65519, 26, 0, -65518, 26, 0, -65517, 6, 0, -65514, 7, 0, 22, 7, 0, 65546, 14, 0, 65547, 1, 0, 65548, 1, 0, 65549, 15, 0, 65558, 7, 0, 131073, 5, 0, 131077, 5, 0, 131094, 7, 0, 196630, 7, 0, 262166, 7, 0, 327702, 7, 0, 393238, 7, 0, 458774, 7, 0, 589815, 1, 0, 589816, 1, 0, 589817, 1, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 7, 0 )
+tile_data = PoolIntArray( -1507315, 8, 0, -1507314, 2, 0, -1441780, 8, 0, -1441779, 17, 0, -1441778, 4, 0, -1376245, 8, 0, -1376244, 17, 0, -1376243, 4, 0, -1376242, 4, 0, -1376241, 1, 0, -1376240, 2, 0, -1310712, 0, 0, -1310711, 1, 0, -1310710, 1, 0, -1310709, 17, 0, -1310708, 4, 0, -1310707, 4, 0, -1310706, 4, 0, -1310705, 4, 0, -1310704, 4, 0, -1179646, 25, 0, -1179645, 26, 0, -1179644, 26, 0, -1179643, 6, 0, -851954, 5, 0, -786420, 5, 0, -720886, 5, 0, -589819, 23, 0, -589818, 22, 0, -589817, 22, 0, -589816, 22, 0, -589815, 24, 0, -589802, 7, 0, -524283, 8, 0, -524282, 4, 0, -524281, 4, 0, -524280, 4, 0, -524279, 9, 0, -524266, 7, 0, -458748, 8, 0, -458747, 17, 0, -458746, 4, 0, -458745, 4, 0, -458744, 4, 0, -458743, 18, 0, -458742, 9, 0, -458730, 7, 0, -393213, 8, 0, -393212, 17, 0, -393211, 4, 0, -393210, 4, 0, -393209, 4, 0, -393208, 4, 0, -393207, 4, 0, -393206, 18, 0, -393205, 9, 0, -393194, 7, 0, -327658, 7, 0, -262122, 7, 0, -196586, 7, 0, -131050, 7, 0, -65523, 25, 0, -65522, 26, 0, -65521, 26, 0, -65520, 26, 0, -65519, 26, 0, -65518, 26, 0, -65517, 6, 0, -65514, 7, 0, 22, 7, 0, 65546, 14, 0, 65547, 1, 0, 65548, 1, 0, 65549, 15, 0, 65558, 7, 0, 131073, 5, 0, 131077, 5, 0, 131094, 7, 0, 196630, 7, 0, 262166, 7, 0, 327702, 7, 0, 393238, 7, 0, 458774, 7, 0, 589815, 1, 0, 589816, 1, 0, 589817, 1, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 31, 0, 589822, 31, 0, 589823, 31, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 7, 0 )
 
 [node name="TileMapOneWay" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
@@ -258,44 +314,52 @@ collision_layer = 2
 collision_mask = 49
 format = 1
 tile_data = PoolIntArray( 262151, 5, 0, 262152, 6, 0, 327686, 5, 0, 327687, 9, 0, 327688, 10, 0, 327689, 6, 0, 393217, 5, 0, 393218, 2, 0, 393219, 6, 0, 458752, 5, 0, 458753, 9, 0, 458754, 4, 0, 458755, 10, 0, 458756, 6, 0 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Collisions" type="StaticBody2D" parent="TileMapOneWay"]
-position = Vector2( 0, 6 )
+[node name="Spikes" type="TileMap" parent="."]
+position = Vector2( -4, -6 )
+tile_set = SubResource( 71 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 589821, 0, 0, 589822, 0, 0, 589823, 0, 0 )
+
+[node name="OneWayCollisions" type="StaticBody2D" parent="."]
+position = Vector2( -4, 0 )
 collision_layer = 2
 collision_mask = 49
 
-[node name="CollisionShape1" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
-position = Vector2( 538.083, 311.917 )
-rotation = 0.785398
-shape = SubResource( 51 )
+[node name="CollisionShape3" type="CollisionShape2D" parent="OneWayCollisions"]
+position = Vector2( 160, 411 )
+shape = SubResource( 60 )
 one_way_collision = true
 
-[node name="CollisionShape2" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
-position = Vector2( 488, 310 )
+[node name="CollisionShape4" type="CollisionShape2D" parent="OneWayCollisions"]
+position = Vector2( 86, 467 )
 rotation = -0.785398
-shape = SubResource( 52 )
+shape = SubResource( 61 )
 one_way_collision = true
 
-[node name="CollisionShape3" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
-position = Vector2( 1312.5, 282.25 )
-shape = SubResource( 53 )
+[node name="CollisionShape5" type="CollisionShape2D" parent="OneWayCollisions"]
+position = Vector2( 232, 465 )
+rotation = 0.785398
+shape = SubResource( 66 )
 one_way_collision = true
 
-[node name="CollisionShape4" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
-position = Vector2( 1216, 409 )
-shape = SubResource( 54 )
-one_way_collision = true
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OneWayCollisions"]
+position = Vector2( 520, 262 )
+rotation = 0.785398
+polygon = PoolVector2Array( 164.756, -2.12128, 137.886, 27.5772, -13.4351, 28.9914, -13.4351, -2.12129 )
+one_way_collision_margin = 2.4
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="OneWayCollisions"]
+position = Vector2( 503, 261 )
+rotation = -0.785398
+polygon = PoolVector2Array( 13.435, -0.707153, -165.463, 0, -130.815, 34.6482, 13.435, 36.0624 )
 
 [node name="MovingTiles" type="Node2D" parent="."]
 
 [node name="MovingTile1" parent="MovingTiles" instance=ExtResource( 42 )]
-position = Vector2( 924, -374 )
 
 [node name="MovingTile2" parent="MovingTiles" instance=ExtResource( 42 )]
-position = Vector2( 492, 50 )
 
 [node name="Flag" type="Area2D" parent="."]
 collision_layer = 128
@@ -304,7 +368,6 @@ script = ExtResource( 34 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Flag"]
 position = Vector2( 1023, -1387 )
 frames = SubResource( 39 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flag"]
@@ -312,7 +375,6 @@ position = Vector2( 1022, -1384 )
 shape = SubResource( 40 )
 
 [node name="Marcus" type="KinematicBody2D" parent="."]
-visible = false
 position = Vector2( 12, 2 )
 collision_mask = 94
 script = ExtResource( 3 )
@@ -325,12 +387,23 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_limits = true
 
+[node name="RightTouch" type="TouchScreenButton" parent="Marcus/Camera"]
+position = Vector2( 0, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 63 )
+shape_visible = false
+
+[node name="LeftTouch" type="TouchScreenButton" parent="Marcus/Camera"]
+position = Vector2( -514, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 65 )
+
 [node name="TextureRect" type="TextureRect" parent="Marcus"]
 visible = false
-margin_left = 185.0
-margin_top = 386.0
-margin_right = 254.0
-margin_bottom = 455.0
+margin_left = 110.0
+margin_top = 245.0
+margin_right = 179.0
+margin_bottom = 314.0
 texture = ExtResource( 30 )
 expand = true
 
@@ -338,10 +411,10 @@ expand = true
 position = Vector2( 144, 272 )
 scale = Vector2( 0.294271, 0.294271 )
 frames = SubResource( 3 )
-animation = "win"
+animation = "idle"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Marcus"]
-position = Vector2( 144, 280 )
+position = Vector2( 142.5, 278.5 )
 shape = SubResource( 35 )
 
 [node name="ProgressBar" parent="Marcus" instance=ExtResource( 23 )]
@@ -400,6 +473,16 @@ limit_bottom = 1280
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_limits = true
+
+[node name="RightTouch" type="TouchScreenButton" parent="Jessie/Camera"]
+position = Vector2( 0, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 63 )
+
+[node name="LeftTouch" type="TouchScreenButton" parent="Jessie/Camera"]
+position = Vector2( -514, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 64 )
 
 [node name="TextureRect" type="TextureRect" parent="Jessie"]
 visible = false
@@ -709,6 +792,40 @@ collision_mask = 32
 [node name="BigEnemy2" parent="BigEnemies" instance=ExtResource( 31 )]
 position = Vector2( 564, -1310 )
 collision_mask = 32
+
+[node name="LevelName" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="LevelName"]
+margin_left = 698.0
+margin_top = 559.0
+margin_right = 1009.0
+margin_bottom = 591.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 67 )
+text = "Level 3"
+align = 2
+
+[node name="LeftGameTime" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="LeftGameTime"]
+margin_left = 914.0
+margin_top = 9.0
+margin_right = 1084.0
+margin_bottom = 58.0
+custom_styles/panel = SubResource( 68 )
+
+[node name="Label" type="Label" parent="LeftGameTime"]
+margin_left = 915.0
+margin_top = 10.0
+margin_right = 1025.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 69 )
+text = "00:00"
+align = 1
+valign = 1
+
+[node name="GameTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="Flag" to="Flag" method="_on_Flag_body_entered"]
 [connection signal="timeout" from="Marcus/DeathTimer" to="Marcus" method="_on_DeathTimer_timeout"]

@@ -37,8 +37,7 @@ func _on_StartButton_pressed():
 	print('res://GameScene' + str(configs.get_value("config", "level")) + '.tscn')
 	$ButtonClickedSound.play()
 	yield(get_tree().create_timer(0.3), "timeout")
-	get_tree().change_scene('res://GameScene' + str(configs.get_value("config", "level")) + '.tscn')
-
+	get_tree().change_scene('res://GameScene' + configs.get_value("config", "level") + '.tscn')		
 
 func _on_HelpButton_pressed():
 	$ButtonClickedSound.play()

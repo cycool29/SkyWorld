@@ -4,6 +4,7 @@ var configs = ConfigFile.new()
 var err = configs.load("user://skyworld.cfg")
 var sprite = ''
 var current_level = 0
+var volume = 1
 
 func _ready():
 	if err != OK:
@@ -14,4 +15,5 @@ func update_settings():
 	configs.load("user://skyworld.cfg")
 	current_level = configs.get_value("config", "level")
 	sprite = configs.get_value("config", "sprite").capitalize()
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), 0)
+	volume = float(configs.get_value("config", "volume")) / 100
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(volume))

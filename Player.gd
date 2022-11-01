@@ -16,13 +16,27 @@ var ignore_idle = false
 var win = false
 var configs = ConfigFile.new()
 var err = configs.load("user://skyworld.cfg")
+var able_to_shoot_wave = true
 
+onready var wave = preload("res://Wave.tscn")
 onready var animated_sprite = get_node("AnimatedSprite")
 
 signal next_level(level)
 
 func _physics_process(_delta):
 	velocity.x = 0 
+	
+	if get_node("/root/GameScene/GameTimer").time_left == 0 and alive:
+		dead('timeout')
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		var spikes = get_parent().get_node("Spikes")
+		var spinner = get_parent().get_node("Spinner")
+		if collision.collider == spikes:
+			hurt(0.5, false)
+		if collision.collider == spinner:
+			hurt(1, false)
 	
 	if alive and not win:
 		# Stop animation if key is released 
@@ -31,14 +45,16 @@ func _physics_process(_delta):
 			animated_sprite.frame = 0
 
 		# Basic player movements
-		if Input.is_action_pressed("right"):
+		if Input.is_action_pressed("right") or $Camera/RightTouch.is_pressed():
+			Cache.player_position = 1
 			velocity.x = speed
 			animated_sprite.flip_h = false
 			animated_sprite.play('walk')
 #			if not $AudioStreamPlayer.playing:
 #				$AudioStreamPlayer.play()
 
-		elif Input.is_action_pressed("left"):
+		elif Input.is_action_pressed("left") or $Camera/LeftTouch.is_pressed():
+			Cache.player_position = -1
 			velocity.x = -speed
 			animated_sprite.flip_h = true
 			animated_sprite.play("walk")
@@ -55,6 +71,20 @@ func _physics_process(_delta):
 			$JumpSound.play()
 			velocity.y = -jump_speed
 			
+		if Input.is_action_just_pressed("wave"):
+			if able_to_shoot_wave:
+				ignore_idle = true
+				$AnimatedSprite.play("wave")
+				var w = wave.instance()
+				get_parent().add_child(w)
+				w.global_position = $WaveOut.global_position
+				$AnimatedSprite.play('wave')
+				ignore_idle = true
+				Input.action_release("left")
+				Input.action_release("right")
+				yield(get_tree().create_timer(0.5), "timeout")
+				ignore_idle = false
+				$AnimatedSprite.play('idle')
 
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -74,14 +104,14 @@ func bounce_up():
 	velocity.y = -jump_speed * 0.5
 	
 
-func hurt(value):
+func hurt(value, bump=true):
 	if not immune:
-		print('body hurted')
 	#	var death_reason = 'hurt'
 		$HurtSound.play()
 		modulate = Color(255, 1, 1, 0.6)
 		$Life/LifeProgressBar.value -= value
-		velocity.y = -jump_speed * 0.65
+		if bump:
+			velocity.y = -jump_speed * 0.65
 		$StunTimer.start(2)
 	#	velocity = move_and_slide(velocity, Vector2.UP)		
 #		$DeathTimer.start(1)
@@ -103,7 +133,7 @@ func _on_FallZone_body_entered(body): #fall down cliffs
 #		$ScreamSound.play()
 #		yield(get_tree().create_timer(1.5), "timeout")
 	#	var death_reason = 'drop'
-		body.dead()
+		body.dead('cliff')
 		$ScreamSound.play(0.45)
 	else:
 		position.x = 12
@@ -115,6 +145,7 @@ func get_powered():
 	if not powered:
 		powered = true
 		speed = 450
+		$ProgressBar/Rounded.value = 100
 		$TextureRect.modulate = Color8(255, 255, 0)
 		$TextureRect.visible = true
 		$ProgressBar.visible = true
@@ -125,20 +156,19 @@ func get_powered():
 	
 	
 func get_immune():
-	print($ProgressBar/Rounded.value)
 	if not immune:
 		immune = true
 		set_collision_mask_bit(4, false)
-	#	$AnimatedSprite.modulate = Color8(155, 155, 255)
+		$ProgressBar/Rounded.value = 100
 		$TextureRect.modulate = Color8(0, 255, 0)
 		$TextureRect.visible = true
-		for node in get_node('/root/GameScene/Enemies').get_children():
+		for node in get_node('../Enemies').get_children():
 			node.set_collision_mask_bit(0, false)
 			node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
 			node.get_node('PlayerTopChecker').set_collision_mask_bit(0, false)
 			print(node)
 		
-		if get_node('/root/GameScene/BigEnemies'):
+		if get_node('../BigEnemies'):
 			for node in get_node('/root/GameScene/BigEnemies').get_children():
 				node.set_collision_mask_bit(0, false)
 				node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
@@ -152,21 +182,21 @@ func get_immune():
 	
 func dead(reason=''):
 	alive = false
+	if powered:
+		_on_PowerTimer_timeout()
 	$AnimatedSprite.play("dead")
-	if reason == 'burned':
+	if reason == 'burn':
 		modulate = Color(0,0,0)
 	if get_node("CollisionShape"):
 		$CollisionShape.queue_free()
 	Input.action_release("right")
 	Input.action_release("left")
 	Input.action_release("jump")
-	$DeathTimer.start(1)
-		
-func _on_DeathTimer_timeout():
 	get_node('/root/GameScene/CoinsCounter').visible = false
 	get_node('/root/GameScene/' + Settings.sprite + '/Life').visible = false
 	get_node('/root/GameScene/Shop').visible = false
-	get_node('/root/GameScene/' + Settings.sprite + '/ProgressBar').visible = false
+#	get_node('/root/GameScene/LevelName').visible = false
+	yield(get_tree().create_timer(1.5), "timeout")
 #	get_node('.').self_modulate = Color(0.59, 0.66, 0.78, 1.0)
 #	get_node('/root/GameScene/Player/Camera/Shade').rect_position.x = -512
 #	get_node('/root/GameScene/Player/Camera/Shade').rect_position.y = -300
@@ -182,6 +212,7 @@ func _on_DeathTimer_timeout():
 	image.flip_y()
 	image.set_pixel(1,1,Color(255,1,1,1))
 	image.save_png("user://lose_scene.png")
+	Cache.dead_reason = reason
 	get_tree().change_scene('res://LoseScene.tscn')
 
 
@@ -209,7 +240,7 @@ func _on_ImmunityTimer_timeout():
 
 func _on_LifeProgressBar_value_changed(value):
 	if value == 0:
-		dead()
+		dead('life')
 		
 
 

@@ -53,9 +53,8 @@ func _on_ExplosionTimer_timeout():
 #		get_node('/root/GameScene/ExplosionFlash').visible = false
 #		get_node('/root/GameScene/TileMapSolid').set_cellv(location, -1)
 		if not get_node('/root/GameScene/' + Settings.sprite + '').immune:
-			print('not immune')
 			get_node('/root/GameScene/' + Settings.sprite + '').visible = true
-			get_node('/root/GameScene/' + Settings.sprite + '').dead('burned')
+			get_node('/root/GameScene/' + Settings.sprite + '').dead('burn')
 		$ExplosionFlash.visible = false
 		
 		

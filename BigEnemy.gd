@@ -5,8 +5,10 @@ extends KinematicBody2D
 var velocity = Vector2()
 var direction = -1
 export var speed = 80
+export var drop_coins = true
 var hitted_times = 0
-	#var hitted_player = false
+const coins_scene = preload("res://Coins.tscn")
+var dead = false
 
 # right => 1
 # left => -1
@@ -22,7 +24,7 @@ func _ready():
 
 
 func _physics_process(delta):
-
+	velocity.x = 0
 	if not $FloorChecker.is_colliding() or $WallCheckerLeft.is_colliding() or $WallCheckerRight.is_colliding():
 		direction = direction * -1
 		$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
@@ -36,21 +38,27 @@ func _physics_process(delta):
 
 
 func _on_PlayerTopChecker_body_entered(body):
-	if body.get_class() == 'KinematicBody2D':
-		if hitted_times < 2:
-			hitted_times += 1
-			body.bounce_up()
+	if body.is_in_group('player') and not dead or body.is_in_group('wave'): 
+		hitted_times += 1
+		if hitted_times == 1:
 			modulate = Color(255, 1, 1, 0.6)
 		else:
 			$AnimatedSprite.play("dead")
-			body.bounce_up()
+			if drop_coins:
+				var coins_instance = coins_scene.instance()
+				coins_instance.name = 'Coins'
+				for i in range(2):
+					get_node("../../Coins").add_child(coins_instance)
+					coins_instance.position = position
+			if body.is_in_group('player'):
+				body.bounce_up()
 			speed = 0
 			yield(get_tree().create_timer(0.5), "timeout")
 			queue_free()
 
 
 func _on_PlayerSidesChecker_body_entered(body):
-	if body.get_class() == 'KinematicBody2D' and not body.immune and not body.powered:
+	if body.is_in_group('player') and not body.immune and not body.powered:
 		print('body entered')
 		var enemy_position = round($AnimatedSprite.get_global_transform_with_canvas().origin.x)
 		var player_position = round(get_node('/root/GameScene/' + Settings.sprite + '/AnimatedSprite').get_global_transform_with_canvas().origin.x)
@@ -65,7 +73,7 @@ func _on_PlayerSidesChecker_body_entered(body):
 		set_collision_mask_bit(4, false)
 		body.set_collision_mask_bit(4, false)
 		body.hurt(50)
-	elif body.get_class() == 'KinematicBody2D' and body.powered:
+	elif body.is_in_group('player') and body.powered:
 		body.get_node('AnimatedSprite').play('kick')
 		body.ignore_idle = true
 		velocity.y -= 300
@@ -75,6 +83,9 @@ func _on_PlayerSidesChecker_body_entered(body):
 		queue_free()
 		body.ignore_idle = false
 		body.get_node('AnimatedSprite').play('idle')
+	elif body.is_in_group('wave'):
+		hitted_times = 2
+		_on_PlayerTopChecker_body_entered(body)
 
 
 func _on_PlayerBottomChecker_body_entered(body):

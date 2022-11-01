@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://assets/Items/gold_1.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -111,6 +111,10 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=40]
 extents = Vector2( 36.5, 25.5 )
 
+[sub_resource type="ImageTexture" id=57]
+
+[sub_resource type="ImageTexture" id=58]
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 37 ) ],
@@ -160,6 +164,19 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="Gradient" id=53]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.0034965, 0.0314685, 0.0559441, 0.129371, 0.541958, 0.867133, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.318736, 0.318736, 0.318736, 0.681264, 0.129412, 0.129412, 0.129412, 0, 0.152941, 0.152941, 0.152941, 0, 0.109804, 0.109804, 0.109804, 0, 0.588235, 0.588235, 0.588235, 0, 0.880557, 0.880557, 0.880557, 0, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=51]
+gradient = SubResource( 53 )
+fill = 1
+
+[sub_resource type="GradientTexture2D" id=52]
+gradient = SubResource( 53 )
+fill = 1
 
 [sub_resource type="StreamTexture" id=47]
 flags = 4
@@ -220,6 +237,23 @@ font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=30]
 size = 25
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=54]
+size = 25
+outline_size = 1
+font_data = ExtResource( 16 )
+
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0, 0, 0, 0.666667 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=56]
+size = 25
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 16 )
 
 [node name="GameScene" type="Node2D"]
@@ -291,27 +325,27 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Collisions" type="StaticBody2D" parent="TileMapOneWay"]
-position = Vector2( 0, 6 )
+[node name="OneWayCollisions" type="StaticBody2D" parent="."]
+position = Vector2( -4, 0 )
 collision_layer = 2
 collision_mask = 49
 
-[node name="CollisionShape1" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
+[node name="CollisionShape1" type="CollisionShape2D" parent="OneWayCollisions"]
 position = Vector2( 416, 409 )
 shape = SubResource( 23 )
 one_way_collision = true
 
-[node name="CollisionShape2" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
+[node name="CollisionShape2" type="CollisionShape2D" parent="OneWayCollisions"]
 position = Vector2( 511.5, 283 )
 shape = SubResource( 24 )
 one_way_collision = true
 
-[node name="CollisionShape3" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
+[node name="CollisionShape3" type="CollisionShape2D" parent="OneWayCollisions"]
 position = Vector2( 1312.5, 282.25 )
 shape = SubResource( 25 )
 one_way_collision = true
 
-[node name="CollisionShape4" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
+[node name="CollisionShape4" type="CollisionShape2D" parent="OneWayCollisions"]
 position = Vector2( 1216, 409 )
 shape = SubResource( 26 )
 one_way_collision = true
@@ -361,6 +395,9 @@ shape = SubResource( 43 )
 [node name="Flag" type="Area2D" parent="."]
 collision_layer = 128
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Flag"]
 position = Vector2( 1508, -1321 )
@@ -372,7 +409,6 @@ position = Vector2( 1507, -1318 )
 shape = SubResource( 40 )
 
 [node name="Marcus" type="KinematicBody2D" parent="."]
-visible = false
 position = Vector2( 12, 2 )
 collision_mask = 94
 script = ExtResource( 2 )
@@ -384,6 +420,16 @@ limit_bottom = 1280
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_limits = true
+
+[node name="RightTouch" type="TouchScreenButton" parent="Marcus/Camera"]
+position = Vector2( 0, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 57 )
+
+[node name="LeftTouch" type="TouchScreenButton" parent="Marcus/Camera"]
+position = Vector2( -514, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 58 )
 
 [node name="TextureRect" type="TextureRect" parent="Marcus"]
 visible = false
@@ -460,6 +506,16 @@ limit_bottom = 1280
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_limits = true
+
+[node name="RightTouch" type="TouchScreenButton" parent="Jessie/Camera"]
+position = Vector2( 0, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 51 )
+
+[node name="LeftTouch" type="TouchScreenButton" parent="Jessie/Camera"]
+position = Vector2( -514, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 52 )
 
 [node name="TextureRect" type="TextureRect" parent="Jessie"]
 visible = false
@@ -702,6 +758,40 @@ grow_vertical = 0
 color = Color( 1, 0.392157, 0.392157, 0.588235 )
 
 [node name="Shop" parent="." instance=ExtResource( 12 )]
+
+[node name="LevelName" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="LevelName"]
+margin_left = 698.0
+margin_top = 559.0
+margin_right = 1009.0
+margin_bottom = 591.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 54 )
+text = "Level 3"
+align = 2
+
+[node name="LeftGameTime" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="LeftGameTime"]
+margin_left = 914.0
+margin_top = 9.0
+margin_right = 1084.0
+margin_bottom = 58.0
+custom_styles/panel = SubResource( 55 )
+
+[node name="Label" type="Label" parent="LeftGameTime"]
+margin_left = 915.0
+margin_top = 10.0
+margin_right = 1025.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 56 )
+text = "00:00"
+align = 1
+valign = 1
+
+[node name="GameTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="TileMapDanger/ExplosionArea1" to="Marcus" method="_on_ExplosionArea_body_entered"]
 [connection signal="body_exited" from="TileMapDanger/ExplosionArea1" to="Marcus" method="_on_ExplosionArea_body_exited"]

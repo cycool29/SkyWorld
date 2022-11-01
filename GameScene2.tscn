@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TilemapSolid.tres" type="TileSet" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://PowerPotion.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_idle.png" type="Texture" id=29]
 [ext_resource path="res://assets/Items/white_round.png" type="Texture" id=30]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_down.png" type="Texture" id=31]
 [ext_resource path="res://assets/Items/flagRed2.png" type="Texture" id=32]
 [ext_resource path="res://assets/Items/flagRed.png" type="Texture" id=33]
 [ext_resource path="res://Flag.gd" type="Script" id=34]
@@ -39,6 +40,7 @@
 [ext_resource path="res://assets/Sounds/girl_hurt.ogg" type="AudioStream" id=38]
 [ext_resource path="res://assets/Sounds/jump.ogg" type="AudioStream" id=39]
 [ext_resource path="res://assets/Sounds/girl_scream.ogg" type="AudioStream" id=40]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_shoveBack.png" type="Texture" id=41]
 [ext_resource path="res://MovingTile.tscn" type="PackedScene" id=42]
 [ext_resource path="res://BigEnemy.tscn" type="PackedScene" id=43]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_walk7.png" type="Texture" id=44]
@@ -58,6 +60,7 @@
 [ext_resource path="res://GameScene.gd" type="Script" id=58]
 [ext_resource path="res://assets/Sounds/boy_scream.ogg" type="AudioStream" id=59]
 [ext_resource path="res://assets/Sounds/boy_hurt.ogg" type="AudioStream" id=60]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_drag.png" type="Texture" id=62]
 
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 96, 33 )
@@ -80,7 +83,11 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=40]
-extents = Vector2( 36.5, 25.5 )
+extents = Vector2( 8.25, 25.5 )
+
+[sub_resource type="ImageTexture" id=56]
+
+[sub_resource type="ImageTexture" id=57]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -109,6 +116,11 @@ animations = [ {
 "name": "walk",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 31 ), ExtResource( 41 ), ExtResource( 62 ) ],
+"loop": false,
+"name": "wave",
+"speed": 7.0
+}, {
 "frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "win",
@@ -131,6 +143,19 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="Gradient" id=50]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.0034965, 0.0314685, 0.0559441, 0.129371, 0.541958, 0.867133, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.318736, 0.318736, 0.318736, 0.681264, 0.129412, 0.129412, 0.129412, 0, 0.152941, 0.152941, 0.152941, 0, 0.109804, 0.109804, 0.109804, 0, 0.588235, 0.588235, 0.588235, 0, 0.880557, 0.880557, 0.880557, 0, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=51]
+gradient = SubResource( 50 )
+fill = 1
+
+[sub_resource type="GradientTexture2D" id=52]
+gradient = SubResource( 50 )
+fill = 1
 
 [sub_resource type="StreamTexture" id=47]
 flags = 4
@@ -191,6 +216,23 @@ font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=30]
 size = 25
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=53]
+size = 25
+outline_size = 1
+font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0, 0, 0, 0.666667 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=55]
+size = 25
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 17 )
 
 [node name="GameScene" type="Node2D"]
@@ -262,54 +304,55 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Collisions" type="StaticBody2D" parent="TileMapOneWay"]
-position = Vector2( 0, 6 )
+[node name="OneWayCollisions" type="StaticBody2D" parent="."]
+position = Vector2( -4, 0 )
 collision_layer = 2
 collision_mask = 49
 
-[node name="CollisionShape1" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
+[node name="CollisionShape1" type="CollisionShape2D" parent="OneWayCollisions"]
 position = Vector2( 736, 25 )
 shape = SubResource( 23 )
 one_way_collision = true
 
-[node name="CollisionShape2" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
+[node name="CollisionShape2" type="CollisionShape2D" parent="OneWayCollisions"]
 position = Vector2( 736, 156 )
 shape = SubResource( 24 )
 one_way_collision = true
 
-[node name="CollisionShape3" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
+[node name="CollisionShape3" type="CollisionShape2D" parent="OneWayCollisions"]
 position = Vector2( 1312.5, 282.25 )
 shape = SubResource( 25 )
 one_way_collision = true
 
-[node name="CollisionShape4" type="CollisionShape2D" parent="TileMapOneWay/Collisions"]
+[node name="CollisionShape4" type="CollisionShape2D" parent="OneWayCollisions"]
 position = Vector2( 1216, 409 )
 shape = SubResource( 26 )
 one_way_collision = true
 
-[node name="MovingTiles" type="Node2D" parent="."]
+[node name="MovingTiles" type="Node" parent="."]
 
 [node name="MovingTile1" parent="MovingTiles" instance=ExtResource( 42 )]
-position = Vector2( 1132, -974 )
+position = Vector2( 520, -622 )
 
 [node name="MovingTile2" parent="MovingTiles" instance=ExtResource( 42 )]
-position = Vector2( 36, -86 )
+position = Vector2( -11, -109 )
+move_to = Vector2( 100, 0 )
+speed = 2.0
 
 [node name="Flag" type="Area2D" parent="."]
 collision_layer = 128
 script = ExtResource( 34 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Flag"]
-position = Vector2( -281, 469 )
+position = Vector2( 189, -1446 )
 frames = SubResource( 39 )
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flag"]
-position = Vector2( -282, 472 )
+position = Vector2( 159.75, -1443 )
 shape = SubResource( 40 )
 
-[node name="Marcus" type="KinematicBody2D" parent="."]
-visible = false
+[node name="Marcus" type="KinematicBody2D" parent="." groups=["player"]]
 position = Vector2( 12, 2 )
 collision_mask = 94
 script = ExtResource( 3 )
@@ -321,6 +364,16 @@ limit_bottom = 1280
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_limits = true
+
+[node name="RightTouch" type="TouchScreenButton" parent="Marcus/Camera"]
+position = Vector2( 0, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 56 )
+
+[node name="LeftTouch" type="TouchScreenButton" parent="Marcus/Camera"]
+position = Vector2( -514, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 57 )
 
 [node name="TextureRect" type="TextureRect" parent="Marcus"]
 visible = false
@@ -335,7 +388,9 @@ expand = true
 position = Vector2( 220, 415 )
 scale = Vector2( 0.294271, 0.294271 )
 frames = SubResource( 3 )
-animation = "win"
+animation = "wave"
+frame = 2
+playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Marcus"]
 position = Vector2( 219.5, 421 )
@@ -384,7 +439,10 @@ stream = ExtResource( 39 )
 [node name="ScreamSound" type="AudioStreamPlayer" parent="Marcus"]
 stream = ExtResource( 59 )
 
-[node name="Jessie" type="KinematicBody2D" parent="."]
+[node name="WaveOut" type="Position2D" parent="Marcus"]
+position = Vector2( 240, 422 )
+
+[node name="Jessie" type="KinematicBody2D" parent="." groups=["player"]]
 visible = false
 position = Vector2( 12, 2 )
 collision_mask = 94
@@ -397,6 +455,16 @@ limit_bottom = 1280
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_limits = true
+
+[node name="RightTouch" type="TouchScreenButton" parent="Jessie/Camera"]
+position = Vector2( 0, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 51 )
+
+[node name="LeftTouch" type="TouchScreenButton" parent="Jessie/Camera"]
+position = Vector2( -514, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 52 )
 
 [node name="TextureRect" type="TextureRect" parent="Jessie"]
 visible = false
@@ -718,6 +786,40 @@ collision_mask = 32
 [node name="BigEnemy2" parent="BigEnemies" instance=ExtResource( 43 )]
 position = Vector2( 364, -1438 )
 collision_mask = 32
+
+[node name="LevelName" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="LevelName"]
+margin_left = 698.0
+margin_top = 559.0
+margin_right = 1009.0
+margin_bottom = 591.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 53 )
+text = "Level 3"
+align = 2
+
+[node name="LeftGameTime" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="LeftGameTime"]
+margin_left = 914.0
+margin_top = 9.0
+margin_right = 1084.0
+margin_bottom = 58.0
+custom_styles/panel = SubResource( 54 )
+
+[node name="Label" type="Label" parent="LeftGameTime"]
+margin_left = 915.0
+margin_top = 10.0
+margin_right = 1025.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 55 )
+text = "00:00"
+align = 1
+valign = 1
+
+[node name="GameTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="Flag" to="Flag" method="_on_Flag_body_entered"]
 [connection signal="timeout" from="Marcus/DeathTimer" to="Marcus" method="_on_DeathTimer_timeout"]

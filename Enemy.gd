@@ -35,14 +35,16 @@ func _physics_process(delta):
 
 
 func _on_PlayerTopChecker_body_entered(body):
-	if body.get_class() == 'KinematicBody2D':
+	if body.is_in_group('player') or body.is_in_group('wave'):
+		speed = 0
 		$AnimatedSprite.play("dead")
 		if drop_coins:
 			var coins_instance = coins_scene.instance()
 			coins_instance.name = 'Coins'
 			get_node("../../Coins").add_child(coins_instance)
 			coins_instance.position = position
-		body.bounce_up()
+		if body.is_in_group('player'):
+			body.bounce_up()
 		yield(get_tree().create_timer(0.5), "timeout")
 		queue_free()
 		
@@ -64,7 +66,7 @@ func _on_PlayerSidesChecker_body_entered(body):
 		set_collision_mask_bit(4, false)
 		body.set_collision_mask_bit(4, false)
 		body.hurt(20)
-	elif body.get_class() == 'KinematicBody2D' and body.powered:
+	elif body.is_in_group('player') and body.powered:
 		body.get_node('AnimatedSprite').play('kick')
 		body.ignore_idle = true
 		velocity.y -= 300
@@ -74,6 +76,8 @@ func _on_PlayerSidesChecker_body_entered(body):
 		queue_free()
 		body.ignore_idle = false
 		body.get_node('AnimatedSprite').play('idle')
+	elif body.is_in_group('wave'):
+		_on_PlayerTopChecker_body_entered(body)
 
 
 func _on_PlayerBottomChecker_body_entered(body):
