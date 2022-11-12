@@ -43,7 +43,9 @@ func _on_PlayerTopChecker_body_entered(body):
 		if hitted_times == 1:
 			modulate = Color(255, 1, 1, 0.6)
 		else:
+			$DeathSound.play()
 			$AnimatedSprite.play("dead")
+			speed = 0
 			if drop_coins:
 				var coins_instance = coins_scene.instance()
 				coins_instance.name = 'Coins'
@@ -52,7 +54,6 @@ func _on_PlayerTopChecker_body_entered(body):
 					coins_instance.position = position
 			if body.is_in_group('player'):
 				body.bounce_up()
-			speed = 0
 			yield(get_tree().create_timer(0.5), "timeout")
 			queue_free()
 

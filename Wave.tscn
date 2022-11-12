@@ -7,6 +7,7 @@
 extents = Vector2( 59.625, 25.5 )
 
 [node name="Wave" type="KinematicBody2D" groups=["wave"]]
+modulate = Color( 0.278431, 0, 0.772549, 1 )
 collision_layer = 32
 collision_mask = 16
 script = ExtResource( 1 )

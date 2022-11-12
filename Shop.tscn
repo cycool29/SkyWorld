@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/Items/health_potion (8).png" type="Texture" id=1]
 [ext_resource path="res://assets/Items/health_potion (2).png" type="Texture" id=2]
@@ -18,10 +18,14 @@
 [ext_resource path="res://assets/HUD/hud_5.png" type="Texture" id=16]
 [ext_resource path="res://Shop.gd" type="Script" id=17]
 [ext_resource path="res://assets/Sounds/getPotion.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/HUD/hud_1.png" type="Texture" id=19]
 
 [sub_resource type="StyleBoxFlat" id=1]
 corner_radius_top_left = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=8]
+corner_radius_top_left = 20
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 1, 1, 1 )
@@ -46,6 +50,9 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="StyleBoxFlat" id=9]
+corner_radius_bottom_left = 20
+
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 1, 1, 1, 1 )
 corner_radius_bottom_left = 20
@@ -63,10 +70,9 @@ script = ExtResource( 17 )
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 936.0
-margin_top = 128.0
-margin_right = 1024.0
-margin_bottom = 468.0
+margin_left = 923.0
+margin_right = 1023.0
+margin_bottom = 564.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="LifePotion" type="Node2D" parent="."]
@@ -74,34 +80,35 @@ modulate = Color( 1, 1, 1, 0.392157 )
 
 [node name="LifePotionButton" type="Button" parent="LifePotion"]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 936.0
-margin_top = 128.0
-margin_right = 1024.0
-margin_bottom = 240.0
+margin_left = 923.34
+margin_top = -0.000720978
+margin_right = 1023.34
+margin_bottom = 111.999
+custom_styles/pressed = SubResource( 8 )
 custom_styles/normal = SubResource( 4 )
 disabled = true
 
 [node name="LifePotion" type="AnimatedSprite" parent="LifePotion"]
 self_modulate = Color( 1, 0.580392, 0.580392, 1 )
-position = Vector2( 976, 160 )
+position = Vector2( 967.34, 31.9993 )
 scale = Vector2( 0.172724, 0.172724 )
 frames = SubResource( 2 )
 animation = "shake"
 
 [node name="Coin" type="TextureRect" parent="LifePotion"]
-margin_left = 976.0
-margin_top = 200.0
-margin_right = 1016.0
-margin_bottom = 232.0
+margin_left = 975.34
+margin_top = 71.9993
+margin_right = 1015.34
+margin_bottom = 103.999
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="LifePotion"]
-margin_left = 944.0
-margin_top = 200.0
-margin_right = 976.0
-margin_bottom = 232.0
+margin_left = 943.34
+margin_top = 71.9993
+margin_right = 975.34
+margin_bottom = 103.999
 texture = ExtResource( 14 )
 expand = true
 stretch_mode = 6
@@ -111,34 +118,34 @@ modulate = Color( 1, 1, 1, 0.392157 )
 
 [node name="PowerPotionButton" type="Button" parent="PowerPotion"]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 936.0
-margin_top = 242.0
-margin_right = 1024.0
-margin_bottom = 354.0
+margin_left = 924.412
+margin_top = 112.06
+margin_right = 1024.41
+margin_bottom = 224.06
 custom_styles/normal = SubResource( 6 )
 disabled = true
 
 [node name="PowerPotion" type="AnimatedSprite" parent="PowerPotion"]
 modulate = Color( 1, 1, 0, 1 )
-position = Vector2( 976, 274 )
+position = Vector2( 968.413, 150.06 )
 scale = Vector2( 0.173, 0.173 )
 frames = SubResource( 7 )
 animation = "shake"
 
 [node name="Coin" type="TextureRect" parent="PowerPotion"]
-margin_left = 981.34
-margin_top = 314.0
-margin_right = 1021.34
-margin_bottom = 346.0
+margin_left = 981.753
+margin_top = 184.06
+margin_right = 1021.75
+margin_bottom = 216.06
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="PowerPotion"]
-margin_left = 949.34
-margin_top = 314.0
-margin_right = 981.34
-margin_bottom = 346.0
+margin_left = 949.753
+margin_top = 184.06
+margin_right = 981.753
+margin_bottom = 216.06
 texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
@@ -148,34 +155,121 @@ modulate = Color( 1, 1, 1, 0.392157 )
 
 [node name="ImmunePotionButton" type="Button" parent="ImmunePotion"]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 936.0
-margin_top = 355.999
-margin_right = 1024.0
-margin_bottom = 467.999
+margin_left = 923.412
+margin_top = 225.059
+margin_right = 1023.41
+margin_bottom = 337.059
+custom_styles/pressed = SubResource( 9 )
 custom_styles/normal = SubResource( 5 )
 disabled = true
 
 [node name="ImmunePotion" type="AnimatedSprite" parent="ImmunePotion"]
 modulate = Color( 0, 1, 0, 1 )
-position = Vector2( 976, 387 )
+position = Vector2( 967.412, 261.06 )
 scale = Vector2( 0.173, 0.173 )
 frames = SubResource( 3 )
 animation = "shake"
 
 [node name="Coin" type="TextureRect" parent="ImmunePotion"]
-margin_left = 981.34
-margin_top = 424.999
-margin_right = 1021.34
-margin_bottom = 456.999
+margin_left = 975.412
+margin_top = 301.06
+margin_right = 1015.41
+margin_bottom = 333.06
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="ImmunePotion"]
-margin_left = 949.34
-margin_top = 424.999
-margin_right = 981.34
-margin_bottom = 456.999
+margin_left = 943.412
+margin_top = 301.06
+margin_right = 975.412
+margin_bottom = 333.06
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+
+[node name="TimeFreezePotion" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+
+[node name="TimeFreezePotionButton" type="Button" parent="TimeFreezePotion"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 924.413
+margin_top = 339.059
+margin_right = 1024.41
+margin_bottom = 451.059
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 5 )
+disabled = true
+
+[node name="TimeFreezePotion" type="AnimatedSprite" parent="TimeFreezePotion"]
+modulate = Color( 0, 1, 0, 1 )
+position = Vector2( 968.412, 375.06 )
+scale = Vector2( 0.173, 0.173 )
+frames = SubResource( 3 )
+animation = "shake"
+
+[node name="Coin" type="TextureRect" parent="TimeFreezePotion"]
+margin_left = 976.413
+margin_top = 415.06
+margin_right = 1016.41
+margin_bottom = 447.06
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="TimeFreezePotion"]
+margin_left = 944.413
+margin_top = 415.06
+margin_right = 976.413
+margin_bottom = 447.06
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+
+[node name="WavePotion" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( -1, 111 )
+
+[node name="WavePotionButton" type="Button" parent="WavePotion"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 924.412
+margin_top = 341.059
+margin_right = 1024.41
+margin_bottom = 453.059
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 5 )
+disabled = true
+
+[node name="WavePotion" type="AnimatedSprite" parent="WavePotion"]
+modulate = Color( 0.278431, 0, 0.772549, 1 )
+position = Vector2( 969.412, 375.06 )
+scale = Vector2( 0.173, 0.173 )
+frames = SubResource( 3 )
+animation = "shake"
+
+[node name="Coin" type="TextureRect" parent="WavePotion"]
+margin_left = 982.412
+margin_top = 415.06
+margin_right = 1022.41
+margin_bottom = 447.06
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="WavePotion"]
+margin_left = 929.412
+margin_top = 415.06
+margin_right = 961.412
+margin_bottom = 447.06
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="WavePotion"]
+margin_left = 953.412
+margin_top = 415.06
+margin_right = 985.412
+margin_bottom = 447.06
 texture = ExtResource( 16 )
 expand = true
 stretch_mode = 6
@@ -187,3 +281,5 @@ volume_db = 2.0
 [connection signal="pressed" from="LifePotion/LifePotionButton" to="." method="_on_LifePotionButton_pressed"]
 [connection signal="pressed" from="PowerPotion/PowerPotionButton" to="." method="_on_PowerPotionButton_pressed"]
 [connection signal="pressed" from="ImmunePotion/ImmunePotionButton" to="." method="_on_ImmunePotionButton_pressed"]
+[connection signal="pressed" from="TimeFreezePotion/TimeFreezePotionButton" to="." method="_on_TimeFreezePotionButton_pressed"]
+[connection signal="pressed" from="WavePotion/WavePotionButton" to="." method="_on_WavePotionButton_pressed"]

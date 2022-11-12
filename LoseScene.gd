@@ -30,7 +30,7 @@ func _ready():
 func _on_PlayAgain_pressed():
 	$ButtonClickedSound.play()
 	yield(get_tree().create_timer(0.3), "timeout")
-	get_tree().change_scene('res://GameScene' + str(Settings.current_level) + '.tscn')
+	get_tree().change_scene('res://GameScene' + Cache.playing_level + '.tscn')
 	
 
 

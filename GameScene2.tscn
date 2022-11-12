@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TilemapSolid.tres" type="TileSet" id=2]
@@ -30,17 +30,17 @@
 [ext_resource path="res://PowerPotion.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_idle.png" type="Texture" id=29]
 [ext_resource path="res://assets/Items/white_round.png" type="Texture" id=30]
-[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_down.png" type="Texture" id=31]
-[ext_resource path="res://assets/Items/flagRed2.png" type="Texture" id=32]
-[ext_resource path="res://assets/Items/flagRed.png" type="Texture" id=33]
-[ext_resource path="res://Flag.gd" type="Script" id=34]
+[ext_resource path="res://WavePotion.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Flag.tscn" type="PackedScene" id=32]
+[ext_resource path="res://TimeFreezePotion.tscn" type="PackedScene" id=33]
+[ext_resource path="res://assets/HUD/grey_background.png" type="Texture" id=34]
 [ext_resource path="res://assets/HUD/hud_heartFull.png" type="Texture" id=35]
 [ext_resource path="res://TNT.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Shop.tscn" type="PackedScene" id=37]
 [ext_resource path="res://assets/Sounds/girl_hurt.ogg" type="AudioStream" id=38]
 [ext_resource path="res://assets/Sounds/jump.ogg" type="AudioStream" id=39]
 [ext_resource path="res://assets/Sounds/girl_scream.ogg" type="AudioStream" id=40]
-[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_shoveBack.png" type="Texture" id=41]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_hang.png" type="Texture" id=41]
 [ext_resource path="res://MovingTile.tscn" type="PackedScene" id=42]
 [ext_resource path="res://BigEnemy.tscn" type="PackedScene" id=43]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_walk7.png" type="Texture" id=44]
@@ -60,37 +60,161 @@
 [ext_resource path="res://GameScene.gd" type="Script" id=58]
 [ext_resource path="res://assets/Sounds/boy_scream.ogg" type="AudioStream" id=59]
 [ext_resource path="res://assets/Sounds/boy_hurt.ogg" type="AudioStream" id=60]
-[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_drag.png" type="Texture" id=62]
+[ext_resource path="res://assets/Sounds/getPotion.ogg" type="AudioStream" id=61]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_shove.png" type="Texture" id=62]
+[ext_resource path="res://assets/Tiles/ladder_mid.png" type="Texture" id=64]
+[ext_resource path="res://assets/Tiles/ladder_top.png" type="Texture" id=65]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_climb0.png" type="Texture" id=66]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_climb1.png" type="Texture" id=67]
+[ext_resource path="res://LadderTop.tscn" type="PackedScene" id=68]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_07.png" type="Texture" id=69]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_05.png" type="Texture" id=70]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_06.png" type="Texture" id=71]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_04.png" type="Texture" id=72]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_02.png" type="Texture" id=73]
+[ext_resource path="res://WaterAnimated.tres" type="Texture" id=74]
+[ext_resource path="res://CoinStealer.tscn" type="PackedScene" id=75]
 
-[sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 96, 33 )
+[sub_resource type="TileSet" id=69]
+0/name = "tileGreen_02.png 0"
+0/texture = ExtResource( 73 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 50 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "tileGreen_04.png 1"
+1/texture = ExtResource( 72 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "tileGreen_05.png 2"
+2/texture = ExtResource( 70 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "tileGreen_06.png 3"
+3/texture = ExtResource( 71 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 64, 64 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "tileGreen_07.png 4"
+4/texture = ExtResource( 69 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 64, 64 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=24]
-extents = Vector2( 96, 30 )
+[sub_resource type="ConvexPolygonShape2D" id=67]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="RectangleShape2D" id=25]
-extents = Vector2( 95.5, 31.75 )
+[sub_resource type="ConvexPolygonShape2D" id=68]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 128, 33 )
-
-[sub_resource type="SpriteFrames" id=39]
-animations = [ {
-"frames": [ ExtResource( 32 ), ExtResource( 33 ) ],
-"loop": true,
-"name": "default",
-"speed": 3.0
+[sub_resource type="TileSet" id=65]
+0/name = "ladder_top.png 0"
+0/texture = ExtResource( 65 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 67 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 67 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
+0/z_index = 0
+1/name = "ladder_mid.png 1"
+1/texture = ExtResource( 64 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 68 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 68 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=40]
-extents = Vector2( 8.25, 25.5 )
+[sub_resource type="Gradient" id=55]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.0034965, 0.00558659, 0.0167598, 0.0314685, 0.129371, 0.189944, 0.867133, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.317647, 0.317647, 0.317647, 0, 0.152941, 0.152941, 0.152941, 0, 0.588235, 0.588235, 0.588235, 0, 0.129412, 0.129412, 0.129412, 0, 0.109804, 0.109804, 0.109804, 0, 0.173086, 0.173086, 0.173086, 0, 0.880557, 0.880557, 0.880557, 0, 1, 1, 1, 0 )
 
-[sub_resource type="ImageTexture" id=56]
+[sub_resource type="GradientTexture2D" id=56]
+gradient = SubResource( 55 )
+fill = 1
 
 [sub_resource type="ImageTexture" id=57]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=58]
 animations = [ {
+"frames": [ ExtResource( 66 ), ExtResource( 67 ) ],
+"loop": true,
+"name": "climb",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 49 ) ],
 "loop": false,
 "name": "dead",
@@ -116,10 +240,10 @@ animations = [ {
 "name": "walk",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 41 ), ExtResource( 62 ) ],
+"frames": [ ExtResource( 62 ), ExtResource( 41 ) ],
 "loop": false,
 "name": "wave",
-"speed": 7.0
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ) ],
 "loop": false,
@@ -127,22 +251,25 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 20.5, 32 )
+[sub_resource type="RectangleShape2D" id=59]
+extents = Vector2( 23.5, 30.5 )
 
-[sub_resource type="StyleBoxFlat" id=38]
+[sub_resource type="StyleBoxFlat" id=60]
 bg_color = Color( 0.741176, 0, 0, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=32]
+[sub_resource type="StyleBoxFlat" id=61]
 bg_color = Color( 0.352941, 0.352941, 0.352941, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id=66]
+extents = Vector2( 4, 30 )
 
 [sub_resource type="Gradient" id=50]
 interpolation_mode = 2
@@ -197,6 +324,72 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 20.5, 32 )
 
+[sub_resource type="StyleBoxFlat" id=38]
+bg_color = Color( 0.741176, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0.352941, 0.352941, 0.352941, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="ConvexPolygonShape2D" id=73]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 34, 64, 34 )
+
+[sub_resource type="TileSet" id=71]
+0/name = "WaterAnimated.tres 0"
+0/texture = ExtResource( 74 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 73 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 73 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=74]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 34, 64, 34 )
+
+[sub_resource type="TileSet" id=72]
+0/name = "WaterAnimated.tres 0"
+0/texture = ExtResource( 74 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 0, 0, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 74 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 74 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 19.625, 618.25 )
 
@@ -223,14 +416,11 @@ size = 25
 outline_size = 1
 font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=54]
-bg_color = Color( 0, 0, 0, 0.666667 )
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxTexture" id=75]
+texture = ExtResource( 34 )
+region_rect = Rect2( 0, 0, 1170, 878 )
 
-[sub_resource type="DynamicFont" id=55]
+[sub_resource type="DynamicFont" id=62]
 size = 25
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 17 )
@@ -291,7 +481,7 @@ tile_set = ExtResource( 2 )
 collision_layer = 2
 collision_mask = 49
 format = 1
-tile_data = PoolIntArray( -1441790, 14, 0, -1441789, 22, 0, -1441788, 22, 0, -1441787, 1, 0, -1441786, 15, 0, -1179632, 14, 0, -1179631, 15, 0, -1048562, 5, 0, -917498, 23, 0, -917497, 22, 0, -917496, 22, 0, -917495, 22, 0, -917494, 24, 0, -851953, 25, 0, -851952, 26, 0, -851951, 26, 0, -851950, 26, 0, -851949, 26, 0, -851948, 26, 0, -851947, 26, 0, -851946, 26, 0, -851945, 6, 0, -786421, 23, 0, -786420, 24, 0, -655348, 5, 0, -655347, 5, 0, -589802, 7, 0, -524274, 5, 0, -524273, 5, 0, -524266, 7, 0, -458740, 5, 0, -458730, 7, 0, -393206, 5, 0, -393194, 7, 0, -327673, 23, 0, -327672, 21, 0, -327671, 24, 0, -327658, 7, 0, -262122, 7, 0, -196605, 14, 0, -196604, 22, 0, -196603, 22, 0, -196602, 15, 0, -196586, 7, 0, -131050, 7, 0, -65529, 5, 0, -65514, 7, 0, 2, 5, 0, 9, 8, 0, 13, 9, 0, 22, 7, 0, 65536, 5, 0, 65544, 8, 0, 65550, 9, 0, 65558, 7, 0, 131079, 8, 0, 131087, 9, 0, 131094, 7, 0, 262141, 14, 0, 262142, 21, 0, 262143, 21, 0, 196608, 21, 0, 196609, 15, 0, 196630, 7, 0, 262147, 5, 0, 262166, 7, 0, 327702, 7, 0, 393220, 25, 0, 393221, 26, 0, 393222, 26, 0, 393223, 26, 0, 393224, 6, 0, 393238, 7, 0, 458774, 7, 0, 589815, 1, 0, 589816, 1, 0, 589817, 1, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 524288, 23, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 24, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 7, 0 )
+tile_data = PoolIntArray( -1441790, 14, 0, -1441789, 22, 0, -1441788, 22, 0, -1441787, 1, 0, -1441786, 15, 0, -1179632, 14, 0, -1179631, 15, 0, -1048562, 5, 0, -917498, 23, 0, -917497, 22, 0, -917496, 22, 0, -917495, 22, 0, -917494, 24, 0, -851953, 25, 0, -851952, 26, 0, -851951, 26, 0, -851950, 26, 0, -851949, 26, 0, -851948, 26, 0, -851947, 26, 0, -851946, 26, 0, -851945, 6, 0, -786421, 23, 0, -786420, 24, 0, -655348, 5, 0, -655347, 5, 0, -589802, 7, 0, -524274, 5, 0, -524273, 5, 0, -524266, 7, 0, -458740, 5, 0, -458730, 7, 0, -393206, 5, 0, -393194, 7, 0, -327673, 23, 0, -327672, 21, 0, -327671, 24, 0, -327658, 7, 0, -262122, 7, 0, -196605, 14, 0, -196604, 22, 0, -196603, 22, 0, -196602, 15, 0, -196586, 7, 0, -131050, 7, 0, -65529, 5, 0, -65514, 7, 0, 2, 5, 0, 9, 8, 0, 13, 9, 0, 22, 7, 0, 65536, 5, 0, 65544, 8, 0, 65550, 9, 0, 65558, 7, 0, 131079, 8, 0, 131087, 9, 0, 131094, 7, 0, 262141, 14, 0, 262142, 21, 0, 262143, 21, 0, 196608, 21, 0, 196609, 15, 0, 196630, 7, 0, 262166, 7, 0, 327702, 7, 0, 393220, 25, 0, 393221, 26, 0, 393222, 26, 0, 393223, 26, 0, 393224, 6, 0, 393238, 7, 0, 458774, 7, 0, 589815, 1, 0, 589816, 1, 0, 589821, 1, 0, 524288, 23, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 24, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 7, 0 )
 
 [node name="TileMapOneWay" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
@@ -304,30 +494,26 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="OneWayCollisions" type="StaticBody2D" parent="."]
-position = Vector2( -4, 0 )
-collision_layer = 2
-collision_mask = 49
+[node name="TileMapLadderBack" type="TileMap" parent="."]
+position = Vector2( -4, -6 )
+tile_set = SubResource( 69 )
+format = 1
+tile_data = PoolIntArray( 262147, 0, 0 )
 
-[node name="CollisionShape1" type="CollisionShape2D" parent="OneWayCollisions"]
-position = Vector2( 736, 25 )
-shape = SubResource( 23 )
-one_way_collision = true
+[node name="TileMapLadder" type="TileMap" parent="."]
+position = Vector2( -4, -6 )
+tile_set = SubResource( 65 )
+cell_custom_transform = Transform2D( 64, 64, 64, 64, 64, 64 )
+cell_tile_origin = 1
+collision_layer = 256
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 262147, 0, 0, 327683, 1, 0, 393219, 1, 0, 458755, 1, 0 )
 
-[node name="CollisionShape2" type="CollisionShape2D" parent="OneWayCollisions"]
-position = Vector2( 736, 156 )
-shape = SubResource( 24 )
-one_way_collision = true
+[node name="LadderTops" type="Node2D" parent="."]
 
-[node name="CollisionShape3" type="CollisionShape2D" parent="OneWayCollisions"]
-position = Vector2( 1312.5, 282.25 )
-shape = SubResource( 25 )
-one_way_collision = true
-
-[node name="CollisionShape4" type="CollisionShape2D" parent="OneWayCollisions"]
-position = Vector2( 1216, 409 )
-shape = SubResource( 26 )
-one_way_collision = true
+[node name="LadderTop" parent="LadderTops" instance=ExtResource( 68 )]
+position = Vector2( -4, 18 )
 
 [node name="MovingTiles" type="Node" parent="."]
 
@@ -339,22 +525,12 @@ position = Vector2( -11, -109 )
 move_to = Vector2( 100, 0 )
 speed = 2.0
 
-[node name="Flag" type="Area2D" parent="."]
-collision_layer = 128
-script = ExtResource( 34 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Flag"]
-position = Vector2( 189, -1446 )
-frames = SubResource( 39 )
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Flag"]
-position = Vector2( 159.75, -1443 )
-shape = SubResource( 40 )
+[node name="Flag" parent="." instance=ExtResource( 32 )]
+position = Vector2( 171, -1444 )
 
 [node name="Marcus" type="KinematicBody2D" parent="." groups=["player"]]
 position = Vector2( 12, 2 )
-collision_mask = 94
+collision_mask = 222
 script = ExtResource( 3 )
 
 [node name="Camera" type="Camera2D" parent="Marcus"]
@@ -366,9 +542,10 @@ drag_margin_v_enabled = true
 editor_draw_limits = true
 
 [node name="RightTouch" type="TouchScreenButton" parent="Marcus/Camera"]
-position = Vector2( 0, -330 )
+position = Vector2( -7, -293 )
 scale = Vector2( 8, 10 )
 normal = SubResource( 56 )
+shape_visible = false
 
 [node name="LeftTouch" type="TouchScreenButton" parent="Marcus/Camera"]
 position = Vector2( -514, -330 )
@@ -377,24 +554,22 @@ normal = SubResource( 57 )
 
 [node name="TextureRect" type="TextureRect" parent="Marcus"]
 visible = false
-margin_left = 185.0
-margin_top = 386.0
-margin_right = 254.0
-margin_bottom = 455.0
+margin_left = 110.0
+margin_top = 245.0
+margin_right = 179.0
+margin_bottom = 314.0
 texture = ExtResource( 30 )
 expand = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Marcus"]
-position = Vector2( 220, 415 )
+position = Vector2( 144, 272 )
 scale = Vector2( 0.294271, 0.294271 )
-frames = SubResource( 3 )
-animation = "wave"
-frame = 2
-playing = true
+frames = SubResource( 58 )
+animation = "idle"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Marcus"]
-position = Vector2( 219.5, 421 )
-shape = SubResource( 35 )
+position = Vector2( 142.5, 278.5 )
+shape = SubResource( 59 )
 
 [node name="ProgressBar" parent="Marcus" instance=ExtResource( 23 )]
 visible = false
@@ -402,9 +577,12 @@ visible = false
 [node name="DeathTimer" type="Timer" parent="Marcus"]
 
 [node name="ImmunityTimer" type="Timer" parent="Marcus"]
-wait_time = 10.0
+wait_time = 4.0
 
 [node name="PowerTimer" type="Timer" parent="Marcus"]
+wait_time = 4.0
+
+[node name="WaveTimer" type="Timer" parent="Marcus"]
 wait_time = 5.0
 
 [node name="StunTimer" type="Timer" parent="Marcus"]
@@ -417,8 +595,8 @@ margin_top = 30.0
 margin_right = 744.0
 margin_bottom = 86.0
 rect_scale = Vector2( 0.7, 0.5 )
-custom_styles/fg = SubResource( 38 )
-custom_styles/bg = SubResource( 32 )
+custom_styles/fg = SubResource( 60 )
+custom_styles/bg = SubResource( 61 )
 value = 100.0
 percent_visible = false
 script = ExtResource( 24 )
@@ -439,8 +617,20 @@ stream = ExtResource( 39 )
 [node name="ScreamSound" type="AudioStreamPlayer" parent="Marcus"]
 stream = ExtResource( 59 )
 
+[node name="PotionSound" type="AudioStreamPlayer" parent="Marcus"]
+stream = ExtResource( 61 )
+volume_db = 2.0
+
 [node name="WaveOut" type="Position2D" parent="Marcus"]
-position = Vector2( 240, 422 )
+position = Vector2( 165, 272 )
+
+[node name="LadderChecker" type="Area2D" parent="Marcus"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marcus/LadderChecker"]
+position = Vector2( 144, 279 )
+shape = SubResource( 66 )
 
 [node name="Jessie" type="KinematicBody2D" parent="." groups=["player"]]
 visible = false
@@ -527,6 +717,22 @@ stream = ExtResource( 39 )
 
 [node name="ScreamSound" type="AudioStreamPlayer" parent="Jessie"]
 stream = ExtResource( 40 )
+
+[node name="PotionSound" type="AudioStreamPlayer" parent="Jessie"]
+stream = ExtResource( 61 )
+volume_db = 2.0
+
+[node name="TileMapWater" type="TileMap" parent="."]
+position = Vector2( -4, -6 )
+tile_set = SubResource( 71 )
+format = 1
+tile_data = PoolIntArray( 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0 )
+
+[node name="TileMapLava" type="TileMap" parent="."]
+position = Vector2( -4, -6 )
+tile_set = SubResource( 72 )
+format = 1
+tile_data = PoolIntArray( 589822, 0, 0, 589823, 0, 0 )
 
 [node name="TNTs" type="Node2D" parent="."]
 
@@ -697,7 +903,7 @@ position = Vector2( 1284, -878 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 316, 346 )
+position = Vector2( 491, 470 )
 collision_mask = 33
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
@@ -724,10 +930,6 @@ collision_mask = 33
 position = Vector2( 292, -230 )
 collision_mask = 33
 
-[node name="Enemy8" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 28, 474 )
-collision_mask = 33
-
 [node name="Enemy9" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 540, -934 )
 collision_mask = 33
@@ -740,22 +942,31 @@ collision_mask = 33
 position = Vector2( 1132, -878 )
 collision_mask = 33
 
-[node name="Enemy12" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 532, 474 )
-collision_mask = 33
-
 [node name="Enemy13" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 716, 90 )
 collision_mask = 33
 
-[node name="ImmunePotion" parent="." instance=ExtResource( 20 )]
-position = Vector2( 388, -982 )
+[node name="CoinStealers" type="Node2D" parent="."]
 
-[node name="LifePotion" parent="." instance=ExtResource( 25 )]
-position = Vector2( 180, -270 )
+[node name="CoinStealer" parent="CoinStealers" instance=ExtResource( 75 )]
+position = Vector2( 366, 346 )
 
-[node name="PowerPotion" parent="." instance=ExtResource( 28 )]
-position = Vector2( 460, 18 )
+[node name="Potions" type="Node" parent="."]
+
+[node name="ImmunePotion" parent="Potions" instance=ExtResource( 20 )]
+position = Vector2( 392, -976 )
+
+[node name="LifePotion" parent="Potions" instance=ExtResource( 25 )]
+position = Vector2( 184, -264 )
+
+[node name="PowerPotion" parent="Potions" instance=ExtResource( 28 )]
+position = Vector2( 464, 24 )
+
+[node name="WavePotion" parent="Potions" instance=ExtResource( 31 )]
+position = Vector2( 455, 313 )
+
+[node name="TimeFreezePotion" parent="Potions" instance=ExtResource( 33 )]
+position = Vector2( 0, 440 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
@@ -780,7 +991,7 @@ color = Color( 1, 0.392157, 0.392157, 0.588235 )
 [node name="BigEnemies" type="Node2D" parent="."]
 
 [node name="BigEnemy1" parent="BigEnemies" instance=ExtResource( 43 )]
-position = Vector2( 524, 354 )
+position = Vector2( 628, 475 )
 collision_mask = 32
 
 [node name="BigEnemy2" parent="BigEnemies" instance=ExtResource( 43 )]
@@ -802,18 +1013,18 @@ align = 2
 [node name="LeftGameTime" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="LeftGameTime"]
-margin_left = 914.0
-margin_top = 9.0
-margin_right = 1084.0
-margin_bottom = 58.0
-custom_styles/panel = SubResource( 54 )
+margin_left = 793.0
+margin_top = 16.0
+margin_right = 900.0
+margin_bottom = 65.0
+custom_styles/panel = SubResource( 75 )
 
 [node name="Label" type="Label" parent="LeftGameTime"]
-margin_left = 915.0
-margin_top = 10.0
-margin_right = 1025.0
-margin_bottom = 57.0
-custom_fonts/font = SubResource( 55 )
+margin_left = 792.0
+margin_top = 17.0
+margin_right = 902.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 62 )
 text = "00:00"
 align = 1
 valign = 1
@@ -821,16 +1032,17 @@ valign = 1
 [node name="GameTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="Flag" to="Flag" method="_on_Flag_body_entered"]
 [connection signal="timeout" from="Marcus/DeathTimer" to="Marcus" method="_on_DeathTimer_timeout"]
 [connection signal="timeout" from="Marcus/ImmunityTimer" to="Marcus" method="_on_ImmunityTimer_timeout"]
 [connection signal="timeout" from="Marcus/PowerTimer" to="Marcus" method="_on_PowerTimer_timeout"]
+[connection signal="timeout" from="Marcus/WaveTimer" to="Marcus" method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="Marcus/StunTimer" to="Marcus" method="_on_StunTimer_timeout"]
 [connection signal="value_changed" from="Marcus/Life/LifeProgressBar" to="Marcus" method="_on_LifeProgressBar_value_changed"]
+[connection signal="body_entered" from="Marcus/LadderChecker" to="Marcus" method="_on_LadderChecker_body_entered"]
+[connection signal="body_exited" from="Marcus/LadderChecker" to="Marcus" method="_on_LadderChecker_body_exited"]
 [connection signal="timeout" from="Jessie/DeathTimer" to="Jessie" method="_on_DeathTimer_timeout"]
 [connection signal="timeout" from="Jessie/ImmunityTimer" to="Jessie" method="_on_ImmunityTimer_timeout"]
 [connection signal="timeout" from="Jessie/PowerTimer" to="Jessie" method="_on_PowerTimer_timeout"]
 [connection signal="timeout" from="Jessie/StunTimer" to="Jessie" method="_on_StunTimer_timeout"]
 [connection signal="value_changed" from="Jessie/Life/LifeProgressBar" to="Jessie" method="_on_LifeProgressBar_value_changed"]
 [connection signal="body_entered" from="FallZone" to="Marcus" method="_on_FallZone_body_entered"]
-[connection signal="body_entered" from="FallZone" to="Jessie" method="_on_FallZone_body_entered"]

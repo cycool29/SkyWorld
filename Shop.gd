@@ -51,3 +51,14 @@ func _on_PowerPotionButton_pressed():
 		$BoughtSound.play()
 		get_node("../"  + Settings.sprite).deduct_coin(8)
 		get_node('../' + Settings.sprite).get_powered()
+
+
+func _on_WavePotionButton_pressed():
+	if not get_node("../"  + Settings.sprite).immune and not get_node("../"  + Settings.sprite).powered:
+		$BoughtSound.play()
+		get_node("../"  + Settings.sprite).get_wave()
+
+
+func _on_TimeFreezePotionButton_pressed():
+	get_node("../"  + Settings.sprite).time_freeze(5)
+	queue_free()

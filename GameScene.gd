@@ -10,7 +10,11 @@ func _ready():
 	elif Settings.sprite == 'Marcus':
 		get_node("Jessie").queue_free()
 		get_node("Marcus/Camera").current = true
+	Cache.playing_level =  str(get_tree().current_scene.filename[15])
 	$LevelName/Label.text = "Level " + str(get_tree().current_scene.filename[15])
+	var stylebox = $LeftGameTime/Panel.get_stylebox("panel").duplicate()
+	stylebox.texture = load("res://assets/HUD/grey_background.png")
+	$LeftGameTime/Panel.add_stylebox_override("panel", stylebox)
 	$GameTimer.start(2*60)
 	
 	

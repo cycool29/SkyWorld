@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var direction = -1
+var dead = false
 export var speed = 50
 export var drop_coins = true
 #var hitted_player = false
@@ -22,7 +23,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if not $FloorChecker.is_colliding() or $WallCheckerLeft.is_colliding() or $WallCheckerRight.is_colliding():
+	if (not $FloorChecker.is_colliding() or $WallCheckerLeft.is_colliding() or $WallCheckerRight.is_colliding()) and not dead:
 		direction = direction * -1
 		$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
 #		$CollisionShape2D.scale.x = $CollisionShape2D.scale.x * -1
@@ -35,8 +36,12 @@ func _physics_process(delta):
 
 
 func _on_PlayerTopChecker_body_entered(body):
-	if body.is_in_group('player') or body.is_in_group('wave'):
+	if (body.is_in_group('player') or body.is_in_group('wave')) and not dead:
+		dead = true
 		speed = 0
+		$CollisionShape2D.queue_free()
+		$PlayerSidesChecker.queue_free()
+		$DeathSound.play()
 		$AnimatedSprite.play("dead")
 		if drop_coins:
 			var coins_instance = coins_scene.instance()

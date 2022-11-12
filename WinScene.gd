@@ -56,7 +56,5 @@ func _on_ProgressBar_value_changed(value):
 		get_tree().change_scene("res://MainMenu.tscn")
 
 
-
-
 func _on_NextLevel_pressed():
-	get_tree().change_scene('res://GameScene' + str(Settings.current_level) + '.tscn')
+	get_tree().change_scene('res://GameScene' + str(int(Cache.playing_level) + 1) + '.tscn')

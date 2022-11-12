@@ -1,42 +1,46 @@
-[gd_resource type="TileSet" load_steps=63 format=2]
+[gd_resource type="TileSet" load_steps=65 format=2]
 
 [ext_resource path="res://assets/Tiles/Green tiles/tileGreen_19.png" type="Texture" id=1]
 [ext_resource path="res://assets/Tiles/Green tiles/tileGreen_17.png" type="Texture" id=2]
 [ext_resource path="res://assets/Tiles/Green tiles/tileGreen_18.png" type="Texture" id=3]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_14.png" type="Texture" id=4]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_15.png" type="Texture" id=5]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_16.png" type="Texture" id=6]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_07.png" type="Texture" id=7]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_05.png" type="Texture" id=8]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_09.png" type="Texture" id=9]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_08.png" type="Texture" id=10]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_04.png" type="Texture" id=11]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_06.png" type="Texture" id=12]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_11.png" type="Texture" id=13]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_12.png" type="Texture" id=14]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_13.png" type="Texture" id=15]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_10.png" type="Texture" id=16]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_02.png" type="Texture" id=17]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_03.png" type="Texture" id=18]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_01.png" type="Texture" id=19]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_21.png" type="Texture" id=20]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_22.png" type="Texture" id=21]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_24.png" type="Texture" id=22]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_23.png" type="Texture" id=23]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_25.png" type="Texture" id=24]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_26.png" type="Texture" id=25]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_27.png" type="Texture" id=26]
-[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_20.png" type="Texture" id=27]
-[ext_resource path="res://assets/Tiles/boxExplosive.png" type="Texture" id=28]
-[ext_resource path="res://assets/Tiles/boxAlt.png" type="Texture" id=29]
-[ext_resource path="res://assets/Tiles/box.png" type="Texture" id=30]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_15.png" type="Texture" id=4]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_09.png" type="Texture" id=5]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_08.png" type="Texture" id=6]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_14.png" type="Texture" id=7]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_16.png" type="Texture" id=8]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_20.png" type="Texture" id=9]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_23.png" type="Texture" id=10]
+[ext_resource path="res://assets/Tiles/box.png" type="Texture" id=11]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_21.png" type="Texture" id=12]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_27.png" type="Texture" id=13]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_26.png" type="Texture" id=14]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_03.png" type="Texture" id=15]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_13.png" type="Texture" id=16]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_01.png" type="Texture" id=17]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_10.png" type="Texture" id=18]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_24.png" type="Texture" id=19]
+[ext_resource path="res://assets/Tiles/boxExplosive.png" type="Texture" id=20]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_25.png" type="Texture" id=21]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_11.png" type="Texture" id=22]
+[ext_resource path="res://assets/Tiles/boxAlt.png" type="Texture" id=23]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_12.png" type="Texture" id=24]
+[ext_resource path="res://assets/Tiles/Green tiles/tileGreen_22.png" type="Texture" id=25]
+[ext_resource path="res://WaterAnimated.tres" type="Texture" id=26]
 [ext_resource path="res://assets/Other/blockRed_tnt.png" type="Texture" id=31]
 
 [sub_resource type="ConvexPolygonShape2D" id=24]
 points = PoolVector2Array( 10, 0, 64, 0, 64, 64, 0, 64, 0, 14, 4, 6, 6, 2 )
 
+[sub_resource type="StreamTexture" id=55]
+flags = 4
+load_path = "res://.import/tileGreen_04.png-8ddcf5fa868af1735605f44acb1b2319.stex"
+
 [sub_resource type="ConvexPolygonShape2D" id=25]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="StreamTexture" id=56]
+flags = 4
+load_path = "res://.import/tileGreen_05.png-bbec80f289a8dfb078e5650c4aac78db.stex"
 
 [sub_resource type="ConvexPolygonShape2D" id=26]
 points = PoolVector2Array( 64, 0, 64, 64, 0, 64 )
@@ -71,6 +75,10 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=36]
 points = PoolVector2Array( 54, 0, 64, 10, 64, 64, 0, 64, 0, 0 )
 
+[sub_resource type="StreamTexture" id=57]
+flags = 4
+load_path = "res://.import/tileGreen_06.png-6b54b678682ecb5f7c275a028533e36a.stex"
+
 [sub_resource type="ConvexPolygonShape2D" id=37]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
@@ -104,14 +112,25 @@ points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=44]
 points = PoolVector2Array( 0, 10, 10, 0, 12, 0, 14, 0, 14, 0, 54, 0, 64, 10, 64, 64, 0, 64 )
 
+[sub_resource type="StreamTexture" id=58]
+flags = 4
+load_path = "res://.import/tileGreen_07.png-43d7c6cd9bf044bb291b720415ce236a.stex"
+
 [sub_resource type="ConvexPolygonShape2D" id=54]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=59]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 56, 64, 56 )
 
 [sub_resource type="ConvexPolygonShape2D" id=45]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=46]
 points = PoolVector2Array( 0, 44, 0, 12, 10, 0, 54, 0, 64, 12, 64, 46, 54, 50, 32, 42, 10, 50, 0, 46 )
+
+[sub_resource type="StreamTexture" id=60]
+flags = 4
+load_path = "res://.import/tileGreen_02.png-39cafa0cc856ef5cca97ff5f327a711a.stex"
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 54, 0, 64, 12, 64, 46, 54, 50, 32, 42, 12, 50, 0, 46, 0, 0 )
@@ -127,7 +146,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 
 [resource]
 0/name = "tileGreen_04.png 0"
-0/texture = ExtResource( 11 )
+0/texture = SubResource( 55 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 64, 64 )
@@ -148,7 +167,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 0/z_index = 0
 1/name = "tileGreen_05.png 1"
-1/texture = ExtResource( 8 )
+1/texture = SubResource( 56 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 64, 64 )
@@ -169,7 +188,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 1/z_index = 0
 2/name = "tileGreen_06.png 2"
-2/texture = ExtResource( 12 )
+2/texture = SubResource( 57 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 64, 64 )
@@ -190,7 +209,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 2/z_index = 0
 3/name = "tileGreen_07.png 3"
-3/texture = ExtResource( 7 )
+3/texture = SubResource( 58 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 64, 64 )
@@ -211,7 +230,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 3/z_index = 0
 4/name = "tileGreen_03.png 4"
-4/texture = ExtResource( 18 )
+4/texture = ExtResource( 15 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 64, 64 )
@@ -232,7 +251,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 4/z_index = 0
 5/name = "tileGreen_02.png 5"
-5/texture = ExtResource( 17 )
+5/texture = SubResource( 60 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 64, 50 )
@@ -253,7 +272,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 5/z_index = 0
 6/name = "tileGreen_01.png 6"
-6/texture = ExtResource( 19 )
+6/texture = ExtResource( 17 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 64, 50 )
@@ -274,7 +293,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 6/z_index = 0
 7/name = "tileGreen_08.png 7"
-7/texture = ExtResource( 10 )
+7/texture = ExtResource( 6 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 64, 64 )
@@ -295,7 +314,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 7/z_index = 0
 8/name = "tileGreen_09.png 8"
-8/texture = ExtResource( 9 )
+8/texture = ExtResource( 5 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 0, 64, 64 )
@@ -316,7 +335,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 8/z_index = 0
 9/name = "tileGreen_10.png 9"
-9/texture = ExtResource( 16 )
+9/texture = ExtResource( 18 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 64, 64 )
@@ -337,7 +356,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 9/z_index = 0
 10/name = "tileGreen_11.png 10"
-10/texture = ExtResource( 13 )
+10/texture = ExtResource( 22 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 0, 0, 64, 64 )
@@ -358,7 +377,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 10/z_index = 0
 11/name = "tileGreen_12.png 11"
-11/texture = ExtResource( 14 )
+11/texture = ExtResource( 24 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 0, 0, 64, 64 )
@@ -379,7 +398,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 11/z_index = 0
 12/name = "tileGreen_13.png 12"
-12/texture = ExtResource( 15 )
+12/texture = ExtResource( 16 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 0, 0, 64, 64 )
@@ -400,7 +419,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 12/z_index = 0
 13/name = "tileGreen_14.png 13"
-13/texture = ExtResource( 4 )
+13/texture = ExtResource( 7 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 0, 0, 64, 64 )
@@ -421,7 +440,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 13/z_index = 0
 14/name = "tileGreen_15.png 14"
-14/texture = ExtResource( 5 )
+14/texture = ExtResource( 4 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 0, 0, 64, 64 )
@@ -442,7 +461,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 14/z_index = 0
 15/name = "tileGreen_16.png 15"
-15/texture = ExtResource( 6 )
+15/texture = ExtResource( 8 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 0, 64, 64 )
@@ -526,7 +545,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 18/z_index = 0
 19/name = "tileGreen_20.png 19"
-19/texture = ExtResource( 27 )
+19/texture = ExtResource( 9 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 0, 0, 64, 64 )
@@ -547,7 +566,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 19/z_index = 0
 20/name = "tileGreen_21.png 20"
-20/texture = ExtResource( 20 )
+20/texture = ExtResource( 12 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 0, 0, 64, 64 )
@@ -568,7 +587,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 20/z_index = 0
 21/name = "tileGreen_22.png 21"
-21/texture = ExtResource( 21 )
+21/texture = ExtResource( 25 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 0, 0, 64, 64 )
@@ -589,7 +608,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 21/z_index = 0
 22/name = "tileGreen_23.png 22"
-22/texture = ExtResource( 23 )
+22/texture = ExtResource( 10 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 0, 0, 64, 64 )
@@ -610,7 +629,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 22/z_index = 0
 23/name = "tileGreen_24.png 23"
-23/texture = ExtResource( 22 )
+23/texture = ExtResource( 19 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 0, 0, 64, 64 )
@@ -631,7 +650,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 23/z_index = 0
 24/name = "tileGreen_25.png 24"
-24/texture = ExtResource( 24 )
+24/texture = ExtResource( 21 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 0, 0, 64, 64 )
@@ -652,7 +671,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 24/z_index = 0
 25/name = "tileGreen_26.png 25"
-25/texture = ExtResource( 25 )
+25/texture = ExtResource( 14 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 0, 0, 64, 50 )
@@ -673,7 +692,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 25/z_index = 0
 26/name = "tileGreen_27.png 26"
-26/texture = ExtResource( 26 )
+26/texture = ExtResource( 13 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 0, 0, 64, 50 )
@@ -694,7 +713,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 26/z_index = 0
 27/name = "boxExplosive.png 27"
-27/texture = ExtResource( 28 )
+27/texture = ExtResource( 20 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 0, 0, 70, 70 )
@@ -715,7 +734,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 27/z_index = 0
 28/name = "boxAlt.png 28"
-28/texture = ExtResource( 29 )
+28/texture = ExtResource( 23 )
 28/tex_offset = Vector2( 0, 0 )
 28/modulate = Color( 1, 1, 1, 1 )
 28/region = Rect2( 0, 0, 70, 70 )
@@ -736,7 +755,7 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 } ]
 28/z_index = 0
 29/name = "box.png 29"
-29/texture = ExtResource( 30 )
+29/texture = ExtResource( 11 )
 29/tex_offset = Vector2( 0, 0 )
 29/modulate = Color( 1, 1, 1, 1 )
 29/region = Rect2( 0, 0, 70, 70 )
@@ -777,3 +796,24 @@ points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 30/z_index = 0
+31/name = "WaterAnimated.tres 31"
+31/texture = ExtResource( 26 )
+31/tex_offset = Vector2( 0, 0 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 0, 64, 64 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, 0 )
+31/navigation_offset = Vector2( 0, 0 )
+31/shape_offset = Vector2( 0, 0 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+31/shape = SubResource( 59 )
+31/shape_one_way = false
+31/shape_one_way_margin = 1.0
+31/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 59 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+31/z_index = 0

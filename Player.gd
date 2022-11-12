@@ -4,6 +4,8 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
+var _temp
+var stun = false
 var coins = 0
 var speed = 300
 var jump_speed = 750
@@ -16,7 +18,10 @@ var ignore_idle = false
 var win = false
 var configs = ConfigFile.new()
 var err = configs.load("user://skyworld.cfg")
-var able_to_shoot_wave = true
+var able_to_shoot_wave = false
+var on_ladder = false
+var on_ladder_ignore_idle = false
+var in_lava = false
 
 onready var wave = preload("res://Wave.tscn")
 onready var animated_sprite = get_node("AnimatedSprite")
@@ -29,18 +34,36 @@ func _physics_process(_delta):
 	if get_node("/root/GameScene/GameTimer").time_left == 0 and alive:
 		dead('timeout')
 	
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		var spikes = get_parent().get_node("Spikes")
-		var spinner = get_parent().get_node("Spinner")
-		if collision.collider == spikes:
-			hurt(0.5, false)
-		if collision.collider == spinner:
-			hurt(1, false)
+	if not powered and not immune and not able_to_shoot_wave:
+		$ProgressBar/Rounded.value = 100
 	
-	if alive and not win:
+	if alive:
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			var spikes = get_parent().get_node("Spikes")
+			var spinner = get_parent().get_node("Spinner")
+			var water = get_parent().get_node("TileMapWater")
+			var lava = get_parent().get_node("TileMapLava")
+			if collision.collider == spikes:
+				hurt(0.5, false, false, false)
+			if collision.collider == spinner:
+				hurt(1, false, false, false)
+			if collision.collider == water:
+				speed = 100
+				hurt(0.1, false, false, false)
+			elif collision.collider != water:
+				speed = 300
+			if collision.collider == lava:
+				in_lava = true
+				hurt(1.2, false, false, true)
+			elif collision.collider != lava:
+				in_lava = false
+				modulate = Color(1, 1, 1, 1)
+		
+	
+	if alive and not win and not stun:
 		# Stop animation if key is released 
-		if Input.is_action_just_released("right") or Input.is_action_just_released("left"):
+		if Input.is_action_just_released("right") or Input.is_action_just_released("left") or Input.is_action_just_released("down") or (Input.is_action_just_released("jump") and not is_on_floor()):
 			animated_sprite.stop()
 			animated_sprite.frame = 0
 
@@ -49,7 +72,8 @@ func _physics_process(_delta):
 			Cache.player_position = 1
 			velocity.x = speed
 			animated_sprite.flip_h = false
-			animated_sprite.play('walk')
+			if is_on_floor():
+				animated_sprite.play('walk')
 #			if not $AudioStreamPlayer.playing:
 #				$AudioStreamPlayer.play()
 
@@ -57,17 +81,18 @@ func _physics_process(_delta):
 			Cache.player_position = -1
 			velocity.x = -speed
 			animated_sprite.flip_h = true
-			animated_sprite.play("walk")
+			if is_on_floor():
+				animated_sprite.play("walk")
 #			if not $AudioStreamPlayer.playing:
 #				$AudioStreamPlayer.play()
 			
-		elif is_on_floor() and not ignore_idle:
+		elif is_on_floor() and not ignore_idle and not on_ladder_ignore_idle:
 			animated_sprite.play("idle")
 		
-		elif not is_on_floor():
+		elif not is_on_floor() and not on_ladder:
 			animated_sprite.play("jump")
 		
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor() and not on_ladder:
 			$JumpSound.play()
 			velocity.y = -jump_speed
 			
@@ -85,8 +110,36 @@ func _physics_process(_delta):
 				yield(get_tree().create_timer(0.5), "timeout")
 				ignore_idle = false
 				$AnimatedSprite.play('idle')
-
-	velocity.y += gravity
+		
+		if on_ladder:
+			if not is_on_floor():
+				on_ladder_ignore_idle = true
+				$AnimatedSprite.play("climb")
+			
+			if Input.is_action_pressed("down") or Input.is_action_pressed("jump"):
+				on_ladder_ignore_idle = true
+				$AnimatedSprite.play("climb")
+			elif is_on_floor():
+				on_ladder_ignore_idle = false
+			
+			if not Input.is_action_pressed("down") and not Input.is_action_pressed("jump") and not is_on_floor():
+				$AnimatedSprite.stop()
+			
+			if Input.is_action_pressed("jump"):
+				velocity.y = -200
+			elif Input.is_action_pressed("down"):
+				if not is_on_floor():
+					velocity.y = 200
+				else:
+					on_ladder_ignore_idle = false
+			else:
+				velocity.y = lerp(velocity.y, 0, 0.3)
+		else:
+			on_ladder_ignore_idle = false
+			
+	
+	if not on_ladder_ignore_idle:
+		velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
 #	print(immune)
 
@@ -104,15 +157,26 @@ func bounce_up():
 	velocity.y = -jump_speed * 0.5
 	
 
-func hurt(value, bump=true):
-	if not immune:
+func hurt(value, bump=true, _stun=true, _modulate=true):
+	if not immune and alive:
 	#	var death_reason = 'hurt'
-		$HurtSound.play()
-		modulate = Color(255, 1, 1, 0.6)
-		$Life/LifeProgressBar.value -= value
-		if bump:
-			velocity.y = -jump_speed * 0.65
-		$StunTimer.start(2)
+		if _stun:
+			stun = true
+			$HurtSound.play()
+			modulate = Color(255, 1, 1, 0.6)
+			$Life/LifeProgressBar.value -= value
+#			$AnimatedSprite.play("stun")
+			if bump:
+				velocity.y = -jump_speed * 0.65
+			speed = 0
+			Input.action_release("right")
+			Input.action_release("left")
+			Input.action_release("jump")
+			$StunTimer.start(0.8)
+		else:
+			$Life/LifeProgressBar.value -= value
+			if _modulate:
+				modulate = Color(255, 1, 1, 0.6)
 	#	velocity = move_and_slide(velocity, Vector2.UP)		
 #		$DeathTimer.start(1)
 	
@@ -143,6 +207,7 @@ func _on_FallZone_body_entered(body): #fall down cliffs
 func get_powered():
 	print($ProgressBar/Rounded.value)
 	if not powered:
+		$PotionSound.play()
 		powered = true
 		speed = 450
 		$ProgressBar/Rounded.value = 100
@@ -157,6 +222,7 @@ func get_powered():
 	
 func get_immune():
 	if not immune:
+		$PotionSound.play()
 		immune = true
 		set_collision_mask_bit(4, false)
 		$ProgressBar/Rounded.value = 100
@@ -164,22 +230,46 @@ func get_immune():
 		$TextureRect.visible = true
 		for node in get_node('../Enemies').get_children():
 			node.set_collision_mask_bit(0, false)
-			node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
-			node.get_node('PlayerTopChecker').set_collision_mask_bit(0, false)
+			if node.get_node('PlayerSidesChecker'):
+				node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
+				node.get_node('PlayerTopChecker').set_collision_mask_bit(0, false)
 			print(node)
 		
 		if get_node('../BigEnemies'):
 			for node in get_node('/root/GameScene/BigEnemies').get_children():
 				node.set_collision_mask_bit(0, false)
-				node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
-				node.get_node('PlayerTopChecker').set_collision_mask_bit(0, false)
+				if node.get_node('PlayerSidesChecker'):
+					node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, false)
+					node.get_node('PlayerTopChecker').set_collision_mask_bit(0, false)
 		$ImmunityTimer.start()
 		$ProgressBar.visible = true
 		$ProgressBar/Rounded.tint_progress = Color(0, 255, 0, 1)
 		$ProgressBar.start_progress($ImmunityTimer.wait_time)
 		print('started immune timer')
 	
+
+func get_wave():
+	if not able_to_shoot_wave:
+		able_to_shoot_wave = true
+		$PotionSound.play()
+		$WaveTimer.start()
+		$ProgressBar.visible = true
+		$ProgressBar/Rounded.tint_progress = Color(0, 0, 255, 1)
+		$ProgressBar.start_progress($WaveTimer.wait_time)
+
+
+func time_freeze(sec):
+	get_node('../GameTimer').paused = true
+	var stylebox = get_node('../LeftGameTime/Panel').get_stylebox("panel").duplicate()
+	stylebox.texture = load("res://assets/HUD/HDStockImages_premium_f4zTge.png")
+	get_node('../LeftGameTime/Panel').add_stylebox_override("panel", stylebox)
+	yield(get_tree().create_timer(sec), "timeout")
+	stylebox = get_node('../LeftGameTime/Panel').get_stylebox("panel").duplicate()
+	stylebox.texture = load("res://assets/HUD/grey_background.png")
+	get_node('../LeftGameTime/Panel').add_stylebox_override("panel", stylebox)
+	get_node('../GameTimer').paused = false
 	
+		
 func dead(reason=''):
 	alive = false
 	if powered:
@@ -224,13 +314,15 @@ func _on_ImmunityTimer_timeout():
 	$AnimatedSprite.modulate = Color(1, 1, 1, 1)
 	for node in get_node('/root/GameScene/Enemies').get_children():
 		node.set_collision_mask_bit(0, true)
-		node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
-		node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
+		if not node.dead:
+			node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
+			node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
 	if get_node('/root/GameScene/BigEnemies'):
 		for node in get_node('/root/GameScene/BigEnemies').get_children():
 			node.set_collision_mask_bit(0, true)
-			node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
-			node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
+			if not node.dead:
+				node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
+				node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
 	$TextureRect.visible = false
 	$TextureRect.modulate = Color8(0,0,0)
 	immune = false
@@ -240,21 +332,29 @@ func _on_ImmunityTimer_timeout():
 
 func _on_LifeProgressBar_value_changed(value):
 	if value == 0:
-		dead('life')
+		if in_lava:
+			dead('burn')
+		else:
+			dead('life')
 		
 
 
 func _on_StunTimer_timeout():
-	modulate = Color(1,1,1,1)
+	if alive:
+		modulate = Color(1,1,1,1)
+	speed = 300
+	stun = false
 	for node in get_node('/root/GameScene/Enemies').get_children():
 		node.set_collision_mask_bit(0, true)
-		node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
-		node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
+		if not node.dead:
+			_temp = node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
+			_temp = node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
 	if get_node('/root/GameScene/BigEnemies'):
 		for node in get_node('/root/GameScene/BigEnemies').get_children():
 			node.set_collision_mask_bit(0, true)
-			node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
-			node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
+			if not node.dead:
+				_temp = node.get_node('PlayerSidesChecker').set_collision_mask_bit(0, true)
+				_temp = node.get_node('PlayerTopChecker').set_collision_mask_bit(0, true)
 	set_collision_mask_bit(4, false)
 
 
@@ -267,6 +367,15 @@ func _on_PowerTimer_timeout():
 	$TextureRect.visible = false
 	$TextureRect.modulate = Color8(0,0,0)
 	powered = false
+
+
+func _on_WaveTimer_timeout():
+	able_to_shoot_wave = false
+	$ProgressBar.visible = false
+	print($ProgressBar/Rounded.value)
+	$ProgressBar/Rounded.value = 100
+	$TextureRect.visible = false
+	$TextureRect.modulate = Color8(0,0,0)
 
 func win():
 	win = true
@@ -283,3 +392,14 @@ func win():
 	configs.set_value("config", "level", int(Settings.current_level) + 1)
 	configs.save("user://skyworld.cfg")
 	Settings.update_settings()
+
+
+
+
+
+func _on_LadderChecker_body_entered(body):
+	on_ladder = true
+
+
+func _on_LadderChecker_body_exited(body):
+	on_ladder = false
