@@ -10,6 +10,7 @@ func _ready():
 	if err != OK:
 		print('failed')
 		sprite = configs.get_value("config", "sprite").capitalize()
+	OS.set_window_maximized(true)
 
 func update_settings():
 	configs.load("user://skyworld.cfg")

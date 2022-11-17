@@ -24,6 +24,7 @@ config/name="SkyWorld"
 run/main_scene="res://MainMenu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name=".skyworld_cache"
+boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [autoload]
@@ -115,4 +116,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

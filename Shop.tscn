@@ -70,9 +70,10 @@ script = ExtResource( 17 )
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 923.0
-margin_right = 1023.0
-margin_bottom = 564.0
+margin_left = 1819.0
+margin_top = 232.0
+margin_right = 1919.0
+margin_bottom = 796.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="LifePotion" type="Node2D" parent="."]
@@ -80,35 +81,35 @@ modulate = Color( 1, 1, 1, 0.392157 )
 
 [node name="LifePotionButton" type="Button" parent="LifePotion"]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 923.34
-margin_top = -0.000720978
-margin_right = 1023.34
-margin_bottom = 111.999
+margin_left = 1819.34
+margin_top = 231.999
+margin_right = 1919.34
+margin_bottom = 343.999
 custom_styles/pressed = SubResource( 8 )
 custom_styles/normal = SubResource( 4 )
 disabled = true
 
 [node name="LifePotion" type="AnimatedSprite" parent="LifePotion"]
 self_modulate = Color( 1, 0.580392, 0.580392, 1 )
-position = Vector2( 967.34, 31.9993 )
+position = Vector2( 1863.34, 263.999 )
 scale = Vector2( 0.172724, 0.172724 )
 frames = SubResource( 2 )
 animation = "shake"
 
 [node name="Coin" type="TextureRect" parent="LifePotion"]
-margin_left = 975.34
-margin_top = 71.9993
-margin_right = 1015.34
-margin_bottom = 103.999
+margin_left = 1871.34
+margin_top = 303.999
+margin_right = 1911.34
+margin_bottom = 335.999
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="LifePotion"]
-margin_left = 943.34
-margin_top = 71.9993
-margin_right = 975.34
-margin_bottom = 103.999
+margin_left = 1839.34
+margin_top = 303.999
+margin_right = 1871.34
+margin_bottom = 335.999
 texture = ExtResource( 14 )
 expand = true
 stretch_mode = 6
@@ -118,34 +119,34 @@ modulate = Color( 1, 1, 1, 0.392157 )
 
 [node name="PowerPotionButton" type="Button" parent="PowerPotion"]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 924.412
-margin_top = 112.06
-margin_right = 1024.41
-margin_bottom = 224.06
+margin_left = 1820.41
+margin_top = 344.06
+margin_right = 1920.41
+margin_bottom = 456.06
 custom_styles/normal = SubResource( 6 )
 disabled = true
 
 [node name="PowerPotion" type="AnimatedSprite" parent="PowerPotion"]
 modulate = Color( 1, 1, 0, 1 )
-position = Vector2( 968.413, 150.06 )
+position = Vector2( 1864.41, 382.06 )
 scale = Vector2( 0.173, 0.173 )
 frames = SubResource( 7 )
 animation = "shake"
 
 [node name="Coin" type="TextureRect" parent="PowerPotion"]
-margin_left = 981.753
-margin_top = 184.06
-margin_right = 1021.75
-margin_bottom = 216.06
+margin_left = 1877.75
+margin_top = 416.06
+margin_right = 1917.75
+margin_bottom = 448.06
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="PowerPotion"]
-margin_left = 949.753
-margin_top = 184.06
-margin_right = 981.753
-margin_bottom = 216.06
+margin_left = 1845.75
+margin_top = 416.06
+margin_right = 1877.75
+margin_bottom = 448.06
 texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
@@ -155,35 +156,35 @@ modulate = Color( 1, 1, 1, 0.392157 )
 
 [node name="ImmunePotionButton" type="Button" parent="ImmunePotion"]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 923.412
-margin_top = 225.059
-margin_right = 1023.41
-margin_bottom = 337.059
+margin_left = 1819.41
+margin_top = 457.059
+margin_right = 1919.41
+margin_bottom = 569.059
 custom_styles/pressed = SubResource( 9 )
 custom_styles/normal = SubResource( 5 )
 disabled = true
 
 [node name="ImmunePotion" type="AnimatedSprite" parent="ImmunePotion"]
 modulate = Color( 0, 1, 0, 1 )
-position = Vector2( 967.412, 261.06 )
+position = Vector2( 1863.41, 493.06 )
 scale = Vector2( 0.173, 0.173 )
 frames = SubResource( 3 )
 animation = "shake"
 
 [node name="Coin" type="TextureRect" parent="ImmunePotion"]
-margin_left = 975.412
-margin_top = 301.06
-margin_right = 1015.41
-margin_bottom = 333.06
+margin_left = 1871.41
+margin_top = 533.06
+margin_right = 1911.41
+margin_bottom = 565.06
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="ImmunePotion"]
-margin_left = 943.412
-margin_top = 301.06
-margin_right = 975.412
-margin_bottom = 333.06
+margin_left = 1839.41
+margin_top = 533.06
+margin_right = 1871.41
+margin_bottom = 565.06
 texture = ExtResource( 16 )
 expand = true
 stretch_mode = 6
@@ -193,35 +194,35 @@ modulate = Color( 1, 1, 1, 0.392157 )
 
 [node name="TimeFreezePotionButton" type="Button" parent="TimeFreezePotion"]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 924.413
-margin_top = 339.059
-margin_right = 1024.41
-margin_bottom = 451.059
+margin_left = 1820.41
+margin_top = 571.059
+margin_right = 1920.41
+margin_bottom = 683.059
 custom_styles/pressed = SubResource( 9 )
 custom_styles/normal = SubResource( 5 )
 disabled = true
 
 [node name="TimeFreezePotion" type="AnimatedSprite" parent="TimeFreezePotion"]
 modulate = Color( 0, 1, 0, 1 )
-position = Vector2( 968.412, 375.06 )
+position = Vector2( 1864.41, 607.06 )
 scale = Vector2( 0.173, 0.173 )
 frames = SubResource( 3 )
 animation = "shake"
 
 [node name="Coin" type="TextureRect" parent="TimeFreezePotion"]
-margin_left = 976.413
-margin_top = 415.06
-margin_right = 1016.41
-margin_bottom = 447.06
+margin_left = 1872.41
+margin_top = 647.06
+margin_right = 1912.41
+margin_bottom = 679.06
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="TimeFreezePotion"]
-margin_left = 944.413
-margin_top = 415.06
-margin_right = 976.413
-margin_bottom = 447.06
+margin_left = 1840.41
+margin_top = 647.06
+margin_right = 1872.41
+margin_bottom = 679.06
 texture = ExtResource( 16 )
 expand = true
 stretch_mode = 6
@@ -232,44 +233,44 @@ position = Vector2( -1, 111 )
 
 [node name="WavePotionButton" type="Button" parent="WavePotion"]
 modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = 924.412
-margin_top = 341.059
-margin_right = 1024.41
-margin_bottom = 453.059
+margin_left = 1820.41
+margin_top = 573.059
+margin_right = 1920.41
+margin_bottom = 685.059
 custom_styles/pressed = SubResource( 9 )
 custom_styles/normal = SubResource( 5 )
 disabled = true
 
 [node name="WavePotion" type="AnimatedSprite" parent="WavePotion"]
 modulate = Color( 0.278431, 0, 0.772549, 1 )
-position = Vector2( 969.412, 375.06 )
+position = Vector2( 1865.41, 607.06 )
 scale = Vector2( 0.173, 0.173 )
 frames = SubResource( 3 )
 animation = "shake"
 
 [node name="Coin" type="TextureRect" parent="WavePotion"]
-margin_left = 982.412
-margin_top = 415.06
-margin_right = 1022.41
-margin_bottom = 447.06
+margin_left = 1878.41
+margin_top = 647.06
+margin_right = 1918.41
+margin_bottom = 679.06
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="WavePotion"]
-margin_left = 929.412
-margin_top = 415.06
-margin_right = 961.412
-margin_bottom = 447.06
+margin_left = 1825.41
+margin_top = 647.06
+margin_right = 1857.41
+margin_bottom = 679.06
 texture = ExtResource( 19 )
 expand = true
 stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="WavePotion"]
-margin_left = 953.412
-margin_top = 415.06
-margin_right = 985.412
-margin_bottom = 447.06
+margin_left = 1849.41
+margin_top = 647.06
+margin_right = 1881.41
+margin_bottom = 679.06
 texture = ExtResource( 16 )
 expand = true
 stretch_mode = 6

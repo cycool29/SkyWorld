@@ -96,25 +96,25 @@ anchor_bottom = 1.0
 script = ExtResource( 7 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 stream = ExtResource( 1 )
 autoplay = true
 
-[node name="SkyWard" type="TextureRect" parent="."]
-margin_left = -64.0
-margin_top = 32.0
-margin_right = 1088.0
-margin_bottom = 264.0
+[node name="SkyWorld" type="TextureRect" parent="."]
+margin_left = 8.0
+margin_top = 88.0
+margin_right = 1915.0
+margin_bottom = 472.0
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 
 [node name="StartButton" type="Button" parent="."]
-margin_left = 376.0
-margin_top = 248.0
-margin_right = 629.0
-margin_bottom = 376.0
+margin_left = 736.0
+margin_top = 448.0
+margin_right = 1179.0
+margin_bottom = 664.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -127,10 +127,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="HelpButton" type="Button" parent="."]
-margin_left = 64.0
-margin_top = 440.0
-margin_right = 256.0
-margin_bottom = 521.0
+margin_left = 144.0
+margin_top = 776.0
+margin_right = 444.0
+margin_bottom = 926.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -143,10 +143,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="QuitButton" type="Button" parent="."]
-margin_left = 296.0
-margin_top = 440.0
-margin_right = 488.0
-margin_bottom = 521.0
+margin_left = 592.0
+margin_top = 776.0
+margin_right = 892.0
+margin_bottom = 926.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -159,10 +159,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="SettingsButton" type="Button" parent="."]
-margin_left = 536.0
-margin_top = 440.0
-margin_right = 728.0
-margin_bottom = 521.0
+margin_left = 1040.0
+margin_top = 776.0
+margin_right = 1340.0
+margin_bottom = 926.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -175,10 +175,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="LevelsButton" type="Button" parent="."]
-margin_left = 776.0
-margin_top = 440.0
-margin_right = 968.0
-margin_bottom = 521.0
+margin_left = 1488.0
+margin_top = 768.0
+margin_right = 1788.0
+margin_bottom = 918.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )

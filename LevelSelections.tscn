@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/Items/locked.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-size = 30
+size = 60
 outline_size = 3
 outline_color = Color( 0.6, 0.6, 0.6, 1 )
 font_data = ExtResource( 2 )
@@ -81,18 +81,18 @@ anchor_bottom = 1.0
 script = ExtResource( 4 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 stream = ExtResource( 1 )
 autoplay = true
 
 [node name="Levels" type="Node" parent="."]
 
 [node name="Level1" type="Button" parent="Levels"]
-margin_left = 48.0
-margin_top = 216.0
-margin_right = 112.0
-margin_bottom = 280.0
+margin_left = 264.0
+margin_top = 368.0
+margin_right = 364.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
@@ -102,10 +102,10 @@ text = "1"
 icon_align = 1
 
 [node name="Level2" type="Button" parent="Levels"]
-margin_left = 144.0
-margin_top = 216.0
-margin_right = 208.0
-margin_bottom = 280.0
+margin_left = 408.0
+margin_top = 368.0
+margin_right = 508.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
@@ -115,10 +115,10 @@ text = "2"
 icon_align = 1
 
 [node name="Level3" type="Button" parent="Levels"]
-margin_left = 240.0
-margin_top = 216.0
-margin_right = 304.0
-margin_bottom = 280.0
+margin_left = 552.0
+margin_top = 368.0
+margin_right = 652.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
@@ -128,10 +128,10 @@ text = "3"
 icon_align = 1
 
 [node name="Level4" type="Button" parent="Levels"]
-margin_left = 336.0
-margin_top = 216.0
-margin_right = 400.0
-margin_bottom = 280.0
+margin_left = 696.0
+margin_top = 368.0
+margin_right = 796.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
@@ -143,10 +143,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level5" type="Button" parent="Levels"]
-margin_left = 432.0
-margin_top = 216.0
-margin_right = 496.0
-margin_bottom = 280.0
+margin_left = 840.0
+margin_top = 368.0
+margin_right = 940.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
@@ -158,10 +158,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level6" type="Button" parent="Levels"]
-margin_left = 528.0
-margin_top = 216.0
-margin_right = 592.0
-margin_bottom = 280.0
+margin_left = 984.0
+margin_top = 368.0
+margin_right = 1084.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
@@ -173,10 +173,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level7" type="Button" parent="Levels"]
-margin_left = 624.0
-margin_top = 216.0
-margin_right = 688.0
-margin_bottom = 280.0
+margin_left = 1128.0
+margin_top = 368.0
+margin_right = 1228.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
@@ -188,10 +188,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level8" type="Button" parent="Levels"]
-margin_left = 720.0
-margin_top = 216.0
-margin_right = 784.0
-margin_bottom = 280.0
+margin_left = 1272.0
+margin_top = 368.0
+margin_right = 1372.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
@@ -203,10 +203,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level9" type="Button" parent="Levels"]
-margin_left = 816.0
-margin_top = 216.0
-margin_right = 880.0
-margin_bottom = 280.0
+margin_left = 1416.0
+margin_top = 368.0
+margin_right = 1516.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
@@ -218,10 +218,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level10" type="Button" parent="Levels"]
-margin_left = 912.0
-margin_top = 216.0
-margin_right = 976.0
-margin_bottom = 280.0
+margin_left = 1560.0
+margin_top = 368.0
+margin_right = 1660.0
+margin_bottom = 468.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -233,10 +233,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level11" type="Button" parent="Levels"]
-margin_left = 48.0
-margin_top = 328.0
-margin_right = 112.0
-margin_bottom = 392.0
+margin_left = 264.0
+margin_top = 560.0
+margin_right = 364.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -248,10 +248,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level12" type="Button" parent="Levels"]
-margin_left = 144.0
-margin_top = 328.0
-margin_right = 208.0
-margin_bottom = 392.0
+margin_left = 408.0
+margin_top = 560.0
+margin_right = 508.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -263,10 +263,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level13" type="Button" parent="Levels"]
-margin_left = 240.0
-margin_top = 328.0
-margin_right = 304.0
-margin_bottom = 392.0
+margin_left = 552.0
+margin_top = 560.0
+margin_right = 652.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -278,10 +278,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level14" type="Button" parent="Levels"]
-margin_left = 336.0
-margin_top = 328.0
-margin_right = 400.0
-margin_bottom = 392.0
+margin_left = 696.0
+margin_top = 560.0
+margin_right = 796.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -293,10 +293,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level15" type="Button" parent="Levels"]
-margin_left = 432.0
-margin_top = 328.0
-margin_right = 496.0
-margin_bottom = 392.0
+margin_left = 840.0
+margin_top = 560.0
+margin_right = 940.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -308,10 +308,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level16" type="Button" parent="Levels"]
-margin_left = 528.0
-margin_top = 328.0
-margin_right = 592.0
-margin_bottom = 392.0
+margin_left = 984.0
+margin_top = 560.0
+margin_right = 1084.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -323,10 +323,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level17" type="Button" parent="Levels"]
-margin_left = 624.0
-margin_top = 328.0
-margin_right = 688.0
-margin_bottom = 392.0
+margin_left = 1128.0
+margin_top = 560.0
+margin_right = 1228.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -338,10 +338,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level18" type="Button" parent="Levels"]
-margin_left = 720.0
-margin_top = 328.0
-margin_right = 784.0
-margin_bottom = 392.0
+margin_left = 1272.0
+margin_top = 560.0
+margin_right = 1372.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -353,10 +353,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level19" type="Button" parent="Levels"]
-margin_left = 816.0
-margin_top = 328.0
-margin_right = 880.0
-margin_bottom = 392.0
+margin_left = 1416.0
+margin_top = 560.0
+margin_right = 1516.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -368,10 +368,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Level20" type="Button" parent="Levels"]
-margin_left = 912.0
-margin_top = 328.0
-margin_right = 976.0
-margin_bottom = 392.0
+margin_left = 1560.0
+margin_top = 560.0
+margin_right = 1660.0
+margin_bottom = 660.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 10 )
@@ -383,10 +383,9 @@ icon_align = 1
 expand_icon = true
 
 [node name="SelectLevel" type="TextureRect" parent="."]
-margin_left = 264.0
-margin_top = 64.0
-margin_right = 768.0
-margin_bottom = 128.0
+margin_top = 112.0
+margin_right = 1920.0
+margin_bottom = 240.0
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
@@ -397,10 +396,10 @@ autoplay = true
 mix_target = 1
 
 [node name="HomeButton" type="Button" parent="."]
-margin_left = 416.0
-margin_top = 464.0
-margin_right = 608.0
-margin_bottom = 545.0
+margin_left = 824.0
+margin_top = 816.0
+margin_right = 1146.0
+margin_bottom = 952.0
 custom_colors/font_color = Color( 1, 0.941176, 0.74902, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )

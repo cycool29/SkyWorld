@@ -97,8 +97,8 @@ script = ExtResource( 3 )
 [node name="Background" type="VideoPlayer" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
 self_modulate = Color( 1, 1, 1, 0.588235 )
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 stream = ExtResource( 2 )
 
 [node name="WinAudio" type="AudioStreamPlayer" parent="."]
@@ -108,25 +108,25 @@ stream = ExtResource( 5 )
 stream = ExtResource( 6 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 128.0
-margin_top = 56.0
-margin_right = 896.0
-margin_bottom = 192.0
+margin_left = 256.0
+margin_top = 128.0
+margin_right = 1672.0
+margin_bottom = 384.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="YouWin" type="TextureRect" parent="."]
-margin_left = 248.0
-margin_top = 72.0
-margin_right = 777.0
-margin_bottom = 176.0
+margin_left = 488.0
+margin_top = 168.0
+margin_right = 1424.0
+margin_bottom = 352.0
 texture = ExtResource( 1 )
 stretch_mode = 6
 
 [node name="NextLevel" type="Button" parent="."]
-margin_left = 384.0
-margin_top = 232.0
-margin_right = 640.0
-margin_bottom = 296.0
+margin_left = 720.0
+margin_top = 479.0
+margin_right = 1200.0
+margin_bottom = 599.0
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
@@ -135,10 +135,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Home" type="Button" parent="."]
-margin_left = 384.0
-margin_top = 320.0
-margin_right = 640.0
-margin_bottom = 384.0
+margin_left = 720.0
+margin_top = 655.0
+margin_right = 1200.0
+margin_bottom = 775.0
 custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
@@ -147,10 +147,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Quit" type="Button" parent="."]
-margin_left = 384.0
-margin_top = 416.0
-margin_right = 640.0
-margin_bottom = 480.0
+margin_left = 720.0
+margin_top = 831.0
+margin_right = 1200.0
+margin_bottom = 951.0
 custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 10 )
 custom_styles/normal = SubResource( 11 )
