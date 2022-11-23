@@ -6,9 +6,6 @@
 [ext_resource path="res://assets/Enemies/slimeDead.png" type="Texture" id=4]
 [ext_resource path="res://assets/Sounds/monster-death.mp3" type="AudioStream" id=5]
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 27.5, 9.5 )
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
@@ -23,7 +20,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 24, 2.5 )
+extents = Vector2( 26, 2.5 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 3.25, 8.5 )
@@ -31,15 +28,14 @@ extents = Vector2( 3.25, 8.5 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 19.5, 2.25 )
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 27.5, 9.5 )
+
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 89, 36 )
 collision_layer = 16
 collision_mask = 32
 script = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 6.5, 19.5 )
-shape = SubResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 5, 16 )
@@ -52,13 +48,15 @@ enabled = true
 cast_to = Vector2( 0, 25 )
 collision_mask = 2
 
-[node name="PlayerTopChecker" type="Area2D" parent="."]
+[node name="PlayerTopChecker" type="KinematicBody2D" parent="."]
 collision_layer = 16
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTopChecker"]
-position = Vector2( 5, 5.5 )
+position = Vector2( 4, 7 )
+rotation = -3.14159
 shape = SubResource( 4 )
+one_way_collision = true
 
 [node name="PlayerSidesChecker" type="Area2D" parent="."]
 collision_layer = 16
@@ -96,7 +94,11 @@ collision_mask = 2
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 6.5, 19.5 )
+shape = SubResource( 7 )
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="body_entered" from="PlayerTopChecker" to="." method="_on_PlayerTopChecker_body_entered"]
 [connection signal="body_entered" from="PlayerSidesChecker" to="." method="_on_PlayerSidesChecker_body_entered"]
+[connection signal="body_exited" from="PlayerSidesChecker" to="." method="_on_PlayerSidesChecker_body_exited"]
 [connection signal="body_entered" from="PlayerBottomChecker" to="." method="_on_PlayerBottomChecker_body_entered"]

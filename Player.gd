@@ -22,6 +22,8 @@ var able_to_shoot_wave = false
 var on_ladder = false
 var on_ladder_ignore_idle = false
 var in_lava = false
+var status_timer
+var jump_streak = 0
 
 onready var wave = preload("res://Wave.tscn")
 onready var animated_sprite = get_node("AnimatedSprite")
@@ -93,9 +95,17 @@ func _physics_process(_delta):
 			animated_sprite.play("jump")
 		
 		if Input.is_action_just_pressed("jump") and is_on_floor() and not on_ladder:
-			$JumpSound.play()
-			velocity.y = -jump_speed
-			
+			if jump_streak < 3:
+				jump_streak += 1
+				get_node('../JumpStreakStatus').deduct_streak(1)
+				$JumpStreakTimer.stop()
+				$JumpStreakTimer.start(1.5)
+				$JumpSound.play()
+				velocity.y = -jump_speed
+#			else:
+#				if $JumpStreakTimer.time_left == 0:
+#					print('starte')
+#					$JumpStreakTimer.start(1)
 		if Input.is_action_just_pressed("wave"):
 			if able_to_shoot_wave:
 				ignore_idle = true
@@ -163,16 +173,20 @@ func hurt(value, bump=true, _stun=true, _modulate=true):
 		if _stun:
 			stun = true
 			$HurtSound.play()
-			modulate = Color(255, 1, 1, 0.6)
+			$AnimatedSprite.modulate = Color(255, 1, 1, 0.6)
 			$Life/LifeProgressBar.value -= value
-#			$AnimatedSprite.play("stun")
-			if bump:
-				velocity.y = -jump_speed * 0.65
-			speed = 0
+			$AnimatedSprite.play("idle")
+#			if bump:
+#				velocity.y = -jump_speed * 0.65
+#			speed = 0
 			Input.action_release("right")
 			Input.action_release("left")
 			Input.action_release("jump")
-			$StunTimer.start(0.8)
+			speed = 1500 * Cache.player_position
+			velocity.x = speed * Cache.player_position # get negative if times with -1 and get positive if times with 1 
+			velocity.y = -jump_speed * 0.55
+			move_and_slide(velocity, Vector2.UP)
+			$StunTimer.start(0.5)
 		else:
 			$Life/LifeProgressBar.value -= value
 			if _modulate:
@@ -203,11 +217,28 @@ func _on_FallZone_body_entered(body): #fall down cliffs
 		position.x = 12
 		position.y = 2
 
+
+func status(text, background_color, secs):
+	get_node('../StatusBar').visible = true
+	get_node('../StatusBar/Label').text = text
+	var stylebox = get_node('../StatusBar/Panel').get_stylebox("panel").duplicate()
+	stylebox.bg_color = background_color
+	get_node('../StatusBar/Panel').add_stylebox_override("panel", stylebox)
+	if status_timer != null:
+		status_timer.stop()
+	status_timer = yield(get_tree().create_timer(secs), "timeout")
+	get_node('../StatusBar/Label').text = ''
+	stylebox = get_node('../StatusBar/Panel').get_stylebox("panel").duplicate()
+	stylebox.bg_color = Color8(255, 255, 255)
+	get_node('../StatusBar/Panel').add_stylebox_override("panel", stylebox)
+	get_node('../StatusBar').visible = false
+	
 	
 func get_powered():
 	print($ProgressBar/Rounded.value)
 	if not powered:
 		$PotionSound.play()
+		status('You just get powered, run and kick!', Color8(251, 105, 0), 2)
 		powered = true
 		speed = 450
 		$ProgressBar/Rounded.value = 100
@@ -223,6 +254,7 @@ func get_powered():
 func get_immune():
 	if not immune:
 		$PotionSound.play()
+		status('You are immuned to all damages!', Color8(0, 255, 0), 2)
 		immune = true
 		set_collision_mask_bit(4, false)
 		$ProgressBar/Rounded.value = 100
@@ -252,6 +284,7 @@ func get_wave():
 	if not able_to_shoot_wave:
 		able_to_shoot_wave = true
 		$PotionSound.play()
+		status('Use your waves to kill the enemies!', Color8(71, 0, 197), 2)
 		$WaveTimer.start()
 		$ProgressBar.visible = true
 		$ProgressBar/Rounded.tint_progress = Color(0, 0, 255, 1)
@@ -259,6 +292,7 @@ func get_wave():
 
 
 func time_freeze(sec):
+	status('Time freezed!', Color8(135, 206, 235), 2)
 	get_node('../GameTimer').paused = true
 	var stylebox = get_node('../LeftGameTime/Panel').get_stylebox("panel").duplicate()
 	stylebox.texture = load("res://assets/HUD/HDStockImages_premium_f4zTge.png")
@@ -274,6 +308,8 @@ func dead(reason=''):
 	alive = false
 	if powered:
 		_on_PowerTimer_timeout()
+	if stun:
+		_on_StunTimer_timeout()
 	$AnimatedSprite.play("dead")
 	if reason == 'burn':
 		modulate = Color(0,0,0)
@@ -341,7 +377,7 @@ func _on_LifeProgressBar_value_changed(value):
 
 func _on_StunTimer_timeout():
 	if alive:
-		modulate = Color(1,1,1,1)
+		$AnimatedSprite.modulate = Color(1,1,1,1)
 	speed = 300
 	stun = false
 	for node in get_node('/root/GameScene/Enemies').get_children():
@@ -403,3 +439,8 @@ func _on_LadderChecker_body_entered(body):
 
 func _on_LadderChecker_body_exited(body):
 	on_ladder = false
+
+
+func _on_JumpStreakTimer_timeout():
+	jump_streak = 0
+	get_node('../JumpStreakStatus').reset_streak()

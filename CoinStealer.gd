@@ -44,6 +44,7 @@ func _on_PlayerSidesChecker_body_entered(body):
 		$AnimatedSprite.play("happy")
 		body.deduct_coin(body.coins)
 		speed = 0
+		body.status('Your coins have been stolen!', Color8(172, 117, 0), 2)
 		$SpeedupTimer.start(1.5)
 	elif body.is_in_group('wave'):
 		$AnimatedSprite.play("pushed")

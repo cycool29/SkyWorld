@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Quicksand-SemiBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://StatusBar.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.67451, 0.458824, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[node name="StatusBar" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 576.0
+margin_top = 72.0
+margin_right = 1344.0
+margin_bottom = 184.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 616.0
+margin_top = 80.0
+margin_right = 1298.0
+margin_bottom = 176.0
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1

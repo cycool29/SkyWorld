@@ -23,6 +23,10 @@ func _ready():
 
 
 func _physics_process(delta):
+	for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			if collision.collider.is_in_group('player'):
+				_on_PlayerTopChecker_body_entered(collision.collider)
 	if (not $FloorChecker.is_colliding() or $WallCheckerLeft.is_colliding() or $WallCheckerRight.is_colliding()) and not dead:
 		direction = direction * -1
 		$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
@@ -84,8 +88,7 @@ func _on_PlayerSidesChecker_body_entered(body):
 	elif body.is_in_group('wave'):
 		_on_PlayerTopChecker_body_entered(body)
 
-
-func _on_PlayerBottomChecker_body_entered(body):
-	pass
-
-
+#
+#func _on_PlayerSidesChecker_body_exited(body):
+#	if body.name == Settings.sprite and body.stun:
+#		body._on_StunTimer_timeout()
