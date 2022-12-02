@@ -96,11 +96,11 @@ func _physics_process(_delta):
 		
 		if Input.is_action_just_pressed("jump") and is_on_floor() and not on_ladder:
 			if jump_streak < 3:
-				jump_streak += 1
-				get_node('../JumpStreakStatus').deduct_streak(1)
-				$JumpStreakTimer.stop()
-				$JumpStreakTimer.start(1.5)
-				$JumpSound.play()
+#				jump_streak += 1
+#				get_node('../JumpStreakStatus').deduct_streak(1)
+#				$JumpStreakTimer.stop()
+#				$JumpStreakTimer.start(1.5)
+#				$JumpSound.play()
 				velocity.y = -jump_speed
 #			else:
 #				if $JumpStreakTimer.time_left == 0:
@@ -171,7 +171,7 @@ func hurt(value, bump=true, _stun=true, _modulate=true):
 	if not immune and alive:
 	#	var death_reason = 'hurt'
 		if _stun:
-			stun = true
+#			stun = true
 			$HurtSound.play()
 			$AnimatedSprite.modulate = Color(255, 1, 1, 0.6)
 			$Life/LifeProgressBar.value -= value
@@ -182,10 +182,11 @@ func hurt(value, bump=true, _stun=true, _modulate=true):
 			Input.action_release("right")
 			Input.action_release("left")
 			Input.action_release("jump")
-			speed = 1500 * Cache.player_position
-			velocity.x = speed * Cache.player_position # get negative if times with -1 and get positive if times with 1 
+			speed = 1500
+			velocity.x = speed * Cache.bounce_direction # get negative if times with -1 and get positive if times with 1 
 			velocity.y = -jump_speed * 0.55
 			move_and_slide(velocity, Vector2.UP)
+			speed = 300
 			$StunTimer.start(0.5)
 		else:
 			$Life/LifeProgressBar.value -= value
@@ -292,6 +293,7 @@ func get_wave():
 
 
 func time_freeze(sec):
+	$PotionSound.play()
 	status('Time freezed!', Color8(135, 206, 235), 2)
 	get_node('../GameTimer').paused = true
 	var stylebox = get_node('../LeftGameTime/Panel').get_stylebox("panel").duplicate()

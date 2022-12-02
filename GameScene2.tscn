@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TilemapSolid.tres" type="TileSet" id=2]
@@ -13,7 +13,7 @@
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_cheer0.png" type="Texture" id=11]
 [ext_resource path="res://Coins.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_cheer1.png" type="Texture" id=13]
-[ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_idle.png" type="Texture" id=14]
+[ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_climb0.png" type="Texture" id=14]
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_cheer1.png" type="Texture" id=15]
 [ext_resource path="res://assets/Items/gold_1.png" type="Texture" id=16]
 [ext_resource path="res://assets/Quicksand-SemiBold.ttf" type="DynamicFontData" id=17]
@@ -28,7 +28,7 @@
 [ext_resource path="res://assets/Sounds/Grasslands Theme_0.mp3" type="AudioStream" id=26]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_walk2.png" type="Texture" id=27]
 [ext_resource path="res://PowerPotion.tscn" type="PackedScene" id=28]
-[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_idle.png" type="Texture" id=29]
+[ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_side.png" type="Texture" id=29]
 [ext_resource path="res://assets/Items/white_round.png" type="Texture" id=30]
 [ext_resource path="res://WavePotion.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Flag.tscn" type="PackedScene" id=32]
@@ -37,9 +37,9 @@
 [ext_resource path="res://assets/HUD/hud_heartFull.png" type="Texture" id=35]
 [ext_resource path="res://TNT.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Shop.tscn" type="PackedScene" id=37]
-[ext_resource path="res://assets/Sounds/girl_hurt.ogg" type="AudioStream" id=38]
+[ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_hang.png" type="Texture" id=38]
 [ext_resource path="res://assets/Sounds/jump.ogg" type="AudioStream" id=39]
-[ext_resource path="res://assets/Sounds/girl_scream.ogg" type="AudioStream" id=40]
+[ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_climb1.png" type="Texture" id=40]
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_hang.png" type="Texture" id=41]
 [ext_resource path="res://MovingTile.tscn" type="PackedScene" id=42]
 [ext_resource path="res://BigEnemy.tscn" type="PackedScene" id=43]
@@ -77,6 +77,31 @@
 [ext_resource path="res://CoinStealer.tscn" type="PackedScene" id=75]
 [ext_resource path="res://assets/HUD/exit.png" type="Texture" id=76]
 [ext_resource path="res://JumpStreakStatus.tscn" type="PackedScene" id=77]
+[ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_shove.png" type="Texture" id=78]
+[ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_side.png" type="Texture" id=79]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_cheer1.png" type="Texture" id=80]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_cheer0.png" type="Texture" id=81]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_jump.png" type="Texture" id=82]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_attackKick.png" type="Texture" id=83]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_walk0.png" type="Texture" id=84]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_walk1.png" type="Texture" id=85]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_walk2.png" type="Texture" id=86]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_walk4.png" type="Texture" id=87]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_side.png" type="Texture" id=88]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_walk5.png" type="Texture" id=89]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_climb0.png" type="Texture" id=90]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_walk3.png" type="Texture" id=91]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_climb1.png" type="Texture" id=92]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_fallDown.png" type="Texture" id=93]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_shove.png" type="Texture" id=94]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_hang.png" type="Texture" id=95]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_walk6.png" type="Texture" id=96]
+[ext_resource path="res://assets/Players/bruno/PNG/Poses HD/character_robot_walk7.png" type="Texture" id=97]
+[ext_resource path="res://assets/Items/spikes.png" type="Texture" id=98]
+[ext_resource path="res://assets/Sounds/robot_hurt.ogg" type="AudioStream" id=99]
+[ext_resource path="res://assets/Sounds/robot_scream.ogg" type="AudioStream" id=100]
+[ext_resource path="res://assets/Sounds/girl_hurt.ogg" type="AudioStream" id=101]
+[ext_resource path="res://assets/Sounds/girl_scream.ogg" type="AudioStream" id=102]
 
 [sub_resource type="TileSet" id=69]
 0/name = "tileGreen_02.png 0"
@@ -216,14 +241,14 @@ animations = [ {
 "frames": [ ExtResource( 66 ), ExtResource( 67 ) ],
 "loop": true,
 "name": "climb",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 49 ) ],
 "loop": true,
 "name": "dead",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 29 ) ],
+"frames": [ ExtResource( 79 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -246,7 +271,7 @@ animations = [ {
 "frames": [ ExtResource( 62 ), ExtResource( 41 ) ],
 "loop": false,
 "name": "wave",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ) ],
 "loop": false,
@@ -274,31 +299,19 @@ corner_radius_bottom_left = 10
 [sub_resource type="RectangleShape2D" id=66]
 extents = Vector2( 4, 30 )
 
-[sub_resource type="Gradient" id=50]
-interpolation_mode = 2
-offsets = PoolRealArray( 0, 0.0034965, 0.0314685, 0.0559441, 0.129371, 0.541958, 0.867133, 1 )
-colors = PoolColorArray( 0, 0, 0, 0, 0.318736, 0.318736, 0.318736, 0.681264, 0.129412, 0.129412, 0.129412, 0, 0.152941, 0.152941, 0.152941, 0, 0.109804, 0.109804, 0.109804, 0, 0.588235, 0.588235, 0.588235, 0, 0.880557, 0.880557, 0.880557, 0, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture2D" id=51]
-gradient = SubResource( 50 )
-fill = 1
-
-[sub_resource type="GradientTexture2D" id=52]
-gradient = SubResource( 50 )
-fill = 1
-
-[sub_resource type="StreamTexture" id=47]
-flags = 4
-load_path = "res://.import/white_round.png-d137a7c271a3e6f94971d211db8f5706.stex"
-
-[sub_resource type="SpriteFrames" id=48]
+[sub_resource type="SpriteFrames" id=81]
 animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "climb",
+"speed": 7.0
+}, {
 "frames": [ ExtResource( 48 ) ],
-"loop": false,
+"loop": true,
 "name": "dead",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -318,28 +331,59 @@ animations = [ {
 "name": "walk",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 78 ), ExtResource( 38 ) ],
+"loop": false,
+"name": "wave",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "win",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 20.5, 32 )
-
-[sub_resource type="StyleBoxFlat" id=38]
-bg_color = Color( 0.741176, 0, 0, 1 )
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id=32]
-bg_color = Color( 0.352941, 0.352941, 0.352941, 1 )
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="SpriteFrames" id=82]
+animations = [ {
+"frames": [ ExtResource( 90 ), ExtResource( 92 ) ],
+"loop": true,
+"name": "climb",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 93 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 88 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 83 ) ],
+"loop": true,
+"name": "kick",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 91 ), ExtResource( 87 ), ExtResource( 89 ), ExtResource( 96 ), ExtResource( 97 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 94 ), ExtResource( 95 ) ],
+"loop": false,
+"name": "wave",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 81 ), ExtResource( 80 ) ],
+"loop": false,
+"name": "win",
+"speed": 5.0
+} ]
 
 [sub_resource type="ConvexPolygonShape2D" id=73]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 34, 64, 34 )
@@ -389,6 +433,32 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 34, 64, 34 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 74 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=70]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
+
+[sub_resource type="TileSet" id=83]
+0/name = "spikes.png 0"
+0/texture = ExtResource( 98 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 70 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 70 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -654,7 +724,7 @@ stream = ExtResource( 61 )
 volume_db = 2.0
 
 [node name="WaveOut" type="Position2D" parent="Marcus"]
-position = Vector2( 165, 272 )
+position = Vector2( 144, 280 )
 
 [node name="LadderChecker" type="Area2D" parent="Marcus"]
 collision_layer = 0
@@ -668,13 +738,13 @@ shape = SubResource( 66 )
 autostart = true
 
 [node name="Jessie" type="KinematicBody2D" parent="." groups=["player"]]
-visible = false
 position = Vector2( 12, 2 )
-collision_mask = 94
+collision_mask = 222
 script = ExtResource( 3 )
 
 [node name="Camera" type="Camera2D" parent="Jessie"]
 position = Vector2( 200, 296 )
+zoom = Vector2( 0.65, 0.65 )
 limit_left = -510
 limit_bottom = 1280
 drag_margin_h_enabled = true
@@ -682,33 +752,34 @@ drag_margin_v_enabled = true
 editor_draw_limits = true
 
 [node name="RightTouch" type="TouchScreenButton" parent="Jessie/Camera"]
-position = Vector2( 0, -330 )
+position = Vector2( -7, -293 )
 scale = Vector2( 8, 10 )
-normal = SubResource( 51 )
+normal = SubResource( 56 )
+shape_visible = false
 
 [node name="LeftTouch" type="TouchScreenButton" parent="Jessie/Camera"]
 position = Vector2( -514, -330 )
 scale = Vector2( 8, 10 )
-normal = SubResource( 52 )
+normal = SubResource( 57 )
 
 [node name="TextureRect" type="TextureRect" parent="Jessie"]
 visible = false
-margin_left = 185.0
-margin_top = 386.0
-margin_right = 254.0
-margin_bottom = 455.0
-texture = SubResource( 47 )
+margin_left = 110.0
+margin_top = 245.0
+margin_right = 179.0
+margin_bottom = 314.0
+texture = ExtResource( 30 )
 expand = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Jessie"]
-position = Vector2( 220, 415 )
+position = Vector2( 144, 272 )
 scale = Vector2( 0.294271, 0.294271 )
-frames = SubResource( 48 )
-animation = "win"
+frames = SubResource( 81 )
+animation = "idle"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Jessie"]
-position = Vector2( 219.5, 421 )
-shape = SubResource( 49 )
+position = Vector2( 142.5, 278.5 )
+shape = SubResource( 59 )
 
 [node name="ProgressBar" parent="Jessie" instance=ExtResource( 23 )]
 visible = false
@@ -716,9 +787,12 @@ visible = false
 [node name="DeathTimer" type="Timer" parent="Jessie"]
 
 [node name="ImmunityTimer" type="Timer" parent="Jessie"]
-wait_time = 10.0
+wait_time = 4.0
 
 [node name="PowerTimer" type="Timer" parent="Jessie"]
+wait_time = 4.0
+
+[node name="WaveTimer" type="Timer" parent="Jessie"]
 wait_time = 5.0
 
 [node name="StunTimer" type="Timer" parent="Jessie"]
@@ -731,8 +805,8 @@ margin_top = 30.0
 margin_right = 744.0
 margin_bottom = 86.0
 rect_scale = Vector2( 0.7, 0.5 )
-custom_styles/fg = SubResource( 38 )
-custom_styles/bg = SubResource( 32 )
+custom_styles/fg = SubResource( 60 )
+custom_styles/bg = SubResource( 61 )
 value = 100.0
 percent_visible = false
 script = ExtResource( 24 )
@@ -745,17 +819,138 @@ margin_bottom = 65.0
 texture = ExtResource( 35 )
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="Jessie"]
-stream = ExtResource( 38 )
+stream = ExtResource( 101 )
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="Jessie"]
 stream = ExtResource( 39 )
 
 [node name="ScreamSound" type="AudioStreamPlayer" parent="Jessie"]
-stream = ExtResource( 40 )
+stream = ExtResource( 102 )
 
 [node name="PotionSound" type="AudioStreamPlayer" parent="Jessie"]
 stream = ExtResource( 61 )
 volume_db = 2.0
+
+[node name="WaveOut" type="Position2D" parent="Jessie"]
+position = Vector2( 144, 280 )
+
+[node name="LadderChecker" type="Area2D" parent="Jessie"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jessie/LadderChecker"]
+position = Vector2( 144, 279 )
+shape = SubResource( 66 )
+
+[node name="JumpStreakTimer" type="Timer" parent="Jessie"]
+autostart = true
+
+[node name="Bruno" type="KinematicBody2D" parent="." groups=["player"]]
+position = Vector2( 12, 2 )
+collision_mask = 222
+script = ExtResource( 3 )
+
+[node name="Camera" type="Camera2D" parent="Bruno"]
+position = Vector2( 200, 296 )
+zoom = Vector2( 0.65, 0.65 )
+limit_left = -510
+limit_bottom = 1280
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+editor_draw_limits = true
+
+[node name="RightTouch" type="TouchScreenButton" parent="Bruno/Camera"]
+position = Vector2( -7, -293 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 56 )
+shape_visible = false
+
+[node name="LeftTouch" type="TouchScreenButton" parent="Bruno/Camera"]
+position = Vector2( -514, -330 )
+scale = Vector2( 8, 10 )
+normal = SubResource( 57 )
+
+[node name="TextureRect" type="TextureRect" parent="Bruno"]
+visible = false
+margin_left = 110.0
+margin_top = 245.0
+margin_right = 179.0
+margin_bottom = 314.0
+texture = ExtResource( 30 )
+expand = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Bruno"]
+position = Vector2( 144, 272 )
+scale = Vector2( 0.294271, 0.294271 )
+frames = SubResource( 82 )
+animation = "idle"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Bruno"]
+position = Vector2( 142.5, 278.5 )
+shape = SubResource( 59 )
+
+[node name="ProgressBar" parent="Bruno" instance=ExtResource( 23 )]
+visible = false
+
+[node name="DeathTimer" type="Timer" parent="Bruno"]
+
+[node name="ImmunityTimer" type="Timer" parent="Bruno"]
+wait_time = 4.0
+
+[node name="PowerTimer" type="Timer" parent="Bruno"]
+wait_time = 4.0
+
+[node name="WaveTimer" type="Timer" parent="Bruno"]
+wait_time = 5.0
+
+[node name="StunTimer" type="Timer" parent="Bruno"]
+
+[node name="Life" type="CanvasLayer" parent="Bruno"]
+
+[node name="LifeProgressBar" type="ProgressBar" parent="Bruno/Life"]
+margin_left = 164.0
+margin_top = 30.0
+margin_right = 744.0
+margin_bottom = 86.0
+rect_scale = Vector2( 0.7, 0.5 )
+custom_styles/fg = SubResource( 60 )
+custom_styles/bg = SubResource( 61 )
+value = 100.0
+percent_visible = false
+script = ExtResource( 24 )
+
+[node name="TextureRect" type="TextureRect" parent="Bruno/Life"]
+margin_left = 144.0
+margin_top = 20.0
+margin_right = 197.0
+margin_bottom = 65.0
+texture = ExtResource( 35 )
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="Bruno"]
+stream = ExtResource( 99 )
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="Bruno"]
+stream = ExtResource( 39 )
+
+[node name="ScreamSound" type="AudioStreamPlayer" parent="Bruno"]
+stream = ExtResource( 100 )
+
+[node name="PotionSound" type="AudioStreamPlayer" parent="Bruno"]
+stream = ExtResource( 61 )
+
+[node name="WaveOut" type="Position2D" parent="Bruno"]
+position = Vector2( 144, 280 )
+
+[node name="LadderChecker" type="Area2D" parent="Bruno"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bruno/LadderChecker"]
+position = Vector2( 144, 279 )
+shape = SubResource( 66 )
+
+[node name="JumpStreakTimer" type="Timer" parent="Bruno"]
+autostart = true
 
 [node name="TileMapWater" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
@@ -768,6 +963,15 @@ position = Vector2( -4, -6 )
 tile_set = SubResource( 72 )
 format = 1
 tile_data = PoolIntArray( 589822, 0, 0, 589823, 0, 0 )
+
+[node name="Spikes" type="TileMap" parent="."]
+position = Vector2( -4, -6 )
+tile_set = SubResource( 83 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 589821, 0, 0, 589822, 0, 0, 589823, 0, 0 )
+
+[node name="Spinners" type="Node2D" parent="."]
 
 [node name="TNTs" type="Node2D" parent="."]
 
@@ -1106,7 +1310,22 @@ position = Vector2( 4, 2 )
 [connection signal="timeout" from="Jessie/DeathTimer" to="Jessie" method="_on_DeathTimer_timeout"]
 [connection signal="timeout" from="Jessie/ImmunityTimer" to="Jessie" method="_on_ImmunityTimer_timeout"]
 [connection signal="timeout" from="Jessie/PowerTimer" to="Jessie" method="_on_PowerTimer_timeout"]
+[connection signal="timeout" from="Jessie/WaveTimer" to="Jessie" method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="Jessie/StunTimer" to="Jessie" method="_on_StunTimer_timeout"]
 [connection signal="value_changed" from="Jessie/Life/LifeProgressBar" to="Jessie" method="_on_LifeProgressBar_value_changed"]
+[connection signal="body_entered" from="Jessie/LadderChecker" to="Jessie" method="_on_LadderChecker_body_entered"]
+[connection signal="body_exited" from="Jessie/LadderChecker" to="Jessie" method="_on_LadderChecker_body_exited"]
+[connection signal="timeout" from="Jessie/JumpStreakTimer" to="Jessie" method="_on_JumpStreakTimer_timeout"]
+[connection signal="timeout" from="Bruno/DeathTimer" to="Bruno" method="_on_DeathTimer_timeout"]
+[connection signal="timeout" from="Bruno/ImmunityTimer" to="Bruno" method="_on_ImmunityTimer_timeout"]
+[connection signal="timeout" from="Bruno/PowerTimer" to="Bruno" method="_on_PowerTimer_timeout"]
+[connection signal="timeout" from="Bruno/WaveTimer" to="Bruno" method="_on_WaveTimer_timeout"]
+[connection signal="timeout" from="Bruno/StunTimer" to="Bruno" method="_on_StunTimer_timeout"]
+[connection signal="value_changed" from="Bruno/Life/LifeProgressBar" to="Bruno" method="_on_LifeProgressBar_value_changed"]
+[connection signal="body_entered" from="Bruno/LadderChecker" to="Bruno" method="_on_LadderChecker_body_entered"]
+[connection signal="body_exited" from="Bruno/LadderChecker" to="Bruno" method="_on_LadderChecker_body_exited"]
+[connection signal="timeout" from="Bruno/JumpStreakTimer" to="Bruno" method="_on_JumpStreakTimer_timeout"]
 [connection signal="body_entered" from="FallZone" to="Marcus" method="_on_FallZone_body_entered"]
+[connection signal="body_entered" from="FallZone" to="Jessie" method="_on_FallZone_body_entered"]
+[connection signal="body_entered" from="FallZone" to="Bruno" method="_on_FallZone_body_entered"]
 [connection signal="pressed" from="Exit/ExitButton" to="." method="_on_ExitButton_pressed"]

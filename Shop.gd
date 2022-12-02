@@ -19,16 +19,42 @@ func _process(delta):
 		$ImmunePotion/ImmunePotionButton.disabled = false
 		$LifePotion.modulate = Color(1,1,1,1)
 		$LifePotion/LifePotionButton.disabled = false
+		$TimeFreezePotion.modulate = Color(1,1,1,1)
+		$TimeFreezePotion/TimeFreezePotionButton.disabled = false
+		$WavePotion.modulate = Color(1,1,1,1)
+		$WavePotion/WavePotionButton.disabled = false
 		
 	if int(get_node('../CoinsCounter/TotalCoins').text) >= 5:
+		$PowerPotion.modulate = Color(1,1,1,1)
+		$PowerPotion/PowerPotionButton.disabled = false
 		$ImmunePotion.modulate = Color(1,1,1,1)
 		$ImmunePotion/ImmunePotionButton.disabled = false
 		$LifePotion.modulate = Color(1,1,1,1)
 		$LifePotion/LifePotionButton.disabled = false
+		$TimeFreezePotion.modulate = Color(1,1,1,1)
+		$TimeFreezePotion/TimeFreezePotionButton.disabled = false
 		
+	if int(get_node('../CoinsCounter/TotalCoins').text) >= 4:
+		$PowerPotion.modulate = Color(1,1,1,1)
+		$PowerPotion/PowerPotionButton.disabled = false
+		$LifePotion.modulate = Color(1,1,1,1)
+		$LifePotion/LifePotionButton.disabled = false
+				
 	if int(get_node('../CoinsCounter/TotalCoins').text) >= 3:
 		$LifePotion.modulate = Color(1,1,1,1)
 		$LifePotion/LifePotionButton.disabled = false
+	else:
+		$PowerPotion.modulate = Color8(255, 255, 255, 100)
+		$PowerPotion/PowerPotionButton.disabled = false
+		$ImmunePotion.modulate = Color8(255, 255, 255, 100)
+		$ImmunePotion/ImmunePotionButton.disabled = false
+		$LifePotion.modulate = Color8(255, 255, 255, 100)
+		$LifePotion/LifePotionButton.disabled = false
+		$TimeFreezePotion.modulate = Color8(255, 255, 255, 100)
+		$TimeFreezePotion/TimeFreezePotionButton.disabled = false
+		$WavePotion.modulate = Color8(255, 255, 255, 100)
+		$WavePotion/WavePotionButton.disabled = false
+	
 		
 
 

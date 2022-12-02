@@ -6,10 +6,16 @@ func _ready():
 	print(Settings.sprite)
 	if Settings.sprite == 'Jessie':
 		get_node("Marcus").queue_free()
+		get_node("Bruno").queue_free()
 		get_node("Jessie/Camera").current = true
 	elif Settings.sprite == 'Marcus':
 		get_node("Jessie").queue_free()
+		get_node("Bruno").queue_free()
 		get_node("Marcus/Camera").current = true
+	elif Settings.sprite == 'Bruno':
+		get_node("Marcus").queue_free()
+		get_node("Jessie").queue_free()
+		get_node("Bruno/Camera").current = true
 	Cache.playing_level =  str(get_tree().current_scene.filename[15])
 	$LevelName/Label.text = "Level " + str(get_tree().current_scene.filename[15])
 	var stylebox = $LeftGameTime/Panel.get_stylebox("panel").duplicate()
@@ -28,3 +34,7 @@ func _on_ExitButton_pressed():
 	$ButtonClickedSound.play()
 	yield(get_tree().create_timer(0.3), "timeout")
 	get_tree().change_scene("res://MainMenu.tscn")
+
+
+func _on_FallZone_body_entered(body):
+	pass # Replace with function body.

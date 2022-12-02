@@ -10,11 +10,11 @@
 file = "res://assets/Backgrounds/background_video.ogv"
 
 [sub_resource type="DynamicFont" id=13]
-size = 35
+size = 60
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=14]
-size = 35
+size = 60
 font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=4]
@@ -42,7 +42,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="DynamicFont" id=15]
-size = 35
+size = 45
 font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=16]
@@ -84,8 +84,8 @@ anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 stream = SubResource( 1 )
 autoplay = true
 
@@ -98,28 +98,28 @@ texture = ExtResource( 1 )
 stretch_mode = 6
 
 [node name="PlayerSprite" type="Label" parent="."]
-margin_left = 64.0
-margin_top = 104.0
-margin_right = 352.0
-margin_bottom = 160.0
-custom_colors/font_color = Color( 0.960784, 0.913725, 0.305882, 1 )
+margin_left = 336.0
+margin_top = 216.0
+margin_right = 797.0
+margin_bottom = 288.0
+custom_colors/font_color = Color( 1, 0.500244, 0.28125, 1 )
 custom_fonts/font = SubResource( 13 )
-text = "player"
+text = "character:"
 
 [node name="Volume" type="Label" parent="."]
-margin_left = 64.0
-margin_top = 232.0
-margin_right = 352.0
-margin_bottom = 288.0
-custom_colors/font_color = Color( 0.960784, 0.913725, 0.305882, 1 )
+margin_left = 488.0
+margin_top = 392.0
+margin_right = 795.0
+margin_bottom = 464.0
+custom_colors/font_color = Color( 1, 0.500244, 0.28125, 1 )
 custom_fonts/font = SubResource( 14 )
-text = "volume"
+text = "volume:"
 
 [node name="ItemList" type="ItemList" parent="."]
-margin_left = 376.0
-margin_top = 72.0
-margin_right = 800.0
-margin_bottom = 192.0
+margin_left = 841.0
+margin_top = 192.0
+margin_right = 1339.0
+margin_bottom = 309.0
 custom_styles/selected_focus = SubResource( 4 )
 custom_styles/bg_focus = SubResource( 5 )
 custom_styles/selected = SubResource( 3 )
@@ -128,18 +128,18 @@ fixed_column_width = 1
 icon_scale = 0.5
 
 [node name="PlayerSpritePreview" type="TextureRect" parent="."]
-margin_left = 824.0
-margin_top = 48.0
-margin_right = 960.0
-margin_bottom = 200.0
+margin_left = 1368.0
+margin_top = 160.0
+margin_right = 1504.0
+margin_bottom = 312.0
 expand = true
 stretch_mode = 6
 
 [node name="HomeButton" type="Button" parent="."]
-margin_left = 568.0
-margin_top = 448.0
-margin_right = 768.0
-margin_bottom = 529.0
+margin_left = 1040.0
+margin_top = 768.0
+margin_right = 1400.0
+margin_bottom = 898.0
 custom_colors/font_color = Color( 0.960784, 0.913725, 0.305882, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -152,10 +152,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="ResetButton" type="Button" parent="."]
-margin_left = 240.0
-margin_top = 448.0
-margin_right = 535.0
-margin_bottom = 529.0
+margin_left = 520.0
+margin_top = 768.0
+margin_right = 904.0
+margin_bottom = 898.0
 custom_colors/font_color = Color( 0.960784, 0.913725, 0.305882, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -176,10 +176,10 @@ mix_target = 1
 stream = ExtResource( 7 )
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_left = 384.0
-margin_top = 225.0
-margin_right = 800.0
-margin_bottom = 313.0
+margin_left = 846.0
+margin_top = 372.0
+margin_right = 1391.0
+margin_bottom = 484.0
 custom_styles/slider = SubResource( 10 )
 custom_styles/grabber_area_highlight = SubResource( 12 )
 custom_styles/grabber_area = SubResource( 11 )

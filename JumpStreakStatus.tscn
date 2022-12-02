@@ -20,6 +20,7 @@ position = Vector2( 608, 32 )
 script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ProgressBar1" type="ProgressBar" parent="CanvasLayer"]
 margin_left = 816.0

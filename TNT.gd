@@ -10,6 +10,7 @@ export var explode_time = 0.5
 export(String, "Timer", "Collide") var moving_way = "Collide"
 onready var initial_y = position.y
 onready var initial_x = position.x
+var is_bombing = false
 
 func _ready():
 	pass
@@ -46,16 +47,20 @@ func _on_ExplosionTimer_timeout():
 		if not get_node('/root/GameScene/' + Settings.sprite + '').immune:
 			get_node('/root/GameScene/' + Settings.sprite + '').alive = false
 			get_node('/root/GameScene/' + Settings.sprite + '').visible = false
-		$ExplosionFlash.visible = true
-		$ExplosionFlash.play('default')
-		$ExplodeSound.play()
-		yield(get_tree().create_timer(1), "timeout")
-#		get_node('/root/GameScene/ExplosionFlash').visible = false
-#		get_node('/root/GameScene/TileMapSolid').set_cellv(location, -1)
-		if not get_node('/root/GameScene/' + Settings.sprite + '').immune:
-			get_node('/root/GameScene/' + Settings.sprite + '').visible = true
-			get_node('/root/GameScene/' + Settings.sprite + '').dead('burn')
-		$ExplosionFlash.visible = false
+		if not is_bombing:
+			is_bombing = true
+			get_node('/root/GameScene/' + Settings.sprite + '').gravity = 0
+			$ExplosionFlash.visible = true
+			$ExplosionFlash.play('default')
+			$ExplodeSound.play()
+			yield(get_tree().create_timer(1), "timeout")
+	#		get_node('/root/GameScene/ExplosionFlash').visible = false
+	#		get_node('/root/GameScene/TileMapSolid').set_cellv(location, -1)
+			get_node('/root/GameScene/' + Settings.sprite + '').gravity = 30
+			if not get_node('/root/GameScene/' + Settings.sprite + '').immune:
+				get_node('/root/GameScene/' + Settings.sprite + '').visible = true
+				get_node('/root/GameScene/' + Settings.sprite + '').dead('burn')
+			$ExplosionFlash.visible = false
 		
 		
 

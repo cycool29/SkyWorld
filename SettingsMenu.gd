@@ -2,7 +2,7 @@ extends Control
 #const Settings = preload("res://LoadSettings.gd")
 
 
-var sprites_options = ['marcus', 'jessie']
+var sprites_options = ['marcus', 'jessie', 'bruno']
 var configs = ConfigFile.new()
 var err = configs.load("user://skyworld.cfg")
 var sprite = 'marcus'

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/Items/health_potion (8).png" type="Texture" id=1]
 [ext_resource path="res://assets/Items/health_potion (2).png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Shop.gd" type="Script" id=17]
 [ext_resource path="res://assets/Sounds/getPotion.ogg" type="AudioStream" id=18]
 [ext_resource path="res://assets/HUD/hud_1.png" type="Texture" id=19]
+[ext_resource path="res://assets/HUD/hud_4.png" type="Texture" id=20]
 
 [sub_resource type="StyleBoxFlat" id=1]
 corner_radius_top_left = 20
@@ -58,6 +59,14 @@ bg_color = Color( 1, 1, 1, 1 )
 corner_radius_bottom_left = 20
 
 [sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "shake",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
@@ -147,7 +156,7 @@ margin_left = 1845.75
 margin_top = 416.06
 margin_right = 1877.75
 margin_bottom = 448.06
-texture = ExtResource( 15 )
+texture = ExtResource( 20 )
 expand = true
 stretch_mode = 6
 
@@ -203,10 +212,10 @@ custom_styles/normal = SubResource( 5 )
 disabled = true
 
 [node name="TimeFreezePotion" type="AnimatedSprite" parent="TimeFreezePotion"]
-modulate = Color( 0, 1, 0, 1 )
+modulate = Color( 0, 0.0627451, 1, 1 )
 position = Vector2( 1864.41, 607.06 )
 scale = Vector2( 0.173, 0.173 )
-frames = SubResource( 3 )
+frames = SubResource( 10 )
 animation = "shake"
 
 [node name="Coin" type="TextureRect" parent="TimeFreezePotion"]
@@ -258,10 +267,10 @@ expand = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="WavePotion"]
-margin_left = 1825.41
-margin_top = 647.06
-margin_right = 1857.41
-margin_bottom = 679.06
+margin_left = 1843.0
+margin_top = 647.0
+margin_right = 1875.0
+margin_bottom = 679.0
 texture = ExtResource( 19 )
 expand = true
 stretch_mode = 6
@@ -271,7 +280,7 @@ margin_left = 1849.41
 margin_top = 647.06
 margin_right = 1881.41
 margin_bottom = 679.06
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
 

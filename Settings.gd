@@ -9,8 +9,16 @@ var volume = 1
 func _ready():
 	if err != OK:
 		print('failed')
-		sprite = configs.get_value("config", "sprite").capitalize()
-	OS.set_window_maximized(true)
+		current_level = 1
+		sprite = 'Marcus'
+		volume = 80.0
+		configs.set_value("config", "sprite", 'marcus')
+		configs.set_value("config", "level", "1")
+		configs.set_value("config", "volume", "100")
+
+		# Save it to a file (overwrite if already exists).
+		configs.save("user://skyworld.cfg")
+		OS.window_fullscreen = true
 
 func update_settings():
 	configs.load("user://skyworld.cfg")
