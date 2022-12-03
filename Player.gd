@@ -436,6 +436,7 @@ func win():
 	configs.set_value("config", "level", int(Settings.current_level) + 1)
 	configs.save("user://skyworld.cfg")
 	Settings.update_settings()
+	Cache.win_time = 120 - int(get_node('../GameTimer').time_left)
 
 
 

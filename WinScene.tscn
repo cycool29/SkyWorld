@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/Backgrounds/you_win_text.png" type="Texture" id=1]
 [ext_resource path="res://assets/Backgrounds/win.ogv" type="VideoStream" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/Backgrounds/seconds.png" type="Texture" id=7]
 [ext_resource path="res://assets/Backgrounds/going_back_to_home_screen.png" type="Texture" id=8]
 [ext_resource path="res://assets/HUD/hud_9.png" type="Texture" id=9]
+[ext_resource path="res://assets/Quicksand-SemiBold.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://assets/Sounds/clicked.ogg" type="AudioStream" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -89,6 +90,10 @@ corner_radius_bottom_left = 20
 flags = 4
 load_path = "res://.import/quit_text.png-4db67b27f3bc9fd28a6cdbe0c9f57b3a.stex"
 
+[sub_resource type="DynamicFont" id=13]
+size = 50
+font_data = ExtResource( 10 )
+
 [node name="WinScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -109,24 +114,24 @@ stream = ExtResource( 6 )
 
 [node name="Panel" type="Panel" parent="."]
 margin_left = 256.0
-margin_top = 128.0
-margin_right = 1672.0
-margin_bottom = 384.0
+margin_top = 64.0
+margin_right = 1664.0
+margin_bottom = 320.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="YouWin" type="TextureRect" parent="."]
-margin_left = 488.0
-margin_top = 168.0
-margin_right = 1424.0
-margin_bottom = 352.0
+margin_left = 256.0
+margin_top = 104.0
+margin_right = 1664.0
+margin_bottom = 288.0
 texture = ExtResource( 1 )
 stretch_mode = 6
 
 [node name="NextLevel" type="Button" parent="."]
-margin_left = 720.0
-margin_top = 479.0
-margin_right = 1200.0
-margin_bottom = 599.0
+margin_left = 728.0
+margin_top = 504.0
+margin_right = 1208.0
+margin_bottom = 624.0
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
@@ -135,10 +140,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Home" type="Button" parent="."]
-margin_left = 720.0
-margin_top = 655.0
-margin_right = 1200.0
-margin_bottom = 775.0
+margin_left = 728.0
+margin_top = 656.0
+margin_right = 1208.0
+margin_bottom = 776.0
 custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
@@ -147,10 +152,10 @@ icon_align = 1
 expand_icon = true
 
 [node name="Quit" type="Button" parent="."]
-margin_left = 720.0
-margin_top = 831.0
-margin_right = 1200.0
-margin_bottom = 951.0
+margin_left = 728.0
+margin_top = 808.0
+margin_right = 1208.0
+margin_bottom = 928.0
 custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 10 )
 custom_styles/normal = SubResource( 11 )
@@ -164,36 +169,45 @@ autostart = true
 
 [node name="GoingBackToHomeScreenIn" type="TextureRect" parent="."]
 visible = false
-margin_left = 299.0
-margin_top = 528.0
-margin_right = 611.0
-margin_bottom = 552.0
+margin_left = 480.0
+margin_top = 952.0
+margin_right = 1160.0
+margin_bottom = 1008.0
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 
 [node name="SecondsNumber" type="TextureRect" parent="."]
 visible = false
-margin_left = 607.0
-margin_top = 528.0
-margin_right = 631.0
-margin_bottom = 552.0
+margin_left = 1168.0
+margin_top = 944.0
+margin_right = 1216.0
+margin_bottom = 1008.0
 texture = ExtResource( 9 )
 expand = true
 stretch_mode = 6
 
 [node name="SecondsText" type="TextureRect" parent="."]
 visible = false
-margin_left = 627.0
-margin_top = 528.0
-margin_right = 723.0
-margin_bottom = 552.0
+margin_left = 1208.0
+margin_top = 952.0
+margin_right = 1448.0
+margin_bottom = 1008.0
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
 
 [node name="ButtonClickedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+
+[node name="FastestTime" type="Label" parent="."]
+margin_top = 376.0
+margin_right = 1920.0
+margin_bottom = 439.0
+custom_colors/font_color = Color( 1, 0.34902, 0, 1 )
+custom_fonts/font = SubResource( 13 )
+align = 1
+valign = 1
 
 [connection signal="pressed" from="NextLevel" to="." method="_on_NextLevel_pressed"]
 [connection signal="pressed" from="Home" to="." method="_on_Home_pressed"]

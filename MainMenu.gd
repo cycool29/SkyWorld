@@ -5,6 +5,7 @@ var configs = ConfigFile.new()
 var err = configs.load("user://skyworld.cfg")
 
 func _ready():
+	$AnimationPlayer.play("fade")
 	if err != OK:
 		print('failed')
 		# Set default values
@@ -28,6 +29,9 @@ func _process(delta):
 		$VideoPlayer.play()
 	if not $BackgroundMusic.playing:
 		$BackgroundMusic.play()
+		
+	if not $AnimationPlayer.is_playing() and get_node("ColorRect"):
+		$ColorRect.queue_free()
 
 func _input(event):
 	if Input.is_key_pressed(KEY_SPACE) or Input.is_key_pressed(KEY_ENTER):
@@ -37,7 +41,7 @@ func _on_StartButton_pressed():
 	print('res://GameScene' + str(configs.get_value("config", "level")) + '.tscn')
 	$ButtonClickedSound.play()
 	yield(get_tree().create_timer(0.3), "timeout")
-	get_tree().change_scene('res://GameScene' + configs.get_value("config", "level") + '.tscn')		
+	get_tree().change_scene('res://GameScene' + str(configs.get_value("config", "level")) + '.tscn')	
 
 func _on_HelpButton_pressed():
 	$ButtonClickedSound.play()

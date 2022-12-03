@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$CanvasLayer/AnimationPlayer.play("fade")
 	Settings.update_settings()
 	get_node(Settings.sprite).visible = true
 	print(Settings.sprite)
@@ -27,6 +28,8 @@ func _ready():
 	
 	
 func _process(delta):
+	if not $CanvasLayer/AnimationPlayer.is_playing() and get_node("ColorRect"):
+		$CanvasLayer/ColorRect.queue_free()
 	$LeftGameTime/Label.text = Time.get_offset_string_from_offset_minutes($GameTimer.time_left).lstrip('+')
 
 

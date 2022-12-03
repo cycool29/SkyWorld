@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/Keyboard/g14209.png" type="Texture" id=1]
 [ext_resource path="res://assets/Keyboard/g14134.png" type="Texture" id=2]
@@ -9,6 +9,11 @@
 [ext_resource path="res://HelpMenu.gd" type="Script" id=7]
 [ext_resource path="res://assets/Sounds/clicked.ogg" type="AudioStream" id=8]
 [ext_resource path="res://assets/Sounds/Worldmap Theme_0.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/Keyboard/K-Key.png" type="Texture" id=10]
+[ext_resource path="res://assets/Keyboard/L-Key.png" type="Texture" id=11]
+[ext_resource path="res://assets/Keyboard/I-Key.png" type="Texture" id=12]
+[ext_resource path="res://assets/Keyboard/P-Key.png" type="Texture" id=13]
+[ext_resource path="res://assets/Keyboard/F-Key.png" type="Texture" id=14]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 0.745098 )
@@ -54,6 +59,68 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=13]
+size = 300
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 300
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 300
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 300
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 300
+font_data = ExtResource( 6 )
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -66,10 +133,10 @@ stream = ExtResource( 5 )
 autoplay = true
 
 [node name="HelpPanel" type="Panel" parent="."]
-margin_left = 304.0
+margin_left = 280.0
 margin_top = 96.0
-margin_right = 1619.0
-margin_bottom = 768.0
+margin_right = 1640.0
+margin_bottom = 864.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="Move" type="Control" parent="HelpPanel"]
@@ -92,7 +159,7 @@ margin_left = 390.0
 margin_top = 338.0
 margin_right = 1051.0
 margin_bottom = 394.0
-custom_colors/font_color = Color( 1, 0.588051, 0.367188, 1 )
+custom_colors/font_color = Color( 1, 0.34902, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = ": move left and right"
 
@@ -125,7 +192,7 @@ margin_left = 390.0
 margin_top = 442.0
 margin_right = 1109.0
 margin_bottom = 496.0
-custom_colors/font_color = Color( 1, 0.588051, 0.367188, 1 )
+custom_colors/font_color = Color( 1, 0.34902, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = ": JUMP or climb ladders"
 
@@ -142,15 +209,15 @@ stretch_mode = 6
 margin_left = 288.0
 margin_right = 1220.0
 margin_bottom = 54.0
-custom_colors/font_color = Color( 1, 0.588051, 0.367188, 1 )
+custom_colors/font_color = Color( 1, 0.34902, 0, 1 )
 custom_fonts/font = SubResource( 6 )
-text = ": shoot Qi Balls when avaiable"
+text = ": shoot FireBalls when avaiable"
 
 [node name="HomeButton" type="Button" parent="."]
 margin_left = 744.0
-margin_top = 824.0
+margin_top = 896.0
 margin_right = 1104.0
-margin_bottom = 954.0
+margin_bottom = 1026.0
 custom_colors/font_color = Color( 0.960784, 0.913725, 0.305882, 1 )
 custom_colors/font_color_hover = Color( 1, 0.823529, 0.329412, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.737255, 0, 1 )
@@ -169,5 +236,87 @@ stream = ExtResource( 8 )
 stream = ExtResource( 9 )
 autoplay = true
 mix_target = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -3.0
+margin_right = 1920.0
+margin_bottom = 1077.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 11 )
+anims/fade = SubResource( 12 )
+
+[node name="L-Key" type="Sprite" parent="."]
+position = Vector2( 416, 544 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="L-Key"]
+margin_left = 400.0
+margin_top = -200.0
+margin_right = 2624.0
+margin_bottom = 250.0
+custom_colors/font_color = Color( 0.941176, 0.486275, 0.247059, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "Life Potion"
+
+[node name="I-Key" type="Sprite" parent="."]
+position = Vector2( 416, 648 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="I-Key"]
+margin_left = 400.0
+margin_top = -200.0
+margin_right = 2624.0
+margin_bottom = 250.0
+custom_colors/font_color = Color( 0.941176, 0.486275, 0.247059, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "Immune Potion"
+
+[node name="K-Key" type="Sprite" parent="."]
+position = Vector2( 416, 752 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="K-Key"]
+margin_left = 400.0
+margin_top = -200.0
+margin_right = 2624.0
+margin_bottom = 250.0
+custom_colors/font_color = Color( 0.941176, 0.486275, 0.247059, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "Kungfu Potion"
+
+[node name="P-Key" type="Sprite" parent="."]
+position = Vector2( 1048, 544 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="P-Key"]
+margin_left = 400.0
+margin_top = -200.0
+margin_right = 2624.0
+margin_bottom = 250.0
+custom_colors/font_color = Color( 0.941176, 0.486275, 0.247059, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Power Potion"
+
+[node name="F-Key" type="Sprite" parent="."]
+position = Vector2( 648, 536 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 14 )
+offset = Vector2( 2500, 750 )
+
+[node name="Label" type="Label" parent="F-Key"]
+margin_left = 2900.0
+margin_top = 400.0
+margin_right = 5285.0
+margin_bottom = 1113.0
+custom_colors/font_color = Color( 0.941176, 0.486275, 0.247059, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Time freeze
+Potion"
 
 [connection signal="pressed" from="HomeButton" to="." method="_on_HomeButton_pressed"]

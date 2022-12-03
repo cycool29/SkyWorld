@@ -1,12 +1,23 @@
 extends Control
 #const Settings = preload("res://LoadSettings.gd")
 
+var configs = ConfigFile.new()	
+var err = configs.load("user://skyworld.cfg")
 
 func _ready():
 	$Background.play()
 	$WinAudio.play()
 	$WinApplause.play()
-
+	if not configs.get_value('high_score', Cache.playing_level):
+		configs.set_value('high_score', Cache.playing_level, str(0))
+		configs.save("user://skyworld.cfg")
+	if Cache.win_time < int(configs.get_value('high_score', Cache.playing_level)) or int(configs.get_value('high_score', Cache.playing_level)) == 0:
+		configs.set_value('high_score', Cache.playing_level, str(Cache.win_time))
+		configs.save("user://skyworld.cfg")
+		if Cache.win_time < 60:
+			$FastestTime.text = 'New Fastest Record: ' + str(Cache.win_time) + ' seconds!'
+		else:
+			$FastestTime.text = 'New Fastest Record: ' + Time.get_offset_string_from_offset_minutes(Cache.win_time).lstrip('+') + ' minutes!'
 func _process(delta):
 	if not $Background.is_playing():
 		$Background.play()

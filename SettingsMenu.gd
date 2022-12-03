@@ -9,6 +9,7 @@ var sprite = 'marcus'
 var volume = 100
 
 func _ready():
+	$AnimationPlayer.play("fade")
 	if err != OK:
 		print('failed')
 		configs.set_value("config", "sprite", 'marcus')
@@ -35,6 +36,10 @@ func _ready():
 		_on_ItemList_item_selected(sprites_options.find(sprite, 0))
 
 	$HSlider.value = volume
+
+func _process(delta):
+	if not $AnimationPlayer.is_playing() and get_node("ColorRect"):
+		$ColorRect.queue_free()
 
 func _on_ItemList_item_selected(index):
 	print('selected ' + sprites_options[index])

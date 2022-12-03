@@ -2,9 +2,11 @@ extends Control
 
 
 func _ready():
-	pass
+	$AnimationPlayer.play("fade")
 
-
+func _process(delta):
+	if not $AnimationPlayer.is_playing() and get_node("ColorRect"):
+		$ColorRect.queue_free()
 
 func _on_Level1_pressed():
 	$ButtonClickedSound.play()
