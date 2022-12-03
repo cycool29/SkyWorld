@@ -61,7 +61,8 @@ func _physics_process(_delta):
 			elif collision.collider != lava:
 				in_lava = false
 				modulate = Color(1, 1, 1, 1)
-		
+	else:
+		$AnimatedSprite.play("dead")
 	
 	if alive and not win and not stun:
 		# Stop animation if key is released 
@@ -136,10 +137,10 @@ func _physics_process(_delta):
 				$AnimatedSprite.stop()
 			
 			if Input.is_action_pressed("jump"):
-				velocity.y = -200
+				velocity.y = -150
 			elif Input.is_action_pressed("down"):
 				if not is_on_floor():
-					velocity.y = 200
+					velocity.y = 150
 				else:
 					on_ladder_ignore_idle = false
 			else:
@@ -182,7 +183,7 @@ func hurt(value, bump=true, _stun=true, _modulate=true):
 			Input.action_release("right")
 			Input.action_release("left")
 			Input.action_release("jump")
-			speed = 1500
+			speed = 1700
 			velocity.x = speed * Cache.bounce_direction # get negative if times with -1 and get positive if times with 1 
 			velocity.y = -jump_speed * 0.55
 			move_and_slide(velocity, Vector2.UP)
@@ -312,6 +313,10 @@ func dead(reason=''):
 		_on_PowerTimer_timeout()
 	if stun:
 		_on_StunTimer_timeout()
+	if able_to_shoot_wave:
+		_on_WaveTimer_timeout()
+	if immune:
+		_on_ImmunityTimer_timeout()
 	$AnimatedSprite.play("dead")
 	if reason == 'burn':
 		modulate = Color(0,0,0)
@@ -323,6 +328,7 @@ func dead(reason=''):
 	get_node('/root/GameScene/CoinsCounter').visible = false
 	get_node('/root/GameScene/' + Settings.sprite + '/Life').visible = false
 	get_node('/root/GameScene/Shop').visible = false
+	$ProgressBar/Rounded.visible = false
 #	get_node('/root/GameScene/LevelName').visible = false
 	yield(get_tree().create_timer(1.5), "timeout")
 #	get_node('.').self_modulate = Color(0.59, 0.66, 0.78, 1.0)

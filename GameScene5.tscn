@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=2]
+[gd_scene load_steps=133 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TilemapSolid.tres" type="TileSet" id=2]
@@ -30,9 +30,7 @@
 [ext_resource path="res://Spinner.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_side.png" type="Texture" id=29]
 [ext_resource path="res://assets/Items/white_round.png" type="Texture" id=30]
-[ext_resource path="res://WavePotion.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Flag.tscn" type="PackedScene" id=32]
-[ext_resource path="res://TimeFreezePotion.tscn" type="PackedScene" id=33]
 [ext_resource path="res://assets/HUD/grey_background.png" type="Texture" id=34]
 [ext_resource path="res://assets/HUD/hud_heartFull.png" type="Texture" id=35]
 [ext_resource path="res://assets/Tiles/Green tiles/tileGreen_03.png" type="Texture" id=36]
@@ -595,7 +593,7 @@ tile_set = ExtResource( 2 )
 collision_layer = 2
 collision_mask = 49
 format = 1
-tile_data = PoolIntArray( -1376239, 10, 0, -1376238, 33, 0, -1376237, 11, 0, -1310708, 23, 0, -1310706, 33, 0, -1310705, 33, 0, -1310704, 33, 0, -1310703, 19, 0, -1310702, 4, 0, -1310701, 20, 0, -1310700, 11, 0, -1245170, 4, 0, -1245169, 4, 0, -1245168, 4, 0, -1245167, 4, 0, -1245166, 4, 0, -1245165, 4, 0, -1245164, 20, 0, -1245163, 34, 0, -917492, 14, 0, -917491, 33, 0, -917490, 33, 0, -917489, 33, 0, -917488, 15, 0, -524274, 8, 0, -524273, 33, 0, -524272, 33, 0, -524271, 33, 0, -524270, 33, 0, -524269, 9, 0, -458739, 8, 0, -458738, 17, 0, -458737, 4, 0, -458736, 4, 0, -458735, 4, 0, -458734, 4, 0, -458733, 18, 0, -458732, 9, 0, -393207, 14, 0, -393206, 33, 0, -393205, 33, 0, -393204, 33, 0, -393203, 17, 0, -393202, 4, 0, -393201, 4, 0, -393200, 4, 0, -393199, 4, 0, -393198, 4, 0, -393197, 4, 0, -393196, 18, 0, 9, 36, 0, 131080, 14, 0, 131081, 33, 0, 131082, 33, 0, 131083, 15, 0, 262157, 32, 0, 262158, 33, 0, 262159, 34, 0, 327682, 32, 0, 327683, 11, 0, 327693, 4, 0, 327694, 4, 0, 327695, 4, 0, 393218, 4, 0, 393219, 20, 0, 393220, 11, 0, 393226, 10, 0, 393227, 34, 0, 458754, 4, 0, 458755, 4, 0, 458756, 20, 0, 458757, 11, 0, 458761, 10, 0, 458762, 19, 0, 458763, 4, 0, 524290, 4, 0, 524291, 4, 0, 524292, 4, 0, 524293, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0 )
+tile_data = PoolIntArray( -2228210, 8, 0, -2228209, 9, 0, -2162675, 8, 0, -2162674, 17, 0, -2162673, 18, 0, -2162672, 9, 0, -2097140, 32, 0, -2097139, 17, 0, -2097138, 4, 0, -2097137, 4, 0, -2097136, 18, 0, -2097135, 33, 0, -2097134, 33, 0, -2097133, 33, 0, -2097132, 33, 0, -2097131, 15, 0, -1441771, 32, 0, -1441764, 34, 0, -1376235, 4, 0, -1376234, 4, 0, -1376233, 4, 0, -1376232, 4, 0, -1376231, 4, 0, -1376230, 4, 0, -1376229, 4, 0, -1376228, 4, 0, -1310689, 36, 0, -983015, 14, 0, -983014, 33, 0, -983013, 33, 0, -983011, 33, 0, -983010, 33, 0, -983009, 33, 0, -983008, 15, 0, -589801, 10, 0, -589800, 33, 0, -589799, 33, 0, -589798, 33, 0, -589797, 33, 0, -589796, 33, 0, -589795, 34, 0, -524266, 10, 0, -524265, 19, 0, -524264, 4, 0, -524263, 4, 0, -524262, 4, 0, -524261, 4, 0, -524260, 4, 0, -524259, 4, 0, -458734, 14, 0, -458733, 33, 0, -458732, 33, 0, -458731, 33, 0, -458730, 19, 0, -458729, 4, 0, -458728, 4, 0, -458727, 4, 0, -458726, 4, 0, -458725, 4, 0, -458724, 4, 0, -458723, 4, 0, -262127, 36, 0, -196589, 36, 0, 196625, 35, 0, 196633, 36, 0, 262161, 4, 0, 262162, 34, 0, 327692, 8, 0, 327693, 33, 0, 327697, 4, 0, 327698, 4, 0, 327699, 33, 0, 327703, 33, 0, 327704, 33, 0, 327705, 33, 0, 327706, 34, 0, 393227, 8, 0, 393228, 17, 0, 393229, 4, 0, 393233, 4, 0, 393234, 4, 0, 393235, 4, 0, 393236, 4, 0, 393237, 4, 0, 393238, 4, 0, 393239, 4, 0, 393240, 4, 0, 393241, 4, 0, 393242, 4, 0, 458753, 32, 0, 458754, 33, 0, 458755, 33, 0, 458756, 9, 0, 458761, 8, 0, 458762, 33, 0, 458763, 17, 0, 458764, 4, 0, 458765, 4, 0, 458769, 4, 0, 458770, 4, 0, 458771, 4, 0, 458772, 4, 0, 458773, 4, 0, 458774, 4, 0, 458775, 4, 0, 458776, 4, 0, 458777, 4, 0, 458778, 4, 0, 524289, 4, 0, 524290, 4, 0, 524291, 4, 0, 524292, 18, 0, 524293, 33, 0, 524294, 33, 0, 524295, 33, 0, 524296, 33, 0, 524297, 17, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524305, 4, 0, 524306, 4, 0, 524307, 4, 0, 524308, 4, 0, 524309, 4, 0, 524310, 4, 0, 524311, 4, 0, 524312, 4, 0, 524313, 4, 0, 524314, 4, 0 )
 
 [node name="TileMapOneWay" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
@@ -611,7 +609,7 @@ __meta__ = {
 position = Vector2( -4, -6 )
 tile_set = SubResource( 69 )
 format = 1
-tile_data = PoolIntArray( -1310707, 2, 0, -1245171, 5, 0 )
+tile_data = PoolIntArray( -983012, 2, 0 )
 
 [node name="TileMapLadder" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
@@ -621,21 +619,35 @@ cell_tile_origin = 1
 collision_layer = 256
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -1310707, 0, 0, -1245171, 1, 0, -1179635, 1, 0, -1114099, 1, 0, -1048563, 1, 0, -983027, 1, 0 )
+tile_data = PoolIntArray( -983012, 0, 0, -917476, 1, 0, -851940, 1, 0, -786404, 1, 0, -720868, 1, 0, -655332, 1, 0 )
 
 [node name="LadderTops" type="Node2D" parent="."]
 
 [node name="LadderTop" parent="LadderTops" instance=ExtResource( 68 )]
-position = Vector2( 860, -1286 )
+position = Vector2( 1820, -966 )
 
 [node name="MovingTiles" type="Node" parent="."]
 
 [node name="MovingTile1" parent="MovingTiles" instance=ExtResource( 42 )]
-position = Vector2( 1096, -600 )
+position = Vector2( 1520, 88 )
+move_to = Vector2( 200, 0 )
+
+[node name="MovingTile2" parent="MovingTiles" instance=ExtResource( 42 )]
+position = Vector2( 1568, -40 )
+move_to = Vector2( 200, 0 )
+speed = 2.0
+
+[node name="MovingTile3" parent="MovingTiles" instance=ExtResource( 42 )]
+position = Vector2( 1384, -80 )
+move_to = Vector2( 200, 0 )
+speed = 4.0
+
+[node name="MovingTile4" parent="MovingTiles" instance=ExtResource( 42 )]
+position = Vector2( 1639, -1045 )
 move_to = Vector2( 200, 0 )
 
 [node name="Flag" parent="." instance=ExtResource( 32 )]
-position = Vector2( 1372, -1254 )
+position = Vector2( 788, -2086 )
 
 [node name="Marcus" type="KinematicBody2D" parent="." groups=["player"]]
 visible = false
@@ -968,41 +980,70 @@ autostart = true
 position = Vector2( -4, -6 )
 tile_set = SubResource( 71 )
 format = 1
+tile_data = PoolIntArray( -1441770, 0, 0, -1441769, 0, 0, -1441768, 0, 0, -1441767, 0, 0, -1441766, 0, 0, -1441765, 0, 0 )
 
 [node name="TileMapLava" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
 tile_set = SubResource( 72 )
 format = 1
-tile_data = PoolIntArray( 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0 )
+tile_data = PoolIntArray( 327700, 0, 0, 327701, 0, 0, 327702, 0, 0 )
 
 [node name="Spikes" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
 tile_set = SubResource( 83 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0 )
+tile_data = PoolIntArray( 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0 )
 
 [node name="Spinners" type="Node2D" parent="."]
 
 [node name="Spinner" parent="Spinners" instance=ExtResource( 28 )]
-position = Vector2( 1180, -1382 )
+position = Vector2( 956, -2206 )
 
 [node name="TNTs" type="Node2D" parent="."]
 
 [node name="TNT" parent="TNTs" instance=ExtResource( 20 )]
-position = Vector2( 492, -30 )
+position = Vector2( 964, 282 )
 moving = false
 
 [node name="TNT2" parent="TNTs" instance=ExtResource( 20 )]
-position = Vector2( 452, -294 )
-moving = false
+position = Vector2( 836, -342 )
+move_to = Vector2( 150, 0 )
 
 [node name="TNT3" parent="TNTs" instance=ExtResource( 20 )]
-position = Vector2( 548, -174 )
+position = Vector2( 972, 450 )
 moving = false
 
 [node name="TNT4" parent="TNTs" instance=ExtResource( 20 )]
-position = Vector2( 1044, -726 )
+position = Vector2( 1156, -1702 )
+
+[node name="TNT5" parent="TNTs" instance=ExtResource( 20 )]
+position = Vector2( 1876, -1134 )
+moving = false
+
+[node name="TNT6" parent="TNTs" instance=ExtResource( 20 )]
+position = Vector2( 1308, -1510 )
+moving = false
+
+[node name="TNT7" parent="TNTs" instance=ExtResource( 20 )]
+position = Vector2( 1420, -1622 )
+moving = false
+
+[node name="TNT8" parent="TNTs" instance=ExtResource( 20 )]
+position = Vector2( 1524, -1710 )
+moving = false
+
+[node name="TNT9" parent="TNTs" instance=ExtResource( 20 )]
+position = Vector2( 1628, -1822 )
+moving = false
+
+[node name="TNT10" parent="TNTs" instance=ExtResource( 20 )]
+position = Vector2( 1492, -1918 )
+moving = false
+
+[node name="TNT11" parent="TNTs" instance=ExtResource( 20 )]
+position = Vector2( 1284, -1726 )
+moving = false
 
 [node name="TransparentWall" type="KinematicBody2D" parent="."]
 position = Vector2( 0, 34 )
@@ -1063,59 +1104,59 @@ text = "0"
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coins" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 796, -934 )
+position = Vector2( 1996, -998 )
 
 [node name="Coins2" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 972, 226 )
+position = Vector2( 1244, 282 )
 
 [node name="Coins3" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 988, -926 )
+position = Vector2( 1668, -982 )
 
 [node name="Coins4" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 724, 338 )
+position = Vector2( 852, 282 )
 
 [node name="Coins5" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 932, -542 )
+position = Vector2( 1548, -694 )
 
 [node name="Coins6" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 652, -414 )
+position = Vector2( 1644, -694 )
 
 [node name="Coins7" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 988, -1254 )
+position = Vector2( 1820, -1446 )
 
 [node name="Coins8" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 324, 410 )
+position = Vector2( 668, 410 )
 
 [node name="Coins9" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 556, 98 )
+position = Vector2( 1500, 50 )
 
 [node name="Coins10" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 556, -222 )
+position = Vector2( 980, 378 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 924, -926 )
+position = Vector2( 1660, 282 )
 collision_mask = 33
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 972, -294 )
+position = Vector2( 1532, 274 )
 collision_mask = 33
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1156, -550 )
+position = Vector2( 1764, -998 )
 collision_mask = 33
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 913, 219 )
+position = Vector2( 1664, -612 )
 collision_mask = 33
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 652, 90 )
+position = Vector2( 1156, -2084 )
 collision_mask = 33
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 988, -1318 )
+position = Vector2( 1326, -484 )
 collision_mask = 33
 
 [node name="CoinStealers" type="Node2D" parent="."]
@@ -1124,12 +1165,6 @@ collision_mask = 33
 position = Vector2( 716, 90 )
 
 [node name="Potions" type="Node" parent="."]
-
-[node name="WavePotion" parent="Potions" instance=ExtResource( 31 )]
-position = Vector2( 792, -1256 )
-
-[node name="TimeFreezePotion" parent="Potions" instance=ExtResource( 33 )]
-position = Vector2( 744, -200 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
@@ -1154,15 +1189,15 @@ color = Color( 1, 0.392157, 0.392157, 0.588235 )
 [node name="BigEnemies" type="Node2D" parent="."]
 
 [node name="BigEnemy1" parent="BigEnemies" instance=ExtResource( 43 )]
-position = Vector2( 812, -1310 )
+position = Vector2( 1239, -480 )
 collision_mask = 32
 
 [node name="BigEnemy2" parent="BigEnemies" instance=ExtResource( 43 )]
-position = Vector2( 1044, -542 )
+position = Vector2( 1356, -2081 )
 collision_mask = 32
 
 [node name="BigEnemy3" parent="BigEnemies" instance=ExtResource( 43 )]
-position = Vector2( 908, -1310 )
+position = Vector2( 1876, -608 )
 collision_mask = 32
 
 [node name="LevelName" type="CanvasLayer" parent="."]

@@ -54,14 +54,12 @@ collision_mask = 2
 position = Vector2( 24, 0 )
 rotation = 4.71239
 enabled = true
-cast_to = Vector2( 0, 25 )
 collision_mask = 2
 
 [node name="WallCheckerLeft" type="RayCast2D" parent="."]
 position = Vector2( -24, 0 )
 rotation = 1.5708
 enabled = true
-cast_to = Vector2( 0, 25 )
 collision_mask = 2
 
 [node name="PlayerTopChecker" type="Area2D" parent="."]

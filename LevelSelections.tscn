@@ -137,8 +137,7 @@ custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 9 )
 custom_styles/normal = SubResource( 2 )
-disabled = true
-icon = ExtResource( 9 )
+text = "4"
 icon_align = 1
 expand_icon = true
 
@@ -417,4 +416,5 @@ stream = ExtResource( 8 )
 [connection signal="pressed" from="Levels/Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="Levels/Level2" to="." method="_on_Level2_pressed"]
 [connection signal="pressed" from="Levels/Level3" to="." method="_on_Level3_pressed"]
+[connection signal="pressed" from="Levels/Level4" to="." method="_on_Level4_pressed"]
 [connection signal="pressed" from="HomeButton" to="." method="_on_HomeButton_pressed"]

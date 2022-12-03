@@ -7,14 +7,18 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_released("life_potion"):
 		_on_LifePotionButton_pressed()
-	elif Input.is_action_just_released("power_potion"):
+	elif Input.is_action_just_released("kungfu_potion"):
 		_on_PowerPotionButton_pressed()
 	elif Input.is_action_just_released("immune_potion"):
 		_on_ImmunePotionButton_pressed()
+	elif Input.is_action_just_pressed("time_freeze_potion"):
+		_on_TimeFreezePotionButton_pressed()
+	elif Input.is_action_just_pressed("power_potion"):
+		_on_WavePotionButton_pressed()
 		
 	if int(get_node('../CoinsCounter/TotalCoins').text) >= 8:
-		$PowerPotion.modulate = Color(1,1,1,1)
-		$PowerPotion/PowerPotionButton.disabled = false
+		$KungfuPotion.modulate = Color(1,1,1,1)
+		$KungfuPotion/KungfuPotionButton.disabled = false
 		$ImmunePotion.modulate = Color(1,1,1,1)
 		$ImmunePotion/ImmunePotionButton.disabled = false
 		$LifePotion.modulate = Color(1,1,1,1)
@@ -25,8 +29,8 @@ func _process(delta):
 		$WavePotion/WavePotionButton.disabled = false
 		
 	if int(get_node('../CoinsCounter/TotalCoins').text) >= 5:
-		$PowerPotion.modulate = Color(1,1,1,1)
-		$PowerPotion/PowerPotionButton.disabled = false
+		$KungfuPotion.modulate = Color(1,1,1,1)
+		$KungfuPotion/KungfuPotionButton.disabled = false
 		$ImmunePotion.modulate = Color(1,1,1,1)
 		$ImmunePotion/ImmunePotionButton.disabled = false
 		$LifePotion.modulate = Color(1,1,1,1)
@@ -35,8 +39,8 @@ func _process(delta):
 		$TimeFreezePotion/TimeFreezePotionButton.disabled = false
 		
 	if int(get_node('../CoinsCounter/TotalCoins').text) >= 4:
-		$PowerPotion.modulate = Color(1,1,1,1)
-		$PowerPotion/PowerPotionButton.disabled = false
+		$KungfuPotion.modulate = Color(1,1,1,1)
+		$KungfuPotion/KungfuPotionButton.disabled = false
 		$LifePotion.modulate = Color(1,1,1,1)
 		$LifePotion/LifePotionButton.disabled = false
 				
@@ -44,8 +48,8 @@ func _process(delta):
 		$LifePotion.modulate = Color(1,1,1,1)
 		$LifePotion/LifePotionButton.disabled = false
 	else:
-		$PowerPotion.modulate = Color8(255, 255, 255, 100)
-		$PowerPotion/PowerPotionButton.disabled = false
+		$KungfuPotion.modulate = Color8(255, 255, 255, 100)
+		$KungfuPotion/KungfuPotionButton.disabled = false
 		$ImmunePotion.modulate = Color8(255, 255, 255, 100)
 		$ImmunePotion/ImmunePotionButton.disabled = false
 		$LifePotion.modulate = Color8(255, 255, 255, 100)

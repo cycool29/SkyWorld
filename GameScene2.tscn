@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=131 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TilemapSolid.tres" type="TileSet" id=2]
@@ -19,15 +19,12 @@
 [ext_resource path="res://assets/Quicksand-SemiBold.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk5.png" type="Texture" id=18]
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk6.png" type="Texture" id=19]
-[ext_resource path="res://ImmunePotion.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_walk7.png" type="Texture" id=21]
 [ext_resource path="res://assets/Players/marcus/PNG/Poses HD/character_maleAdventurer_jump.png" type="Texture" id=22]
 [ext_resource path="res://ProgressBar.tscn" type="PackedScene" id=23]
 [ext_resource path="res://LifeProgressBar.gd" type="Script" id=24]
-[ext_resource path="res://LifePotion.tscn" type="PackedScene" id=25]
 [ext_resource path="res://assets/Sounds/Grasslands Theme_0.mp3" type="AudioStream" id=26]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_walk2.png" type="Texture" id=27]
-[ext_resource path="res://PowerPotion.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_side.png" type="Texture" id=29]
 [ext_resource path="res://assets/Items/white_round.png" type="Texture" id=30]
 [ext_resource path="res://WavePotion.tscn" type="PackedScene" id=31]
@@ -35,7 +32,6 @@
 [ext_resource path="res://TimeFreezePotion.tscn" type="PackedScene" id=33]
 [ext_resource path="res://assets/HUD/grey_background.png" type="Texture" id=34]
 [ext_resource path="res://assets/HUD/hud_heartFull.png" type="Texture" id=35]
-[ext_resource path="res://TNT.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Shop.tscn" type="PackedScene" id=37]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_hang.png" type="Texture" id=38]
 [ext_resource path="res://assets/Sounds/jump.ogg" type="AudioStream" id=39]
@@ -74,7 +70,6 @@
 [ext_resource path="res://assets/Tiles/Green tiles/tileGreen_04.png" type="Texture" id=72]
 [ext_resource path="res://assets/Tiles/Green tiles/tileGreen_02.png" type="Texture" id=73]
 [ext_resource path="res://WaterAnimated.tres" type="Texture" id=74]
-[ext_resource path="res://CoinStealer.tscn" type="PackedScene" id=75]
 [ext_resource path="res://assets/HUD/exit.png" type="Texture" id=76]
 [ext_resource path="res://JumpStreakStatus.tscn" type="PackedScene" id=77]
 [ext_resource path="res://assets/Players/jessie/PNG/Poses HD/character_femaleAdventurer_shove.png" type="Texture" id=78]
@@ -582,7 +577,7 @@ tile_set = ExtResource( 2 )
 collision_layer = 2
 collision_mask = 49
 format = 1
-tile_data = PoolIntArray( -1441790, 14, 0, -1441789, 33, 0, -1441788, 33, 0, -1441787, 33, 0, -1441786, 15, 0, -1179632, 14, 0, -1179631, 15, 0, -1048562, 5, 0, -917498, 23, 0, -917497, 22, 0, -917496, 22, 0, -917495, 22, 0, -917494, 24, 0, -851953, 25, 0, -851952, 26, 0, -851951, 26, 0, -851950, 26, 0, -851949, 26, 0, -851948, 26, 0, -851947, 26, 0, -851946, 26, 0, -851945, 6, 0, -786421, 23, 0, -786420, 24, 0, -655348, 5, 0, -655347, 5, 0, -589802, 7, 0, -524277, 25, 0, -524276, 26, 0, -524275, 6, 0, -524274, 5, 0, -524273, 5, 0, -524266, 7, 0, -458740, 5, 0, -458730, 7, 0, -393206, 5, 0, -393194, 7, 0, -327673, 23, 0, -327672, 33, 0, -327671, 24, 0, -327658, 7, 0, -262122, 7, 0, -196605, 14, 0, -196604, 33, 0, -196603, 33, 0, -196602, 15, 0, -196586, 7, 0, -131050, 7, 0, -65529, 5, 0, -65514, 7, 0, 0, 36, 0, 2, 5, 0, 9, 8, 0, 13, 9, 0, 22, 7, 0, 131070, 36, 0, 65544, 8, 0, 65550, 9, 0, 65558, 7, 0, 131079, 8, 0, 131087, 9, 0, 131094, 7, 0, 262141, 14, 0, 262142, 21, 0, 262143, 21, 0, 196608, 21, 0, 196609, 15, 0, 196630, 7, 0, 262166, 7, 0, 327702, 7, 0, 393220, 25, 0, 393221, 26, 0, 393222, 26, 0, 393223, 26, 0, 393224, 6, 0, 393238, 7, 0, 458774, 7, 0, 589815, 1, 0, 589816, 1, 0, 589821, 1, 0, 524288, 23, 0, 524289, 33, 0, 524290, 33, 0, 524291, 33, 0, 524292, 24, 0, 524294, 32, 0, 524295, 33, 0, 524296, 33, 0, 524297, 33, 0, 524298, 33, 0, 524299, 34, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 7, 0 )
+tile_data = PoolIntArray( -1376250, 14, 0, -1376249, 33, 0, -1376248, 33, 0, -1376247, 33, 0, -1376246, 33, 0, -1376245, 15, 0, -1245171, 36, 0, -1114101, 36, 0, -1048562, 5, 0, -983027, 36, 0, -851957, 36, 0, -720884, 8, 0, -720883, 15, 0, -655349, 8, 0, -655348, 17, 0, -589816, 23, 0, -589815, 33, 0, -589814, 33, 0, -589813, 17, 0, -589812, 7, 0, -458746, 14, 0, -458745, 15, 0, -327672, 14, 0, -327670, 33, 0, -327669, 33, 0, -327668, 15, 0, 6, 32, 0, 7, 33, 0, 8, 33, 0, 9, 33, 0, 10, 33, 0, 11, 33, 0, 12, 9, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 65546, 4, 0, 65547, 4, 0, 65548, 18, 0, 65549, 9, 0, 131078, 4, 0, 131079, 4, 0, 131080, 4, 0, 131081, 4, 0, 131082, 4, 0, 131083, 4, 0, 131084, 4, 0, 131085, 18, 0, 131086, 9, 0, 327687, 8, 0, 327688, 33, 0, 327689, 34, 0, 327694, 32, 0, 327695, 33, 0, 327696, 34, 0, 393222, 8, 0, 393223, 17, 0, 393224, 4, 0, 393225, 4, 0, 393230, 4, 0, 393231, 4, 0, 393232, 4, 0, 458752, 32, 0, 458753, 33, 0, 458754, 34, 0, 458756, 32, 0, 458757, 33, 0, 458758, 17, 0, 458759, 4, 0, 458760, 4, 0, 458761, 4, 0 )
 
 [node name="TileMapOneWay" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
@@ -590,7 +585,6 @@ tile_set = ExtResource( 4 )
 collision_layer = 2
 collision_mask = 49
 format = 1
-tile_data = PoolIntArray( 10, 2, 0, 11, 2, 0, 12, 2, 0, 65545, 9, 0, 65546, 4, 0, 65547, 4, 0, 65548, 4, 0, 65549, 10, 0, 131080, 9, 0, 131081, 4, 0, 131082, 2, 0, 131083, 2, 0, 131084, 2, 0, 131085, 4, 0, 131086, 10, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -599,7 +593,7 @@ __meta__ = {
 position = Vector2( -4, -6 )
 tile_set = SubResource( 69 )
 format = 1
-tile_data = PoolIntArray( 262147, 0, 0 )
+tile_data = PoolIntArray( -327671, 2, 0 )
 
 [node name="TileMapLadder" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
@@ -609,27 +603,24 @@ cell_tile_origin = 1
 collision_layer = 256
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 262147, 0, 0, 327683, 1, 0, 393219, 1, 0, 458755, 1, 0 )
+tile_data = PoolIntArray( -327671, 0, 0, -262135, 1, 0, -196599, 1, 0, -131063, 1, 0, -65527, 1, 0 )
 
 [node name="LadderTops" type="Node2D" parent="."]
 
 [node name="LadderTop" parent="LadderTops" instance=ExtResource( 68 )]
-position = Vector2( -4, 18 )
+position = Vector2( 604, -326 )
 
 [node name="MovingTiles" type="Node" parent="."]
 
 [node name="MovingTile1" parent="MovingTiles" instance=ExtResource( 42 )]
-position = Vector2( 520, -622 )
-
-[node name="MovingTile2" parent="MovingTiles" instance=ExtResource( 42 )]
-position = Vector2( -11, -109 )
-move_to = Vector2( 100, 0 )
-speed = 2.0
+position = Vector2( 672, 360 )
+move_to = Vector2( 200, 0 )
 
 [node name="Flag" parent="." instance=ExtResource( 32 )]
-position = Vector2( 171, -1444 )
+position = Vector2( 428, -1390 )
 
 [node name="Marcus" type="KinematicBody2D" parent="." groups=["player"]]
+visible = false
 position = Vector2( 12, 2 )
 collision_mask = 222
 script = ExtResource( 3 )
@@ -738,6 +729,7 @@ shape = SubResource( 66 )
 autostart = true
 
 [node name="Jessie" type="KinematicBody2D" parent="." groups=["player"]]
+visible = false
 position = Vector2( 12, 2 )
 collision_mask = 222
 script = ExtResource( 3 )
@@ -860,12 +852,14 @@ drag_margin_v_enabled = true
 editor_draw_limits = true
 
 [node name="RightTouch" type="TouchScreenButton" parent="Bruno/Camera"]
+visible = false
 position = Vector2( -7, -293 )
 scale = Vector2( 8, 10 )
 normal = SubResource( 56 )
 shape_visible = false
 
 [node name="LeftTouch" type="TouchScreenButton" parent="Bruno/Camera"]
+visible = false
 position = Vector2( -514, -330 )
 scale = Vector2( 8, 10 )
 normal = SubResource( 57 )
@@ -956,88 +950,21 @@ autostart = true
 position = Vector2( -4, -6 )
 tile_set = SubResource( 71 )
 format = 1
-tile_data = PoolIntArray( 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0 )
 
 [node name="TileMapLava" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
 tile_set = SubResource( 72 )
 format = 1
-tile_data = PoolIntArray( 589822, 0, 0, 589823, 0, 0 )
 
 [node name="Spikes" type="TileMap" parent="."]
 position = Vector2( -4, -6 )
 tile_set = SubResource( 83 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 589821, 0, 0, 589822, 0, 0, 589823, 0, 0 )
 
 [node name="Spinners" type="Node2D" parent="."]
 
 [node name="TNTs" type="Node2D" parent="."]
-
-[node name="TNT" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 852, 538 )
-moving = false
-
-[node name="TNT2" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 292, -926 )
-moving = false
-moving_way = "Timer"
-
-[node name="TNT3" parent="TNTs" instance=ExtResource( 36 )]
-modulate = Color( 1, 0.631373, 0, 1 )
-position = Vector2( 524, 274 )
-explode_time = 3.0
-moving_way = "Timer"
-
-[node name="TNT4" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 724, -150 )
-moving = false
-
-[node name="TNT5" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 420, -1126 )
-moving = false
-moving_way = "Timer"
-
-[node name="TNT6" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 516, -1374 )
-moving = false
-moving_way = "Timer"
-
-[node name="TNT7" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 684, -1046 )
-moving = false
-moving_way = "Timer"
-
-[node name="TNT8" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 860, -1182 )
-moving = false
-moving_way = "Timer"
-
-[node name="TNT9" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 644, -1246 )
-moving = false
-moving_way = "Timer"
-
-[node name="TNT10" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 220, -1038 )
-moving = false
-moving_way = "Timer"
-
-[node name="TNT11" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 308, -1166 )
-moving = false
-moving_way = "Timer"
-
-[node name="TNT12" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 548, -1094 )
-moving = false
-moving_way = "Timer"
-
-[node name="TNT13" parent="TNTs" instance=ExtResource( 36 )]
-position = Vector2( 1236, -918 )
-moving = false
-moving_way = "Timer"
 
 [node name="TransparentWall" type="KinematicBody2D" parent="."]
 position = Vector2( 0, 34 )
@@ -1098,114 +1025,66 @@ text = "0"
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coins" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 636, 466 )
+position = Vector2( 676, -614 )
 
 [node name="Coins2" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 860, 466 )
+position = Vector2( 539, 34 )
 
 [node name="Coins3" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 1228, 474 )
+position = Vector2( 860, -998 )
 
 [node name="Coins4" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 444, 138 )
+position = Vector2( 924, 282 )
 
 [node name="Coins5" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 692, -1126 )
+position = Vector2( 860, 42 )
 
 [node name="Coins6" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 428, 346 )
+position = Vector2( 676, -358 )
 
 [node name="Coins7" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 572, 10 )
+position = Vector2( 756, -1382 )
 
 [node name="Coins8" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 92, 466 )
+position = Vector2( 340, 402 )
 
 [node name="Coins9" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 572, -350 )
+position = Vector2( 596, 282 )
 
 [node name="Coins10" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 356, -782 )
-
-[node name="Coins11" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 788, -550 )
-
-[node name="Coins12" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 356, -670 )
-
-[node name="Coins13" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 356, -566 )
-
-[node name="Coins14" parent="Coins" instance=ExtResource( 12 )]
-position = Vector2( 1284, -878 )
+position = Vector2( 604, -158 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 491, 470 )
+position = Vector2( 532, -38 )
 collision_mask = 33
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 28, 154 )
+position = Vector2( 764, -350 )
 collision_mask = 33
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1364, -878 )
+position = Vector2( 556, -358 )
 collision_mask = 33
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 252, -1446 )
+position = Vector2( 660, -1374 )
 collision_mask = 33
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1132, 474 )
-collision_mask = 33
-
-[node name="Enemy6" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 732, -38 )
-collision_mask = 33
-
-[node name="Enemy7" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 292, -230 )
-collision_mask = 33
-
-[node name="Enemy9" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 540, -934 )
-collision_mask = 33
-
-[node name="Enemy10" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( -140, 146 )
-collision_mask = 33
-
-[node name="Enemy11" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1132, -878 )
-collision_mask = 33
-
-[node name="Enemy13" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 716, 90 )
+position = Vector2( 708, -46 )
 collision_mask = 33
 
 [node name="CoinStealers" type="Node2D" parent="."]
 
-[node name="CoinStealer" parent="CoinStealers" instance=ExtResource( 75 )]
-position = Vector2( 366, 346 )
-
 [node name="Potions" type="Node" parent="."]
 
-[node name="ImmunePotion" parent="Potions" instance=ExtResource( 20 )]
-position = Vector2( 392, -976 )
-
-[node name="LifePotion" parent="Potions" instance=ExtResource( 25 )]
-position = Vector2( 184, -264 )
-
-[node name="PowerPotion" parent="Potions" instance=ExtResource( 28 )]
-position = Vector2( 464, 24 )
-
 [node name="WavePotion" parent="Potions" instance=ExtResource( 31 )]
-position = Vector2( 455, 313 )
+position = Vector2( 816, -1288 )
 
 [node name="TimeFreezePotion" parent="Potions" instance=ExtResource( 33 )]
-position = Vector2( 0, 440 )
+position = Vector2( 816, -768 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
@@ -1230,11 +1109,11 @@ color = Color( 1, 0.392157, 0.392157, 0.588235 )
 [node name="BigEnemies" type="Node2D" parent="."]
 
 [node name="BigEnemy1" parent="BigEnemies" instance=ExtResource( 43 )]
-position = Vector2( 628, 475 )
+position = Vector2( 564, -1374 )
 collision_mask = 32
 
 [node name="BigEnemy2" parent="BigEnemies" instance=ExtResource( 43 )]
-position = Vector2( 364, -1438 )
+position = Vector2( 596, -614 )
 collision_mask = 32
 
 [node name="LevelName" type="CanvasLayer" parent="."]

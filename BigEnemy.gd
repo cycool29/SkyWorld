@@ -73,6 +73,10 @@ func _on_PlayerSidesChecker_body_entered(body):
 		set_collision_mask_bit(0, false)
 		set_collision_mask_bit(4, false)
 		body.set_collision_mask_bit(4, false)
+		if player_position > enemy_position:
+			Cache.bounce_direction = 1
+		else:
+			Cache.bounce_direction = -1
 		body.hurt(50)
 	elif body.is_in_group('player') and body.powered:
 		body.get_node('AnimatedSprite').play('kick')

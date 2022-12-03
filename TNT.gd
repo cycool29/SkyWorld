@@ -1,19 +1,24 @@
-extends KinematicBody2D
+extends Node2D
 #const Settings = preload("res://LoadSettings.gd")
 
-onready var number_texture = $TextureRect
+onready var number_texture = $KinematicBody2D/TextureRect
 onready var explosion_timer = $ExplosionTimer
 export var moving = true
-var velocity = Vector2()
-var direction = 1
+#var velocity = Vector2()
+#var direction = 1
 export var explode_time = 0.5
-export(String, "Timer", "Collide") var moving_way = "Collide"
-onready var initial_y = position.y
-onready var initial_x = position.x
+#export(String, "Timer", "Collide") var moving_way = "Collide"
+#onready var initial_y = position.y
+#onready var initial_x = position.x
 var is_bombing = false
+export var idle_duration = 0.3
+export var move_to = Vector2.RIGHT * 192
+export var speed = 3.0
+var going_to_kill_player = false
 
 func _ready():
-	pass
+	if moving:
+		_init_tween()
 
 func _on_Area2D_body_entered(body):
 	if body.name == Settings.sprite:
@@ -21,20 +26,12 @@ func _on_Area2D_body_entered(body):
 		explosion_timer.start(explode_time/3)
 	
 
-func _physics_process(delta):
-	if moving:
-		velocity.x = 50 * direction # get negative if times with -1 and get positive if times with 1 
-		move_and_slide(velocity, Vector2.UP)
-		
-		if moving_way == 'Collide':
-			for index in get_slide_count():
-				var collision := get_slide_collision(index)
-				var body := collision.collider
-				if body.name == 'TileMapSolid':
-					direction *= -1
-		position.y = initial_y
-
-
+func _init_tween():
+	var duration = move_to.length() / float(speed * 64)
+	$Tween.interpolate_property($KinematicBody2D, "position", Vector2.ZERO, move_to, duration, Tween.TRANS_LINEAR, Tween.EASE_IN, idle_duration)
+	$Tween.interpolate_property($KinematicBody2D, "position", move_to, Vector2.ZERO, duration, Tween.TRANS_LINEAR, Tween.EASE_IN, duration + idle_duration * 2)
+	$Tween.start()
+	print('started')
 
 func _on_ExplosionTimer_timeout():
 	if number_texture.texture == load('res://assets/HUD/hud_3.png'):
@@ -44,23 +41,26 @@ func _on_ExplosionTimer_timeout():
 		number_texture.texture = load('res://assets/HUD/hud_1.png')
 		explosion_timer.start()
 	elif number_texture.texture == load('res://assets/HUD/hud_1.png'):
-		if not get_node('/root/GameScene/' + Settings.sprite + '').immune:
-			get_node('/root/GameScene/' + Settings.sprite + '').alive = false
-			get_node('/root/GameScene/' + Settings.sprite + '').visible = false
+		
+			
 		if not is_bombing:
+			if not get_node('/root/GameScene/' + Settings.sprite + '').immune:
+				going_to_kill_player = true
+				get_node('/root/GameScene/' + Settings.sprite + '').alive = false
+				get_node('/root/GameScene/' + Settings.sprite + '').visible = false
 			is_bombing = true
 			get_node('/root/GameScene/' + Settings.sprite + '').gravity = 0
-			$ExplosionFlash.visible = true
-			$ExplosionFlash.play('default')
+			$KinematicBody2D/ExplosionFlash.visible = true
+			$KinematicBody2D/ExplosionFlash.play('default')
 			$ExplodeSound.play()
 			yield(get_tree().create_timer(1), "timeout")
 	#		get_node('/root/GameScene/ExplosionFlash').visible = false
 	#		get_node('/root/GameScene/TileMapSolid').set_cellv(location, -1)
 			get_node('/root/GameScene/' + Settings.sprite + '').gravity = 30
-			if not get_node('/root/GameScene/' + Settings.sprite + '').immune:
-				get_node('/root/GameScene/' + Settings.sprite + '').visible = true
+			get_node('/root/GameScene/' + Settings.sprite + '').visible = true
+			if going_to_kill_player:
 				get_node('/root/GameScene/' + Settings.sprite + '').dead('burn')
-			$ExplosionFlash.visible = false
+			$KinematicBody2D/ExplosionFlash.visible = false
 		
 		
 

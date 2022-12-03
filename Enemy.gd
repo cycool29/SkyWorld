@@ -23,6 +23,7 @@ func _ready():
 
 
 func _physics_process(delta):
+
 	for i in get_slide_count():
 			var collision = get_slide_collision(i)
 			if collision.collider.is_in_group('player'):
@@ -40,7 +41,12 @@ func _physics_process(delta):
 
 
 func _on_PlayerTopChecker_body_entered(body):
+	print('body entereddddddddddd')
+	print(dead)
+	print(body.is_in_group('player'))
+	print(body.is_in_group('wave'))
 	if (body.is_in_group('player') or body.is_in_group('wave')) and not dead:
+		print('heheboi')
 		dead = true
 		speed = 0
 		$CollisionShape2D.queue_free()
@@ -56,6 +62,7 @@ func _on_PlayerTopChecker_body_entered(body):
 			body.bounce_up()
 		yield(get_tree().create_timer(0.5), "timeout")
 		queue_free()
+	
 		
 
 

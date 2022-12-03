@@ -123,10 +123,10 @@ texture = ExtResource( 14 )
 expand = true
 stretch_mode = 6
 
-[node name="PowerPotion" type="Node2D" parent="."]
+[node name="KungfuPotion" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0.392157 )
 
-[node name="PowerPotionButton" type="Button" parent="PowerPotion"]
+[node name="KungfuPotionButton" type="Button" parent="KungfuPotion"]
 modulate = Color( 1, 1, 1, 0.392157 )
 margin_left = 1820.41
 margin_top = 344.06
@@ -135,14 +135,14 @@ margin_bottom = 456.06
 custom_styles/normal = SubResource( 6 )
 disabled = true
 
-[node name="PowerPotion" type="AnimatedSprite" parent="PowerPotion"]
+[node name="KungfuPotion" type="AnimatedSprite" parent="KungfuPotion"]
 modulate = Color( 1, 1, 0, 1 )
 position = Vector2( 1864.41, 382.06 )
 scale = Vector2( 0.173, 0.173 )
 frames = SubResource( 7 )
 animation = "shake"
 
-[node name="Coin" type="TextureRect" parent="PowerPotion"]
+[node name="Coin" type="TextureRect" parent="KungfuPotion"]
 margin_left = 1877.75
 margin_top = 416.06
 margin_right = 1917.75
@@ -151,7 +151,7 @@ texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
-[node name="TextureRect" type="TextureRect" parent="PowerPotion"]
+[node name="TextureRect" type="TextureRect" parent="KungfuPotion"]
 margin_left = 1845.75
 margin_top = 416.06
 margin_right = 1877.75
@@ -289,7 +289,7 @@ stream = ExtResource( 18 )
 volume_db = 2.0
 
 [connection signal="pressed" from="LifePotion/LifePotionButton" to="." method="_on_LifePotionButton_pressed"]
-[connection signal="pressed" from="PowerPotion/PowerPotionButton" to="." method="_on_PowerPotionButton_pressed"]
+[connection signal="pressed" from="KungfuPotion/KungfuPotionButton" to="." method="_on_PowerPotionButton_pressed"]
 [connection signal="pressed" from="ImmunePotion/ImmunePotionButton" to="." method="_on_ImmunePotionButton_pressed"]
 [connection signal="pressed" from="TimeFreezePotion/TimeFreezePotionButton" to="." method="_on_TimeFreezePotionButton_pressed"]
 [connection signal="pressed" from="WavePotion/WavePotionButton" to="." method="_on_WavePotionButton_pressed"]
